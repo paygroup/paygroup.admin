@@ -20869,9 +20869,9 @@ console.log({
   adminid: getEnv("HASURA_ADMIN")
 });
 var genql = (0, import_genql_sdk.createClient)({
-  url: getEnv("GRAPHQL_URL"),
+  url: "https://xdwipkiowyoinqhbqher.nhost.run/v1/graphql",
   headers: {
-    "X-Hasura-Admin-Secret": getEnv("HASURA_ADMIN"),
+    "X-Hasura-Admin-Secret": "32f6eb94c995ee3bf6d82672b53fb2a5",
     "X-Hasura-Role": "admin"
   }
 });
