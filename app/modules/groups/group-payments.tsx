@@ -17,7 +17,9 @@ import {
 import { Link, useLocation, useNavigate } from "@remix-run/react";
 import dayjs from "dayjs";
 import query from "query-string";
-import { GoArrowDown, GoArrowUp } from "react-icons/go";
+import { FaCoins } from "react-icons/fa";
+import { GoArrowUp } from "react-icons/go";
+// import { RiCoinsFill } from "react-icons/ri";
 
 import { Panel } from "~/components";
 import { Pagination, usePagination } from "~/components/pagination";
@@ -118,10 +120,8 @@ export const GroupPayments: React.FC<{ group: GroupExtended }> = ({
                 <Flex alignItems="center">
                   <Icon
                     mr="2"
-                    as={
-                      p.transaction_type === "MoneyIn" ? GoArrowDown : GoArrowUp
-                    }
-                    fontSize="2xl"
+                    as={p.transaction_type === "MoneyIn" ? FaCoins : GoArrowUp}
+                    fontSize="xl"
                     color={`${
                       p.transaction_type === "MoneyIn" ? "teal" : "orange"
                     }.500`}
