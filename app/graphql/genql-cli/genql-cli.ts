@@ -8,9 +8,9 @@ console.log({
 });
 
 export const genql = createClient({
-  url: "https://xdwipkiowyoinqhbqher.nhost.run/v1/graphql",
+  url: getEnv("GRAPHQL_URL"),
   headers: {
-    "X-Hasura-Admin-Secret": "32f6eb94c995ee3bf6d82672b53fb2a5",
+    "X-Hasura-Admin-Secret": getEnv("HASURA_ADMIN")!,
     "X-Hasura-Role": "admin",
   },
 });
