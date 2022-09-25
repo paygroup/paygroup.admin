@@ -35,7 +35,7 @@ export const Sidebar: React.FC<{
           isOpen={isOpen}
           icon={s.icon}
           to={s.to}
-          // isLast={i > 0 && i === sitemap.length - 1}
+          isLast={i > 0 && i === sitemap.length - 1}
         >
           {s.title}
         </NavItem>

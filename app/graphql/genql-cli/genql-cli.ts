@@ -2,7 +2,10 @@ import { getEnv } from "~/common";
 
 import { createClient } from "../genql-sdk";
 
-console.log(getEnv("GRAPHQL_URL"));
+console.log({
+  graphql: getEnv("GRAPHQL_URL"),
+  adminid: getEnv("HASURA_ADMIN"),
+});
 
 export const genql = createClient({
   url: getEnv("GRAPHQL_URL"),
