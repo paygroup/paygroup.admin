@@ -164,10 +164,6 @@ const NavItemLeftIcon: React.FC<{
 }> = ({ to, isOpen, icon }) => {
   const transition = useTransition();
 
-  if (isOpen) {
-    return <></>;
-  }
-
   if (transition.state === "loading") {
     if (displaySpinner(to, transition)) {
       return <Spinner size="sm" color="teal.500" />;
