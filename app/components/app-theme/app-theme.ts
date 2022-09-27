@@ -1,5 +1,14 @@
 import { extendTheme, theme as base } from "@chakra-ui/react";
 
+const breakpoints = {
+  sm: "30em",
+  md: "48em",
+  lg: "62em",
+  xl: "80em",
+  "2xl": "96em",
+  "3xl": "120em",
+};
+
 export const theme = extendTheme({
   styles: {
     global: {
@@ -53,6 +62,11 @@ export const theme = extendTheme({
       max: "52",
     },
   },
+  fonts: {
+    heading: `'Roboto', sans-serif`,
+    body: `'Roboto', sans-serif`,
+  },
+  breakpoints,
   config: {
     // initialColorMode: "system",
     // useSystemColorMode: true,
