@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { FiGrid } from "react-icons/fi";
 
-import { Panel } from "~/components";
+import { Panel, SecuredRoute } from "~/components";
 
 export const meta: MetaFunction = () => ({
   title: "paygroup - dashboard",
@@ -13,5 +13,9 @@ export const handle = {
 };
 
 export default function Index() {
-  return <Panel>content</Panel>;
+  return (
+    <SecuredRoute>
+      <Panel>content</Panel>
+    </SecuredRoute>
+  );
 }

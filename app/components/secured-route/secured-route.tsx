@@ -11,6 +11,7 @@ export const SecuredRoute: React.FC<React.PropsWithChildren> = ({
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log({ isAuthenticated });
     if (!isAuthenticated) {
       navigate("/authenticate");
     }
