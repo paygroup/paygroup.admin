@@ -7,18 +7,16 @@ import type { Sitemap } from "~/types";
 
 import { Sidebar } from "../sidebar";
 import { PageHeader } from "./page.header";
-import { usePageLayout } from "./use-page-laout";
+import { usePageLayout } from "./use-page-layout";
 
-export const PageLayout = ({
+export const RootPage = ({
   sitemap,
   children,
-}: React.PropsWithChildren<{
-  sitemap: Sitemap;
-}>) => {
+}: React.PropsWithChildren<{ sitemap: Sitemap }>) => {
   const { isOpen, headerHeight, isAuthpage, onToggle } = usePageLayout();
 
   return (
-    <Layout
+    <PageLayout
       sitemap={sitemap}
       isOpen={isOpen}
       isAuthpage={isAuthpage}
@@ -54,11 +52,11 @@ export const PageLayout = ({
           </Flex>
         </Grid>
       )}
-    </Layout>
+    </PageLayout>
   );
 };
 
-const Layout = ({
+const PageLayout = ({
   isOpen,
   sitemap,
   isAuthpage,
@@ -71,6 +69,7 @@ const Layout = ({
   onToggle: () => void;
 }>) => {
   const [min, max] = useToken("sizes.sidebar", ["min", "max"]);
+
   return (
     <Flex
       className="layout"

@@ -24,12 +24,9 @@ export const loader: LoaderFunction = async ({ request }) => {
 export default function Index() {
   const location = useLocation();
 
-  if (
+  const renderListing =
     location.pathname === "/groups" ||
-    location.pathname.startsWith("/groups?page=")
-  ) {
-    return <GroupListingPage />;
-  }
+    location.pathname.startsWith("/groups?page=");
 
-  return <Outlet />;
+  return <>{renderListing ? <GroupListingPage /> : <Outlet />}</>;
 }

@@ -5,7 +5,7 @@ import { useNProgress } from "../nprogress";
 
 export const usePageLayout = () => {
   const location = useLocation();
-  const isAuthpage = location.pathname === "/authentication";
+  const isAuthpage = location.pathname === "/authenticate";
 
   const [headerHeight] = useToken("space", ["28"]);
   const open = useBreakpointValue<boolean | undefined>({

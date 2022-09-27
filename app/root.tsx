@@ -12,7 +12,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import { PageLayout } from "./components";
+import { NhostAuthProvider, RootPage } from "./components";
 import { theme } from "./components/app-theme";
 import { ClientStyleContext, ServerStyleContext } from "./context";
 import { sitemap } from "./sitemap";
@@ -91,11 +91,13 @@ const Document = withEmotionCache(
 export default function App() {
   return (
     <Document>
-      <ChakraProvider theme={theme}>
-        <PageLayout sitemap={sitemap}>
-          <Outlet />
-        </PageLayout>
-      </ChakraProvider>
+      <NhostAuthProvider>
+        <ChakraProvider theme={theme}>
+          <RootPage sitemap={sitemap}>
+            <Outlet />
+          </RootPage>
+        </ChakraProvider>
+      </NhostAuthProvider>
     </Document>
   );
 }
