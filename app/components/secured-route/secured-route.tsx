@@ -1,23 +1,35 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useAuthenticationStatus } from "@nhost/react";
 import { useNavigate } from "@remix-run/react";
+
+import { auth } from "../nhost";
 
 export const SecuredRoute: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
   const { isAuthenticated } = useAuthenticationStatus();
+  const [signed, setSigned] = useState(isAuthenticated);
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log({ isAuthenticated });
-    if (!isAuthenticated) {
+    if (!signed) {
       navigate("/authenticate");
     }
-  }, [isAuthenticated]);
+  }, [signed]);
 
-  if (!isAuthenticated) {
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((e) => {
+      console.log("auth state changed", e);
+      setSigned(e === "SIGNED_IN");
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  if (!signed) {
     return <></>;
   }
 

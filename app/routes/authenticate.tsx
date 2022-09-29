@@ -9,9 +9,13 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { Link } from "@remix-run/react";
+
 import "react-phone-input-2/lib/style.css";
+import { useAuthenticate } from "~/modules/authenticate";
 
 export default function Index() {
+  const { fields, authenticating, onSubmit } = useAuthenticate();
+
   return (
     <Flex
       className="container"
@@ -69,11 +73,13 @@ export default function Index() {
               _focus={{
                 borderBottomWidth: 1,
               }}
+              value={fields.email.value}
+              onChange={(e) => fields.email.onChange(e.target.value)}
             />
           </FormControl>
           <FormControl>
             <Input
-              type="text"
+              type="password"
               placeholder="password"
               bg="white"
               size="lg"
@@ -81,6 +87,8 @@ export default function Index() {
               borderBottomRightRadius={10}
               borderTopLeftRadius={0}
               borderTopRightRadius={0}
+              value={fields.password.value}
+              onChange={(e) => fields.password.onChange(e.target.value)}
             />
           </FormControl>
 
@@ -95,7 +103,14 @@ export default function Index() {
             </Box>
           </HStack>
 
-          <Button colorScheme="primary" size="lg" borderRadius={10}>
+          <Button
+            colorScheme="primary"
+            size="lg"
+            borderRadius={10}
+            onClick={onSubmit}
+            isLoading={authenticating}
+            loadingText="logging in"
+          >
             sign in
           </Button>
         </Flex>
@@ -103,67 +118,3 @@ export default function Index() {
     </Flex>
   );
 }
-
-/**
- * return (
-    <Flex
-      className="container"
-      h="100%"
-      flexDirection="column"
-      bg="gray.100"
-      css={`
-        .slide {
-          height: 90%;
-          display: flex;
-          flex-direction: column;
-        }
-      `}
-    >
-      <Slide in direction="top" className="slide">
-        <Center
-          flex={1}
-          className="center"
-          display="flex"
-          flexDirection="column"
-        >
-          <Heading fontSize="4xl" color="gray.600" fontWeight="light" mb="4">
-            welcome to <Text color="primary.500">paygroup</Text>
-          </Heading>
-
-          <Panel
-            h={["80%"]}
-            w={["90%", null, "75%", "50%"]}
-            flexDirection="row"
-          >
-            <Box
-              flex={{ base: 0, md: 1, lg: 1 }}
-              bg="indigo.50"
-              borderRadius={10}
-            >
-              <SvgLogin height="100%" width="100%" />
-            </Box>
-
-            <Flex
-              flex={1}
-              flexDirection="column"
-              borderLeftWidth={[0, null, 1]}
-              borderLeftColor="gray.300"
-              marginLeft={["0", null, "4"]}
-              paddingLeft={["0", null, "4"]}
-              alignItems={["center", "center", "flex-start"]}
-            >
-              <Heading fontSize="4xl" color="gray.600" fontWeight="light">
-                login into your account
-              </Heading>
-              <PhoneInput
-                country={"us"}
-                // value={this.state.phone}
-                // onChange={(phone) => this.setState({ phone })}
-              />
-            </Flex>
-          </Panel>
-        </Center>
-      </Slide>
-    </Flex>
-  );
- */
