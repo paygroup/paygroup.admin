@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthenticationStatus } from "@nhost/react";
 import { useNavigate } from "@remix-run/react";
 
-import { auth } from "~/modules/nhost";
+import { auth } from "~/components-features/nhost";
 
 export const SecuredRoute: React.FC<React.PropsWithChildren> = ({
   children,
@@ -21,7 +21,6 @@ export const SecuredRoute: React.FC<React.PropsWithChildren> = ({
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((e) => {
-      console.log("auth state changed", e);
       setSigned(e === "SIGNED_IN");
     });
     return () => {

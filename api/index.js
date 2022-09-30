@@ -20810,144 +20810,27 @@ function App() {
 // app/routes/authenticate.tsx
 var authenticate_exports = {};
 __export(authenticate_exports, {
+  action: () => action,
   default: () => Index
 });
-var import_react23 = require("@chakra-ui/react"), import_react24 = require("@remix-run/react");
-
-// app/features/authenticate/use-authenticate.ts
-var import_react21 = require("@remix-run/react"), import_react22 = require("@xstate/react");
-
-// app/features/authenticate/auth-machine.ts
-var import_xstate = require("xstate"), authMachine = (0, import_xstate.createMachine)(
-  {
-    tsTypes: {},
-    schema: {
-      context: {},
-      events: {}
-    },
-    context: {
-      email: "",
-      emailError: void 0,
-      password: "",
-      passwordError: void 0
-    },
-    initial: "capturing",
-    states: {
-      capturing: {
-        on: {
-          CHANGE: [
-            { cond: "email_changed", actions: "set_email" },
-            { actions: "set_password" }
-          ],
-          SUBMIT: [
-            {
-              cond: "is_valid",
-              target: "submitting"
-            },
-            {
-              actions: "set_errors"
-            }
-          ]
-        }
-      },
-      submitting: {
-        invoke: {
-          src: "authenticate",
-          onDone: {
-            actions: "to_home"
-          },
-          onError: {
-            actions: "display_error"
-          }
-        }
-      }
-    }
-  },
-  {
-    guards: {
-      email_changed: (_, event) => event.field === "email",
-      is_valid: (ctx) => {
-        var _a, _b;
-        return !!((_a = ctx.email) != null && _a.length) && !!((_b = ctx.password) != null && _b.length);
-      }
-    },
-    actions: {
-      set_email: (0, import_xstate.assign)({
-        email: (_, event) => event.value,
-        emailError: (ctx, e) => {
-          var _a;
-          return (_a = e.value) != null && _a.length ? void 0 : ctx.emailError;
-        }
-      }),
-      set_password: (0, import_xstate.assign)({
-        password: (_, event) => event.value,
-        passwordError: (ctx, e) => {
-          var _a;
-          return (_a = e.value) != null && _a.length ? void 0 : ctx.passwordError;
-        }
-      }),
-      set_errors: (0, import_xstate.assign)({
-        emailError: (ctx) => {
-          var _a;
-          return (_a = ctx.email) != null && _a.length ? void 0 : "Email is required";
-        },
-        passwordError: (ctx) => {
-          var _a;
-          return (_a = ctx.password) != null && _a.length ? void 0 : "Password is required";
-        }
-      })
-    }
-  }
-);
-
-// app/features/authenticate/use-authenticate.ts
-var useAuthenticate = () => {
-  let navigate = (0, import_react21.useNavigate)(), [state, send] = (0, import_react22.useMachine)(authMachine, {
-    actions: {
-      display_error: (_) => {
-        console.error("error");
-      },
-      to_home: (_) => {
-        navigate("/");
-      }
-    },
-    services: {
-      authenticate: async (ctx) => auth.signIn({
-        email: ctx.email,
-        password: ctx.password
-      })
-    }
-  }), authenticating = state.matches("submitting"), fields = {
-    email: {
-      value: state.context.email,
-      error: state.context.emailError,
-      onChange: (value) => send({ type: "CHANGE", field: "email", value })
-    },
-    password: {
-      value: state.context.password,
-      error: state.context.passwordError,
-      onChange: (value) => send({ type: "CHANGE", field: "password", value })
-    }
-  };
-  return {
-    authenticating,
-    fields,
-    onSubmit: () => send({ type: "SUBMIT" })
-  };
+var import_react21 = require("@chakra-ui/react"), import_react22 = require("@remix-run/react");
+var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), EnhancedForm = (0, import_react21.chakra)(import_react22.Form), action = async ({ request }) => {
+  let form = await request.formData(), email = form.get("email"), password = form.get("usrpassword");
+  return console.log({ email, password }), null;
 };
-
-// app/routes/authenticate.tsx
-var import_jsx_dev_runtime = require("react/jsx-dev-runtime");
 function Index() {
-  let { fields, authenticating, onSubmit } = useAuthenticate();
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Flex, {
-    className: "container",
+  let { state } = (0, import_react22.useTransition)();
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(EnhancedForm, {
     h: "100%",
-    flexDirection: "column",
-    alignItems: "center",
     bg: "gray.50",
+    display: "flex",
+    alignItems: "center",
+    className: "container",
+    flexDirection: "column",
+    method: "post",
+    action: "/authenticate",
     children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Flex, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Flex, {
         h: "24%",
         mb: ["4", "2"],
         color: "primary.500",
@@ -20955,7 +20838,7 @@ function Index() {
         justifyContent: ["flex-end"],
         alignItems: ["center", "flex-end", "flex-end"],
         children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Heading, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Heading, {
             mr: "2",
             fontWeight: "light",
             fontSize: ["36px", "48px"],
@@ -20963,30 +20846,30 @@ function Index() {
             children: "welcome to"
           }, void 0, !1, {
             fileName: "app/routes/authenticate.tsx",
-            lineNumber: 35,
+            lineNumber: 50,
             columnNumber: 9
           }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Heading, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Heading, {
             fontSize: ["40px", "48px"],
             children: "paygroup"
           }, void 0, !1, {
             fileName: "app/routes/authenticate.tsx",
-            lineNumber: 43,
+            lineNumber: 58,
             columnNumber: 9
           }, this)
         ]
       }, void 0, !0, {
         fileName: "app/routes/authenticate.tsx",
-        lineNumber: 27,
+        lineNumber: 42,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Flex, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Flex, {
         w: ["100%", null, "65%", "30%", "33%", "24%"],
         flex: 1,
         alignItems: "center",
         flexDirection: "column",
         children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Heading, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Heading, {
             color: "gray.600",
             fontSize: ["3xl", "4xl"],
             fontWeight: "light",
@@ -20994,20 +20877,21 @@ function Index() {
             children: "log in to your account"
           }, void 0, !1, {
             fileName: "app/routes/authenticate.tsx",
-            lineNumber: 52,
+            lineNumber: 67,
             columnNumber: 9
           }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Flex, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Flex, {
             w: "100%",
             flexDirection: "column",
             px: ["4", "0"],
             children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.FormControl, {
-                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Input, {
-                  type: "email",
-                  placeholder: "email",
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.FormControl, {
+                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Input, {
                   bg: "white",
                   size: "lg",
+                  type: "email",
+                  name: "email",
+                  placeholder: "email",
                   borderTopLeftRadius: 10,
                   borderTopRightRadius: 10,
                   borderBottomLeftRadius: 0,
@@ -21015,104 +20899,102 @@ function Index() {
                   borderBottomWidth: 0,
                   _focus: {
                     borderBottomWidth: 1
-                  },
-                  value: fields.email.value,
-                  onChange: (e) => fields.email.onChange(e.target.value)
+                  }
                 }, void 0, !1, {
                   fileName: "app/routes/authenticate.tsx",
-                  lineNumber: 63,
+                  lineNumber: 78,
                   columnNumber: 13
                 }, this)
               }, void 0, !1, {
                 fileName: "app/routes/authenticate.tsx",
-                lineNumber: 62,
+                lineNumber: 77,
                 columnNumber: 11
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.FormControl, {
-                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Input, {
-                  type: "password",
-                  placeholder: "password",
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.FormControl, {
+                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Input, {
                   bg: "white",
                   size: "lg",
+                  name: "usrpassword",
+                  type: "password",
+                  placeholder: "password",
+                  autoComplete: "new-password",
                   borderBottomLeftRadius: 10,
                   borderBottomRightRadius: 10,
                   borderTopLeftRadius: 0,
-                  borderTopRightRadius: 0,
-                  value: fields.password.value,
-                  onChange: (e) => fields.password.onChange(e.target.value)
+                  borderTopRightRadius: 0
                 }, void 0, !1, {
                   fileName: "app/routes/authenticate.tsx",
-                  lineNumber: 81,
+                  lineNumber: 96,
                   columnNumber: 13
                 }, this)
               }, void 0, !1, {
                 fileName: "app/routes/authenticate.tsx",
-                lineNumber: 80,
+                lineNumber: 95,
                 columnNumber: 11
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.HStack, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.HStack, {
                 my: ["10", null, null, "6"],
                 justifyContent: "space-between",
                 mx: "1",
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Checkbox, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Checkbox, {
                     defaultChecked: !0,
                     children: "remember me"
                   }, void 0, !1, {
                     fileName: "app/routes/authenticate.tsx",
-                    lineNumber: 100,
+                    lineNumber: 115,
                     columnNumber: 13
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Box, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Box, {
                     color: "blue.500",
-                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react24.Link, {
+                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react22.Link, {
                       to: "",
                       children: "forgot password"
                     }, void 0, !1, {
                       fileName: "app/routes/authenticate.tsx",
-                      lineNumber: 102,
+                      lineNumber: 117,
                       columnNumber: 15
                     }, this)
                   }, void 0, !1, {
                     fileName: "app/routes/authenticate.tsx",
-                    lineNumber: 101,
+                    lineNumber: 116,
                     columnNumber: 13
                   }, this)
                 ]
               }, void 0, !0, {
                 fileName: "app/routes/authenticate.tsx",
-                lineNumber: 95,
+                lineNumber: 110,
                 columnNumber: 11
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Button, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Button, {
                 colorScheme: "primary",
                 size: "lg",
+                type: "submit",
                 borderRadius: 10,
-                onClick: onSubmit,
-                isLoading: authenticating,
+                isLoading: state === "submitting",
                 loadingText: "logging in",
                 children: "sign in"
               }, void 0, !1, {
                 fileName: "app/routes/authenticate.tsx",
-                lineNumber: 106,
+                lineNumber: 121,
                 columnNumber: 11
               }, this)
             ]
           }, void 0, !0, {
             fileName: "app/routes/authenticate.tsx",
-            lineNumber: 61,
+            lineNumber: 76,
             columnNumber: 9
           }, this)
         ]
       }, void 0, !0, {
         fileName: "app/routes/authenticate.tsx",
-        lineNumber: 46,
+        lineNumber: 61,
         columnNumber: 7
       }, this)
     ]
   }, void 0, !0, {
     fileName: "app/routes/authenticate.tsx",
-    lineNumber: 20,
+    lineNumber: 32,
     columnNumber: 5
   }, this);
 }
@@ -21127,10 +21009,10 @@ __export(payments_exports, {
 var import_bs2 = require("react-icons/bs");
 
 // app/components/panel/panel.tsx
-var import_react25 = require("@chakra-ui/react"), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), Panel = ({
+var import_react23 = require("@chakra-ui/react"), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), Panel = ({
   children,
   ...rest
-}) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react25.Flex, {
+}) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Flex, {
   className: "panel",
   m: "2",
   px: "6",
@@ -21148,16 +21030,16 @@ var import_react25 = require("@chakra-ui/react"), import_jsx_dev_runtime = requi
 }, this);
 
 // app/components/secured-route/secured-route.tsx
-var import_react26 = require("react"), import_react27 = require("@nhost/react"), import_react28 = require("@remix-run/react");
+var import_react24 = require("react"), import_react25 = require("@nhost/react"), import_react26 = require("@remix-run/react");
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), SecuredRoute = ({
   children
 }) => {
-  let { isAuthenticated } = (0, import_react27.useAuthenticationStatus)(), [signed, setSigned] = (0, import_react26.useState)(isAuthenticated), navigate = (0, import_react28.useNavigate)();
-  return (0, import_react26.useEffect)(() => {
+  let { isAuthenticated } = (0, import_react25.useAuthenticationStatus)(), [signed, setSigned] = (0, import_react24.useState)(isAuthenticated), navigate = (0, import_react26.useNavigate)();
+  return (0, import_react24.useEffect)(() => {
     signed || navigate("/authenticate");
-  }, [signed]), (0, import_react26.useEffect)(() => {
+  }, [signed]), (0, import_react24.useEffect)(() => {
     let unsubscribe = auth.onAuthStateChanged((e) => {
-      console.log("auth state changed", e), setSigned(e === "SIGNED_IN");
+      setSigned(e === "SIGNED_IN");
     });
     return () => {
       unsubscribe();
@@ -21166,11 +21048,11 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), SecuredRoute = ({
     children
   }, void 0, !1, {
     fileName: "app/components/secured-route/secured-route.tsx",
-    lineNumber: 36,
+    lineNumber: 35,
     columnNumber: 10
   }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {}, void 0, !1, {
     fileName: "app/components/secured-route/secured-route.tsx",
-    lineNumber: 33,
+    lineNumber: 32,
     columnNumber: 12
   }, this);
 };
@@ -21224,7 +21106,7 @@ __export(groups_exports, {
   loader: () => loader,
   meta: () => meta4
 });
-var import_react40 = require("@remix-run/react"), import_hi2 = require("react-icons/hi");
+var import_react38 = require("@remix-run/react"), import_hi2 = require("react-icons/hi");
 
 // app/common/envs.ts
 var getEnv = (env) => envs.isLocal ? envs.local[env] : envs.remote[env], envs = {
@@ -21258,12 +21140,7 @@ var getEnv = (env) => envs.isLocal ? envs.local[env] : envs.remote[env], envs = 
 };
 
 // app/graphql/genql-cli/genql-cli.ts
-var import_genql_sdk = __toESM(require_genql_sdk());
-console.log({
-  graphql: getEnv("GRAPHQL_URL"),
-  adminid: getEnv("HASURA_ADMIN")
-});
-var genql = (0, import_genql_sdk.createClient)({
+var import_genql_sdk = __toESM(require_genql_sdk()), genql = (0, import_genql_sdk.createClient)({
   url: getEnv("GRAPHQL_URL"),
   headers: {
     "X-Hasura-Admin-Secret": getEnv("HASURA_ADMIN"),
@@ -21338,7 +21215,7 @@ var fetchGroupPages = async ({
 };
 
 // app/features/groups/groups-table.tsx
-var import_react29 = require("@chakra-ui/react"), import_react30 = require("@remix-run/react"), import_dayjs = __toESM(require("dayjs"));
+var import_react27 = require("@chakra-ui/react"), import_react28 = require("@remix-run/react"), import_dayjs = __toESM(require("dayjs"));
 
 // app/features/constants.ts
 var paymentCycles = {
@@ -21357,15 +21234,15 @@ var paymentCycles = {
 };
 
 // app/features/groups/groups-table.tsx
-var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ items }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.TableContainer, {
-  children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Table, {
+var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ items }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.TableContainer, {
+  children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Table, {
     variant: "striped",
     colorScheme: "blueGray",
     children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Thead, {
-        children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Tr, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Thead, {
+        children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Tr, {
           children: [
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Th, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
               w: "1%",
               children: "#"
             }, void 0, !1, {
@@ -21373,7 +21250,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               lineNumber: 23,
               columnNumber: 11
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Th, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
               w: "20%",
               children: "group name"
             }, void 0, !1, {
@@ -21381,7 +21258,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               lineNumber: 24,
               columnNumber: 11
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Th, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
               w: "20%",
               children: "created at"
             }, void 0, !1, {
@@ -21389,7 +21266,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               lineNumber: 25,
               columnNumber: 11
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Th, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
               w: "20%",
               children: "owner"
             }, void 0, !1, {
@@ -21397,7 +21274,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               lineNumber: 26,
               columnNumber: 11
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Th, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
               w: "10%",
               children: "balance"
             }, void 0, !1, {
@@ -21405,7 +21282,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               lineNumber: 27,
               columnNumber: 11
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Th, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
               w: "10%",
               children: "contribution"
             }, void 0, !1, {
@@ -21413,7 +21290,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               lineNumber: 28,
               columnNumber: 11
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Th, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
               w: "10%",
               children: "recurrency"
             }, void 0, !1, {
@@ -21432,20 +21309,20 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
         lineNumber: 21,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Tbody, {
-        children: items.map((row, i) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Tr, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Tbody, {
+        children: items.map((row, i) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Tr, {
           children: [
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Td, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
               children: row.index
             }, void 0, !1, {
               fileName: "app/features/groups/groups-table.tsx",
               lineNumber: 36,
               columnNumber: 13
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Td, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
               w: "20%",
               color: "blue.500",
-              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.Link, {
+              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react28.Link, {
                 to: `/groups/${row.id}`,
                 children: row.group_name
               }, void 0, !1, {
@@ -21458,7 +21335,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               lineNumber: 38,
               columnNumber: 13
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Td, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
               w: "20%",
               children: (0, import_dayjs.default)(row.created_at).format("ddd DD MMM, YYYY")
             }, void 0, !1, {
@@ -21466,10 +21343,10 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               lineNumber: 42,
               columnNumber: 13
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Td, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
               w: "20%",
               color: "blue.500",
-              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.Link, {
+              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react28.Link, {
                 to: `/users/${row.user.id}`,
                 children: row.user.displayName
               }, void 0, !1, {
@@ -21482,9 +21359,9 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               lineNumber: 44,
               columnNumber: 13
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Td, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
               w: "10%",
-              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Text, {
+              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Text, {
                 children: new Intl.NumberFormat("en-US", {
                   style: "currency",
                   currency: "USD"
@@ -21499,9 +21376,9 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               lineNumber: 48,
               columnNumber: 13
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Td, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
               w: "10%",
-              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Text, {
+              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Text, {
                 children: row.contribution ? new Intl.NumberFormat("en-US", {
                   style: "currency",
                   currency: "USD"
@@ -21516,15 +21393,15 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               lineNumber: 57,
               columnNumber: 13
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Td, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
               w: "10%",
-              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Badge, {
+              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Badge, {
                 w: "16",
                 textTransform: "none",
                 textAlign: "center",
                 borderRadius: 6,
                 bg: row.recurrency ? paymentCycles[row.recurrency].color : void 0,
-                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Text, {
+                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Text, {
                   color: "white",
                   children: row.recurrency ? paymentCycles[row.recurrency].label : void 0
                 }, void 0, !1, {
@@ -21566,10 +21443,10 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
 }, this);
 
 // app/features/groups/group-listing-page.tsx
-var import_react33 = require("@chakra-ui/react"), import_react34 = require("@remix-run/react");
+var import_react31 = require("@chakra-ui/react"), import_react32 = require("@remix-run/react");
 
 // app/modules/pagination/pagination.tsx
-var import_react31 = require("react"), import_icons2 = require("@chakra-ui/icons"), import_react32 = require("@chakra-ui/react"), import_throttle = __toESM(require("lodash/throttle")), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), TAKE = 10, Span = ({ children }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react32.Box, {
+var import_react29 = require("react"), import_icons2 = require("@chakra-ui/icons"), import_react30 = require("@chakra-ui/react"), import_throttle = __toESM(require("lodash/throttle")), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), TAKE = 10, Span = ({ children }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.Box, {
   mr: "2",
   className: "span",
   children
@@ -21609,7 +21486,7 @@ var Pagination = ({
   onChange,
   goNext,
   goPrev
-}) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react32.Flex, {
+}) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.Flex, {
   alignItems: "center",
   color: "gray.500",
   className: "pagination",
@@ -21649,7 +21526,7 @@ var Pagination = ({
       lineNumber: 85,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react32.IconButton, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.IconButton, {
       onClick: prev ? goPrev : void 0,
       ml: "2",
       "aria-label": "previous page",
@@ -21668,7 +21545,7 @@ var Pagination = ({
       lineNumber: 86,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react32.IconButton, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.IconButton, {
       onClick: next ? goNext : void 0,
       ml: "1",
       mr: "2",
@@ -21718,7 +21595,7 @@ var Pagination = ({
       lineNumber: 108,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react32.Select, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.Select, {
       display: "none",
       ml: "2",
       defaultValue: 10,
@@ -21775,7 +21652,7 @@ var Pagination = ({
   lineNumber: 80,
   columnNumber: 3
 }, this), PageInput = ({ page, pageCount, onChange }) => {
-  let [pageValue, setPageValue] = (0, import_react31.useState)(page ?? 0), [previousValue, setPreviousValue] = (0, import_react31.useState)(page), setPageValueThrottle = (0, import_react31.useCallback)(
+  let [pageValue, setPageValue] = (0, import_react29.useState)(page ?? 0), [previousValue, setPreviousValue] = (0, import_react29.useState)(page), setPageValueThrottle = (0, import_react29.useCallback)(
     (0, import_throttle.default)((val) => setPageValue(val), 1e3),
     []
   ), invalidNum = (num) => typeof num != "number" || isNaN(num) || Number(num) === 0 && pageCount > 0, emptyString = (str) => !str.length, handleChange = (str, value) => {
@@ -21791,9 +21668,9 @@ var Pagination = ({
   }, handleKeyDown = (e) => {
     e.key === "Enter" && (onChange == null || onChange(pageValue));
   };
-  return (0, import_react31.useEffect)(() => {
+  return (0, import_react29.useEffect)(() => {
     page !== pageValue && setPageValue(page);
-  }, [page]), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react32.NumberInput, {
+  }, [page]), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.NumberInput, {
     className: "pagination-input",
     name: "page",
     width: ["16"],
@@ -21802,7 +21679,7 @@ var Pagination = ({
     onChange: handleChange,
     onKeyDown: handleKeyDown,
     value: pageCount ? pageValue : 0,
-    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react32.NumberInputField, {
+    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.NumberInputField, {
       readOnly: !pageCount
     }, void 0, !1, {
       fileName: "app/modules/pagination/pagination.tsx",
@@ -21822,7 +21699,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupListingPage 
     items,
     count,
     page = 0
-  } = (0, import_react34.useLoaderData)(), navigate = (0, import_react34.useNavigate)(), paging = usePagination({
+  } = (0, import_react32.useLoaderData)(), navigate = (0, import_react32.useNavigate)(), paging = usePagination({
     data: { items, count },
     page,
     onPage: (page2) => {
@@ -21831,10 +21708,10 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupListingPage 
   });
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Panel, {
     children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.HStack, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react31.HStack, {
         alignItems: "center",
         children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Heading, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react31.Heading, {
             flex: 1,
             fontSize: "2xl",
             color: "gray.600",
@@ -21863,7 +21740,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupListingPage 
         lineNumber: 28,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Divider, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react31.Divider, {
         mt: "3",
         mb: "2"
       }, void 0, !1, {
@@ -21887,11 +21764,11 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupListingPage 
 };
 
 // app/features/groups/group-info.tsx
-var import_react35 = require("@chakra-ui/react"), import_dayjs2 = __toESM(require("dayjs"));
+var import_react33 = require("@chakra-ui/react"), import_dayjs2 = __toESM(require("dayjs"));
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ group }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Panel, {
-  children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Box, {
+  children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Box, {
     children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Heading, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Heading, {
         fontSize: "2xl",
         color: "blue.500",
         fontWeight: "light",
@@ -21901,7 +21778,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
         lineNumber: 11,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Divider, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Divider, {
         mt: "2",
         mb: "6"
       }, void 0, !1, {
@@ -21909,19 +21786,19 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
         lineNumber: 15,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.VStack, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.VStack, {
         alignItems: "flex-start",
         spacing: "6",
         children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Flex, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Flex, {
             flexDirection: { base: "column", lg: "row" },
             alignItems: "flex-start",
             w: "100%",
             children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Box, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Box, {
                 flex: 1,
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Text, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Text, {
                     color: "primary.500",
                     fontSize: "lg",
                     children: "group name"
@@ -21930,7 +21807,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
                     lineNumber: 24,
                     columnNumber: 13
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Text, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Text, {
                     mt: "-1",
                     color: "gray.500",
                     fontSize: "xl",
@@ -21940,7 +21817,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
                     lineNumber: 27,
                     columnNumber: 13
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Text, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Text, {
                     color: "gray.400",
                     fontSize: "xs",
                     children: [
@@ -21959,12 +21836,12 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
                 lineNumber: 23,
                 columnNumber: 11
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Flex, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Flex, {
                 mt: { base: "6", lg: "0" },
                 flexDirection: "column",
                 alignItems: { base: "flex-start", lg: "flex-end" },
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Text, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Text, {
                     color: "primary.500",
                     fontSize: "lg",
                     children: "balance"
@@ -21973,7 +21850,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
                     lineNumber: 43,
                     columnNumber: 13
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Text, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Text, {
                     mt: "-1",
                     color: "teal.500",
                     fontSize: "xl",
@@ -21998,10 +21875,10 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
             lineNumber: 18,
             columnNumber: 9
           }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Box, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Box, {
             flex: 1,
             children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Text, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Text, {
                 color: "primary.500",
                 fontSize: "lg",
                 children: "owner"
@@ -22010,7 +21887,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
                 lineNumber: 56,
                 columnNumber: 11
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Text, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Text, {
                 mt: "-1",
                 color: "gray.500",
                 fontSize: "xl",
@@ -22045,11 +21922,11 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
 }, this);
 
 // app/features/groups/group-members.tsx
-var import_react36 = require("@chakra-ui/react"), import_react37 = require("@remix-run/react");
+var import_react34 = require("@chakra-ui/react"), import_react35 = require("@remix-run/react");
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupMembers = ({ group }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Panel, {
   mt: "4",
   children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Heading, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Heading, {
       fontSize: "2xl",
       color: "blue.500",
       fontWeight: "light",
@@ -22059,7 +21936,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupMembers = ({
       lineNumber: 19,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Divider, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Divider, {
       mt: "2",
       mb: "2"
     }, void 0, !1, {
@@ -22067,12 +21944,12 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupMembers = ({
       lineNumber: 22,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Table, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Table, {
       children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Thead, {
-          children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Tr, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Thead, {
+          children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Tr, {
             children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Th, {
                 p: 0,
                 children: "#"
               }, void 0, !1, {
@@ -22080,7 +21957,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupMembers = ({
                 lineNumber: 26,
                 columnNumber: 11
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Th, {
                 children: "member name"
               }, void 0, !1, {
                 fileName: "app/features/groups/group-members.tsx",
@@ -22098,10 +21975,10 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupMembers = ({
           lineNumber: 24,
           columnNumber: 7
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Tbody, {
-          children: group.members.map((m) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Tr, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Tbody, {
+          children: group.members.map((m) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Tr, {
             children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Td, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Td, {
                 p: 0,
                 w: "5%",
                 children: m.index
@@ -22110,9 +21987,9 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupMembers = ({
                 lineNumber: 33,
                 columnNumber: 13
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Td, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Td, {
                 color: "blue.500",
-                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react37.Link, {
+                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Link, {
                   to: `/users/${m.user.id}`,
                   children: m.user.displayName
                 }, void 0, !1, {
@@ -22150,12 +22027,12 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupMembers = ({
 }, this);
 
 // app/features/groups/group-payments.tsx
-var import_react38 = require("@chakra-ui/react"), import_react39 = require("@remix-run/react"), import_dayjs3 = __toESM(require("dayjs")), import_query_string = __toESM(require("query-string")), import_fa = require("react-icons/fa"), import_go2 = require("react-icons/go");
+var import_react36 = require("@chakra-ui/react"), import_react37 = require("@remix-run/react"), import_dayjs3 = __toESM(require("dayjs")), import_query_string = __toESM(require("query-string")), import_fa = require("react-icons/fa"), import_go2 = require("react-icons/go");
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = ({
   group
 }) => {
   var _a, _b;
-  let navigate = (0, import_react39.useNavigate)(), location = (0, import_react39.useLocation)(), params = import_query_string.default.parse(location.search), page = group.payments.length ? isNaN(params.paymentpage) ? 1 : Number(params.paymentpage) : 0, paging = usePagination({
+  let navigate = (0, import_react37.useNavigate)(), location = (0, import_react37.useLocation)(), params = import_query_string.default.parse(location.search), page = group.payments.length ? isNaN(params.paymentpage) ? 1 : Number(params.paymentpage) : 0, paging = usePagination({
     data: {
       items: group.payments,
       count: ((_b = (_a = group.payments_aggregate) == null ? void 0 : _a.aggregate) == null ? void 0 : _b.count) ?? 0
@@ -22167,11 +22044,11 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
   });
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Panel, {
     children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Flex, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Flex, {
         alignItems: "center",
         justifyContent: "space-between",
         children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Heading, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Heading, {
             fontSize: "2xl",
             color: "blue.500",
             fontWeight: "light",
@@ -22200,7 +22077,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
         lineNumber: 56,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Divider, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Divider, {
         mt: "2",
         mb: "2"
       }, void 0, !1, {
@@ -22208,44 +22085,44 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
         lineNumber: 72,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Table, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Table, {
         variant: "striped",
         colorScheme: "blueGray",
         fontSize: "md",
         children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Thead, {
-            children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Tr, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Thead, {
+            children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Tr, {
               textTransform: "none",
               children: [
-                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Th, {
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
                   children: "#"
                 }, void 0, !1, {
                   fileName: "app/features/groups/group-payments.tsx",
                   lineNumber: 77,
                   columnNumber: 13
                 }, this),
-                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Th, {
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
                   children: "amount"
                 }, void 0, !1, {
                   fileName: "app/features/groups/group-payments.tsx",
                   lineNumber: 78,
                   columnNumber: 13
                 }, this),
-                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Th, {
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
                   children: "member"
                 }, void 0, !1, {
                   fileName: "app/features/groups/group-payments.tsx",
                   lineNumber: 79,
                   columnNumber: 13
                 }, this),
-                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Th, {
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
                   children: "type"
                 }, void 0, !1, {
                   fileName: "app/features/groups/group-payments.tsx",
                   lineNumber: 80,
                   columnNumber: 13
                 }, this),
-                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Th, {
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
                   children: "status"
                 }, void 0, !1, {
                   fileName: "app/features/groups/group-payments.tsx",
@@ -22263,12 +22140,12 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
             lineNumber: 75,
             columnNumber: 9
           }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Tbody, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Tbody, {
             children: group.payments.map((p) => {
               var _a2;
-              return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Tr, {
+              return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Tr, {
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Td, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Td, {
                     w: "5%",
                     valign: "top",
                     children: p.index
@@ -22277,10 +22154,10 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                     lineNumber: 87,
                     columnNumber: 15
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Td, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Td, {
                     valign: "top",
                     children: [
-                      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Text, {
+                      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Text, {
                         fontSize: "md",
                         color: p.transaction_status === "Pending" ? "yellow.500" : p.transaction_status === "Completed" ? "teal.500" : "orange.500",
                         children: new Intl.NumberFormat("en-US", {
@@ -22292,7 +22169,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                         lineNumber: 91,
                         columnNumber: 17
                       }, this),
-                      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Text, {
+                      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Text, {
                         color: "gray.500",
                         fontSize: "sm",
                         children: (0, import_dayjs3.default)(p.created_at).format("ddd DD MMM, YYYY, HH:mm").toLocaleLowerCase()
@@ -22307,9 +22184,9 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                     lineNumber: 90,
                     columnNumber: 15
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Td, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Td, {
                     color: "blue.500",
-                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react39.Link, {
+                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react37.Link, {
                       to: `/users/${p.member.user.id}`,
                       children: p.member.user.displayName
                     }, void 0, !1, {
@@ -22322,11 +22199,11 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                     lineNumber: 113,
                     columnNumber: 15
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Td, {
-                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Flex, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Td, {
+                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Flex, {
                       alignItems: "center",
                       children: [
-                        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Icon, {
+                        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Icon, {
                           mr: "2",
                           as: p.transaction_type === "MoneyIn" ? import_fa.FaCoins : import_go2.GoArrowUp,
                           fontSize: "xl",
@@ -22336,7 +22213,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                           lineNumber: 121,
                           columnNumber: 19
                         }, this),
-                        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Text, {
+                        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Text, {
                           color: `${p.transaction_type === "MoneyIn" ? "teal" : "orange"}.500`,
                           children: p.transaction_type === "MoneyIn" ? "deposit" : "withdraw"
                         }, void 0, !1, {
@@ -22355,8 +22232,8 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                     lineNumber: 119,
                     columnNumber: 15
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Td, {
-                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Badge, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Td, {
+                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Badge, {
                       w: "24",
                       variant: "outline",
                       colorScheme: statuses[p.transaction_status].color,
@@ -22439,13 +22316,13 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), meta4 = () => ({
   });
 };
 function Index4() {
-  let location = (0, import_react40.useLocation)(), renderListing = location.pathname === "/groups" || location.pathname.startsWith("/groups?page=");
+  let location = (0, import_react38.useLocation)(), renderListing = location.pathname === "/groups" || location.pathname.startsWith("/groups?page=");
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(SecuredRoute, {
     children: renderListing ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(GroupListingPage, {}, void 0, !1, {
       fileName: "app/routes/groups.tsx",
       lineNumber: 34,
       columnNumber: 24
-    }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react40.Outlet, {}, void 0, !1, {
+    }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Outlet, {}, void 0, !1, {
       fileName: "app/routes/groups.tsx",
       lineNumber: 34,
       columnNumber: 47
@@ -22465,7 +22342,7 @@ __export(groupid_exports, {
   loader: () => loader2,
   meta: () => meta5
 });
-var import_react41 = require("@chakra-ui/react"), import_react42 = require("@remix-run/react");
+var import_react39 = require("@chakra-ui/react"), import_react40 = require("@remix-run/react");
 
 // app/features/groups/fetch-one-group.tsx
 var fetchOneGroup = async ({
@@ -22539,14 +22416,14 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), meta5 = () => ({
   });
 };
 function Index5() {
-  let group = (0, import_react42.useLoaderData)();
+  let group = (0, import_react40.useLoaderData)();
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(SecuredRoute, {
-    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react41.Flex, {
+    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react39.Flex, {
       flex: 1,
       className: "flex-1",
       flexDirection: { base: "column", lg: "row" },
       children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react41.Flex, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react39.Flex, {
           className: "flex-2",
           flex: { base: 1, xl: 2 },
           flexDirection: "column",
@@ -22572,10 +22449,10 @@ function Index5() {
           lineNumber: 35,
           columnNumber: 9
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react41.Flex, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react39.Flex, {
           className: "flex-3",
           flex: { base: 1, xl: 4 },
-          children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react41.Box, {
+          children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react39.Box, {
             flex: 1,
             w: "100%",
             children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(GroupPayments, {
@@ -22663,7 +22540,7 @@ function Index7() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "387747b7", entry: { module: "/build/entry.client-YF5ECO45.js", imports: ["/build/_shared/chunk-ODAAP2UF.js", "/build/_shared/chunk-VPA7XQ5U.js", "/build/_shared/chunk-TTBKISHK.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-UYCPHZT3.js", imports: ["/build/_shared/chunk-S73EG7XY.js", "/build/_shared/chunk-B7AQKOXM.js", "/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-IXL5ROFI.js", "/build/_shared/chunk-SSQ6G2JR.js", "/build/_shared/chunk-EUEMIPZK.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-UZMUATAJ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/authenticate": { id: "routes/authenticate", parentId: "root", path: "authenticate", index: void 0, caseSensitive: void 0, module: "/build/routes/authenticate-F6ESRBRZ.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups": { id: "routes/groups", parentId: "root", path: "groups", index: void 0, caseSensitive: void 0, module: "/build/routes/groups-S5WR2N4M.js", imports: ["/build/_shared/chunk-P22CTHSL.js", "/build/_shared/chunk-2GDR6CS2.js", "/build/_shared/chunk-UHBY5CAE.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups/$groupid": { id: "routes/groups/$groupid", parentId: "routes/groups", path: ":groupid", index: void 0, caseSensitive: void 0, module: "/build/routes/groups/$groupid-6JQYBHWY.js", imports: ["/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-IXL5ROFI.js", "/build/_shared/chunk-EUEMIPZK.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-UZMUATAJ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-Z6JAGC4D.js", imports: ["/build/_shared/chunk-2GDR6CS2.js", "/build/_shared/chunk-UHBY5CAE.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/payments": { id: "routes/payments", parentId: "root", path: "payments", index: void 0, caseSensitive: void 0, module: "/build/routes/payments-S3X5HLEW.js", imports: ["/build/_shared/chunk-UHBY5CAE.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/settings": { id: "routes/settings", parentId: "root", path: "settings", index: void 0, caseSensitive: void 0, module: "/build/routes/settings-3BCII32X.js", imports: ["/build/_shared/chunk-UHBY5CAE.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/users": { id: "routes/users", parentId: "root", path: "users", index: void 0, caseSensitive: void 0, module: "/build/routes/users-5O2YVMKB.js", imports: ["/build/_shared/chunk-UHBY5CAE.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-387747B7.js" };
+var assets_manifest_default = { version: "a799e85e", entry: { module: "/build/entry.client-PISS6W26.js", imports: ["/build/_shared/chunk-ODAAP2UF.js", "/build/_shared/chunk-3ROUW56H.js", "/build/_shared/chunk-TTBKISHK.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-RCLHXNAX.js", imports: ["/build/_shared/chunk-S73EG7XY.js", "/build/_shared/chunk-B7AQKOXM.js", "/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-SSQ6G2JR.js", "/build/_shared/chunk-NDD2BM44.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/authenticate": { id: "routes/authenticate", parentId: "root", path: "authenticate", index: void 0, caseSensitive: void 0, module: "/build/routes/authenticate-NVBF727G.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups": { id: "routes/groups", parentId: "root", path: "groups", index: void 0, caseSensitive: void 0, module: "/build/routes/groups-MJJPUFUB.js", imports: ["/build/_shared/chunk-NHBFHPQU.js", "/build/_shared/chunk-WKTAQAMU.js", "/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups/$groupid": { id: "routes/groups/$groupid", parentId: "routes/groups", path: ":groupid", index: void 0, caseSensitive: void 0, module: "/build/routes/groups/$groupid-LTPDOY5S.js", imports: ["/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-NDD2BM44.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-TFGY2CWK.js", imports: ["/build/_shared/chunk-WKTAQAMU.js", "/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/payments": { id: "routes/payments", parentId: "root", path: "payments", index: void 0, caseSensitive: void 0, module: "/build/routes/payments-ZO6R4CMY.js", imports: ["/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/settings": { id: "routes/settings", parentId: "root", path: "settings", index: void 0, caseSensitive: void 0, module: "/build/routes/settings-EGUPOHMV.js", imports: ["/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/users": { id: "routes/users", parentId: "root", path: "users", index: void 0, caseSensitive: void 0, module: "/build/routes/users-TNM32H7O.js", imports: ["/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-A799E85E.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

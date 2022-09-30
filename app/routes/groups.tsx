@@ -3,7 +3,7 @@ import { Outlet, useLocation } from "@remix-run/react";
 import { HiOutlineUserGroup } from "react-icons/hi";
 
 import { SecuredRoute } from "~/components";
-import { fetchGroupPages, GroupListingPage } from "~/features/groups";
+import { fetchGroupPages, GroupListingPage } from "~/routes-features/groups";
 
 export const meta: MetaFunction = () => ({
   title: "paygroup - groups",

@@ -1,7 +1,7 @@
 import { useNavigate } from "@remix-run/react";
 import { useMachine } from "@xstate/react";
 
-import { auth } from "~/modules/nhost";
+import { auth } from "~/components-features/nhost";
 
 import { authMachine } from "./auth-machine";
 

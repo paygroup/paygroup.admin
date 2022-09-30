@@ -7,22 +7,33 @@ import {
   HStack,
   Checkbox,
   Box,
+  chakra,
 } from "@chakra-ui/react";
-import { Link } from "@remix-run/react";
+import type { ActionFunction } from "@remix-run/node";
+import { Link, useTransition, Form } from "@remix-run/react";
 
-import "react-phone-input-2/lib/style.css";
-import { useAuthenticate } from "~/features/authenticate";
+const EnhancedForm = chakra(Form);
+
+export const action: ActionFunction = async ({ request }) => {
+  const form = await request.formData();
+  const email = form.get("email");
+  const password = form.get("usrpassword");
+  return null;
+};
 
 export default function Index() {
-  const { fields, authenticating, onSubmit } = useAuthenticate();
+  const { state } = useTransition();
 
   return (
-    <Flex
-      className="container"
+    <EnhancedForm
       h="100%"
-      flexDirection="column"
-      alignItems="center"
       bg="gray.50"
+      display="flex"
+      alignItems="center"
+      className="container"
+      flexDirection="column"
+      method="post"
+      action="/authenticate"
     >
       <Flex
         h="24%"
@@ -61,10 +72,11 @@ export default function Index() {
         <Flex w="100%" flexDirection="column" px={["4", "0"]}>
           <FormControl>
             <Input
-              type="email"
-              placeholder="email"
               bg="white"
               size="lg"
+              type="email"
+              name="email"
+              placeholder="email"
               borderTopLeftRadius={10}
               borderTopRightRadius={10}
               borderBottomLeftRadius={0}
@@ -73,22 +85,21 @@ export default function Index() {
               _focus={{
                 borderBottomWidth: 1,
               }}
-              value={fields.email.value}
-              onChange={(e) => fields.email.onChange(e.target.value)}
             />
           </FormControl>
+
           <FormControl>
             <Input
-              type="password"
-              placeholder="password"
               bg="white"
               size="lg"
+              name="usrpassword"
+              type="password"
+              placeholder="password"
+              autoComplete="new-password"
               borderBottomLeftRadius={10}
               borderBottomRightRadius={10}
               borderTopLeftRadius={0}
               borderTopRightRadius={0}
-              value={fields.password.value}
-              onChange={(e) => fields.password.onChange(e.target.value)}
             />
           </FormControl>
 
@@ -106,15 +117,15 @@ export default function Index() {
           <Button
             colorScheme="primary"
             size="lg"
+            type="submit"
             borderRadius={10}
-            onClick={onSubmit}
-            isLoading={authenticating}
+            isLoading={state === "submitting"}
             loadingText="logging in"
           >
             sign in
           </Button>
         </Flex>
       </Flex>
-    </Flex>
+    </EnhancedForm>
   );
 }
