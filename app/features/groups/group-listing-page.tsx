@@ -2,10 +2,11 @@ import { Divider, Heading, HStack } from "@chakra-ui/react";
 import { useLoaderData, useNavigate } from "@remix-run/react";
 
 import { Panel } from "~/components";
-import { Pagination, usePagination } from "~/components/pagination";
-import type { fetchGroupPages } from "~/modules/groups";
-import { GroupsTable } from "~/modules/groups";
-import type { GroupTableProps } from "~/modules/groups/types";
+import { Pagination, usePagination } from "~/modules/pagination";
+
+import type { fetchGroupPages } from "./fetch-group-pages";
+import { GroupsTable } from "./groups-table";
+import type { GroupTableProps } from "./types";
 
 export const GroupListingPage = () => {
   const {

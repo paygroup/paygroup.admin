@@ -19,13 +19,13 @@ import dayjs from "dayjs";
 import query from "query-string";
 import { FaCoins } from "react-icons/fa";
 import { GoArrowUp } from "react-icons/go";
-// import { RiCoinsFill } from "react-icons/ri";
 
 import { Panel } from "~/components";
-import { Pagination, usePagination } from "~/components/pagination";
 import type { en_statuses_enum } from "~/graphql/genql-sdk";
+import { Pagination, usePagination } from "~/modules/pagination";
 
 import type { GroupExtended } from "./types";
+
 // http://localhost:3000/groups?page=2
 export const GroupPayments: React.FC<{ group: GroupExtended }> = ({
   group,

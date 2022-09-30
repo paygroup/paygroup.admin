@@ -3,9 +3,9 @@ import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
 import { SecuredRoute } from "~/components";
-import { GroupInfo, GroupMembers, GroupPayments } from "~/modules/groups";
-import { fetchOneGroup } from "~/modules/groups/fetch-one-group";
-import type { GroupExtended } from "~/modules/groups/types";
+import { GroupInfo, GroupMembers, GroupPayments } from "~/features/groups";
+import { fetchOneGroup } from "~/features/groups/fetch-one-group";
+import type { GroupExtended } from "~/features/groups/types";
 
 export const meta: MetaFunction = () => ({
   title: "paygroup - view group",

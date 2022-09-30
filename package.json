@@ -8,7 +8,8 @@
     "lint": "eslint  --fix '*/**/*.{js,ts,tsx}'",
     "genql:remote": "genql --endpoint https://apqmosklbchdukswdyur.nhost.run/v1/graphql --output ./app/graphql/genql-sdk -H 'X-Hasura-Admin-Secret:b3a72f88ed1303ad35ec1dfd0c3a0bcc'",
     "genql:local": "genql --endpoint https://localgraphql.ngrok.io/v1/graphql --output ./app/graphql/genql-sdk -H 'X-Hasura-Admin-Secret:nhost-admin-secret'",
-    "del:ds_store": "find . -name '.DS_Store' -type f -delete"
+    "del:ds_store": "find . -name '.DS_Store' -type f -delete",
+    "tsc": "npx tsc"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.10",

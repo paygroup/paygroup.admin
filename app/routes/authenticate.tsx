@@ -11,7 +11,7 @@ import {
 import { Link } from "@remix-run/react";
 
 import "react-phone-input-2/lib/style.css";
-import { useAuthenticate } from "~/modules/authenticate";
+import { useAuthenticate } from "~/features/authenticate";
 
 export default function Index() {
   const { fields, authenticating, onSubmit } = useAuthenticate();

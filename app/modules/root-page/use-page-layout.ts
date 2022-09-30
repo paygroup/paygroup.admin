@@ -1,7 +1,7 @@
 import { useBreakpointValue, useDisclosure, useToken } from "@chakra-ui/react";
 import { useLocation } from "@remix-run/react";
 
-import { useNProgress } from "../nprogress";
+import { useNProgress } from "~/modules/nprogress";
 
 export const usePageLayout = () => {
   const location = useLocation();

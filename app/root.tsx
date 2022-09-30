@@ -12,9 +12,10 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import { NhostAuthProvider, RootPage } from "./components";
-import { theme } from "./components/app-theme";
 import { ClientStyleContext, ServerStyleContext } from "./context";
+import { theme } from "./modules/app-theme";
+import { NhostAuthProvider } from "./modules/nhost";
+import { RootPage } from "./modules/root-page";
 import { sitemap } from "./sitemap";
 
 export let links: LinksFunction = () => [
