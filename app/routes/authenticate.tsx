@@ -12,12 +12,16 @@ import {
 import type { ActionFunction } from "@remix-run/node";
 import { Link, useTransition, Form } from "@remix-run/react";
 
+import { nhost } from "~/modules/nhost";
+
 const EnhancedForm = chakra(Form);
 
 export const action: ActionFunction = async ({ request }) => {
   const form = await request.formData();
-  const email = form.get("email");
-  const password = form.get("usrpassword");
+  const email = form.get("email") as string;
+  const password = form.get("usrpassword") as string;
+  const session = await nhost.auth.signIn({ email, password });
+  console.log({ session });
   return null;
 };
 

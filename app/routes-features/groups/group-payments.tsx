@@ -22,7 +22,7 @@ import { GoArrowUp } from "react-icons/go";
 
 import { Panel } from "~/components";
 import type { en_statuses_enum } from "~/graphql/genql-sdk";
-import { Pagination, usePagination } from "~/components-features/pagination";
+import { Pagination, usePagination } from "~/modules/pagination";
 
 import type { GroupExtended } from "./types";
 

@@ -20815,8 +20815,8 @@ __export(authenticate_exports, {
 });
 var import_react21 = require("@chakra-ui/react"), import_react22 = require("@remix-run/react");
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), EnhancedForm = (0, import_react21.chakra)(import_react22.Form), action = async ({ request }) => {
-  let form = await request.formData(), email = form.get("email"), password = form.get("usrpassword");
-  return console.log({ email, password }), null;
+  let form = await request.formData(), email = form.get("email"), password = form.get("usrpassword"), session = await nhost.auth.signIn({ email, password });
+  return console.log({ session }), null;
 };
 function Index() {
   let { state } = (0, import_react22.useTransition)();
@@ -21148,7 +21148,7 @@ var import_genql_sdk = __toESM(require_genql_sdk()), genql = (0, import_genql_sd
   }
 });
 
-// app/features/groups/fetch-group-pages.ts
+// app/routes-features/groups/fetch-group-pages.ts
 var fetchGroupPages = async ({
   page,
   search
@@ -21214,10 +21214,10 @@ var fetchGroupPages = async ({
   };
 };
 
-// app/features/groups/groups-table.tsx
+// app/routes-features/groups/groups-table.tsx
 var import_react27 = require("@chakra-ui/react"), import_react28 = require("@remix-run/react"), import_dayjs = __toESM(require("dayjs"));
 
-// app/features/constants.ts
+// app/routes-features/constants.ts
 var paymentCycles = {
   Daily: {
     label: "Daily",
@@ -21233,7 +21233,7 @@ var paymentCycles = {
   }
 };
 
-// app/features/groups/groups-table.tsx
+// app/routes-features/groups/groups-table.tsx
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ items }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.TableContainer, {
   children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Table, {
     variant: "striped",
@@ -21246,7 +21246,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               w: "1%",
               children: "#"
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/routes-features/groups/groups-table.tsx",
               lineNumber: 23,
               columnNumber: 11
             }, this),
@@ -21254,7 +21254,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               w: "20%",
               children: "group name"
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/routes-features/groups/groups-table.tsx",
               lineNumber: 24,
               columnNumber: 11
             }, this),
@@ -21262,7 +21262,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               w: "20%",
               children: "created at"
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/routes-features/groups/groups-table.tsx",
               lineNumber: 25,
               columnNumber: 11
             }, this),
@@ -21270,7 +21270,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               w: "20%",
               children: "owner"
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/routes-features/groups/groups-table.tsx",
               lineNumber: 26,
               columnNumber: 11
             }, this),
@@ -21278,7 +21278,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               w: "10%",
               children: "balance"
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/routes-features/groups/groups-table.tsx",
               lineNumber: 27,
               columnNumber: 11
             }, this),
@@ -21286,7 +21286,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               w: "10%",
               children: "contribution"
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/routes-features/groups/groups-table.tsx",
               lineNumber: 28,
               columnNumber: 11
             }, this),
@@ -21294,18 +21294,18 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               w: "10%",
               children: "recurrency"
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/routes-features/groups/groups-table.tsx",
               lineNumber: 29,
               columnNumber: 11
             }, this)
           ]
         }, void 0, !0, {
-          fileName: "app/features/groups/groups-table.tsx",
+          fileName: "app/routes-features/groups/groups-table.tsx",
           lineNumber: 22,
           columnNumber: 9
         }, this)
       }, void 0, !1, {
-        fileName: "app/features/groups/groups-table.tsx",
+        fileName: "app/routes-features/groups/groups-table.tsx",
         lineNumber: 21,
         columnNumber: 7
       }, this),
@@ -21315,7 +21315,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
             /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
               children: row.index
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/routes-features/groups/groups-table.tsx",
               lineNumber: 36,
               columnNumber: 13
             }, this),
@@ -21326,12 +21326,12 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
                 to: `/groups/${row.id}`,
                 children: row.group_name
               }, void 0, !1, {
-                fileName: "app/features/groups/groups-table.tsx",
+                fileName: "app/routes-features/groups/groups-table.tsx",
                 lineNumber: 39,
                 columnNumber: 15
               }, this)
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/routes-features/groups/groups-table.tsx",
               lineNumber: 38,
               columnNumber: 13
             }, this),
@@ -21339,7 +21339,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
               w: "20%",
               children: (0, import_dayjs.default)(row.created_at).format("ddd DD MMM, YYYY")
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/routes-features/groups/groups-table.tsx",
               lineNumber: 42,
               columnNumber: 13
             }, this),
@@ -21350,12 +21350,12 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
                 to: `/users/${row.user.id}`,
                 children: row.user.displayName
               }, void 0, !1, {
-                fileName: "app/features/groups/groups-table.tsx",
+                fileName: "app/routes-features/groups/groups-table.tsx",
                 lineNumber: 45,
                 columnNumber: 15
               }, this)
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/routes-features/groups/groups-table.tsx",
               lineNumber: 44,
               columnNumber: 13
             }, this),
@@ -21367,12 +21367,12 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
                   currency: "USD"
                 }).format(row.group_balance ?? 0)
               }, void 0, !1, {
-                fileName: "app/features/groups/groups-table.tsx",
+                fileName: "app/routes-features/groups/groups-table.tsx",
                 lineNumber: 49,
                 columnNumber: 15
               }, this)
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/routes-features/groups/groups-table.tsx",
               lineNumber: 48,
               columnNumber: 13
             }, this),
@@ -21384,12 +21384,12 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
                   currency: "USD"
                 }).format(row.contribution) : void 0
               }, void 0, !1, {
-                fileName: "app/features/groups/groups-table.tsx",
+                fileName: "app/routes-features/groups/groups-table.tsx",
                 lineNumber: 58,
                 columnNumber: 15
               }, this)
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/routes-features/groups/groups-table.tsx",
               lineNumber: 57,
               columnNumber: 13
             }, this),
@@ -21405,44 +21405,44 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ 
                   color: "white",
                   children: row.recurrency ? paymentCycles[row.recurrency].label : void 0
                 }, void 0, !1, {
-                  fileName: "app/features/groups/groups-table.tsx",
+                  fileName: "app/routes-features/groups/groups-table.tsx",
                   lineNumber: 80,
                   columnNumber: 17
                 }, this)
               }, void 0, !1, {
-                fileName: "app/features/groups/groups-table.tsx",
+                fileName: "app/routes-features/groups/groups-table.tsx",
                 lineNumber: 69,
                 columnNumber: 15
               }, this)
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/routes-features/groups/groups-table.tsx",
               lineNumber: 68,
               columnNumber: 13
             }, this)
           ]
         }, i, !0, {
-          fileName: "app/features/groups/groups-table.tsx",
+          fileName: "app/routes-features/groups/groups-table.tsx",
           lineNumber: 35,
           columnNumber: 11
         }, this))
       }, void 0, !1, {
-        fileName: "app/features/groups/groups-table.tsx",
+        fileName: "app/routes-features/groups/groups-table.tsx",
         lineNumber: 33,
         columnNumber: 7
       }, this)
     ]
   }, void 0, !0, {
-    fileName: "app/features/groups/groups-table.tsx",
+    fileName: "app/routes-features/groups/groups-table.tsx",
     lineNumber: 20,
     columnNumber: 5
   }, this)
 }, void 0, !1, {
-  fileName: "app/features/groups/groups-table.tsx",
+  fileName: "app/routes-features/groups/groups-table.tsx",
   lineNumber: 19,
   columnNumber: 3
 }, this);
 
-// app/features/groups/group-listing-page.tsx
+// app/routes-features/groups/group-listing-page.tsx
 var import_react31 = require("@chakra-ui/react"), import_react32 = require("@remix-run/react");
 
 // app/modules/pagination/pagination.tsx
@@ -21693,7 +21693,7 @@ var Pagination = ({
   }, this);
 };
 
-// app/features/groups/group-listing-page.tsx
+// app/routes-features/groups/group-listing-page.tsx
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupListingPage = () => {
   let {
     items,
@@ -21717,7 +21717,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupListingPage 
             color: "gray.600",
             children: "Groups"
           }, void 0, !1, {
-            fileName: "app/features/groups/group-listing-page.tsx",
+            fileName: "app/routes-features/groups/group-listing-page.tsx",
             lineNumber: 29,
             columnNumber: 9
           }, this),
@@ -21730,13 +21730,13 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupListingPage 
             goNext: paging.increasePage,
             goPrev: paging.decreasePage
           }, void 0, !1, {
-            fileName: "app/features/groups/group-listing-page.tsx",
+            fileName: "app/routes-features/groups/group-listing-page.tsx",
             lineNumber: 32,
             columnNumber: 9
           }, this)
         ]
       }, void 0, !0, {
-        fileName: "app/features/groups/group-listing-page.tsx",
+        fileName: "app/routes-features/groups/group-listing-page.tsx",
         lineNumber: 28,
         columnNumber: 7
       }, this),
@@ -21744,26 +21744,26 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupListingPage 
         mt: "3",
         mb: "2"
       }, void 0, !1, {
-        fileName: "app/features/groups/group-listing-page.tsx",
+        fileName: "app/routes-features/groups/group-listing-page.tsx",
         lineNumber: 43,
         columnNumber: 7
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(GroupsTable, {
         items
       }, void 0, !1, {
-        fileName: "app/features/groups/group-listing-page.tsx",
+        fileName: "app/routes-features/groups/group-listing-page.tsx",
         lineNumber: 44,
         columnNumber: 7
       }, this)
     ]
   }, void 0, !0, {
-    fileName: "app/features/groups/group-listing-page.tsx",
+    fileName: "app/routes-features/groups/group-listing-page.tsx",
     lineNumber: 27,
     columnNumber: 5
   }, this);
 };
 
-// app/features/groups/group-info.tsx
+// app/routes-features/groups/group-info.tsx
 var import_react33 = require("@chakra-ui/react"), import_dayjs2 = __toESM(require("dayjs"));
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ group }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Panel, {
   children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Box, {
@@ -21774,7 +21774,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
         fontWeight: "light",
         children: "Information"
       }, void 0, !1, {
-        fileName: "app/features/groups/group-info.tsx",
+        fileName: "app/routes-features/groups/group-info.tsx",
         lineNumber: 11,
         columnNumber: 7
       }, this),
@@ -21782,7 +21782,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
         mt: "2",
         mb: "6"
       }, void 0, !1, {
-        fileName: "app/features/groups/group-info.tsx",
+        fileName: "app/routes-features/groups/group-info.tsx",
         lineNumber: 15,
         columnNumber: 7
       }, this),
@@ -21803,7 +21803,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
                     fontSize: "lg",
                     children: "group name"
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-info.tsx",
+                    fileName: "app/routes-features/groups/group-info.tsx",
                     lineNumber: 24,
                     columnNumber: 13
                   }, this),
@@ -21813,7 +21813,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
                     fontSize: "xl",
                     children: group.group_name
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-info.tsx",
+                    fileName: "app/routes-features/groups/group-info.tsx",
                     lineNumber: 27,
                     columnNumber: 13
                   }, this),
@@ -21826,13 +21826,13 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
                       (0, import_dayjs2.default)(group.created_at).format("ddd DD MMM, YYYY").toLocaleLowerCase()
                     ]
                   }, void 0, !0, {
-                    fileName: "app/features/groups/group-info.tsx",
+                    fileName: "app/routes-features/groups/group-info.tsx",
                     lineNumber: 30,
                     columnNumber: 13
                   }, this)
                 ]
               }, void 0, !0, {
-                fileName: "app/features/groups/group-info.tsx",
+                fileName: "app/routes-features/groups/group-info.tsx",
                 lineNumber: 23,
                 columnNumber: 11
               }, this),
@@ -21846,7 +21846,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
                     fontSize: "lg",
                     children: "balance"
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-info.tsx",
+                    fileName: "app/routes-features/groups/group-info.tsx",
                     lineNumber: 43,
                     columnNumber: 13
                   }, this),
@@ -21859,19 +21859,19 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
                       currency: "USD"
                     }).format(group.group_balance ?? 0)
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-info.tsx",
+                    fileName: "app/routes-features/groups/group-info.tsx",
                     lineNumber: 46,
                     columnNumber: 13
                   }, this)
                 ]
               }, void 0, !0, {
-                fileName: "app/features/groups/group-info.tsx",
+                fileName: "app/routes-features/groups/group-info.tsx",
                 lineNumber: 38,
                 columnNumber: 11
               }, this)
             ]
           }, void 0, !0, {
-            fileName: "app/features/groups/group-info.tsx",
+            fileName: "app/routes-features/groups/group-info.tsx",
             lineNumber: 18,
             columnNumber: 9
           }, this),
@@ -21883,7 +21883,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
                 fontSize: "lg",
                 children: "owner"
               }, void 0, !1, {
-                fileName: "app/features/groups/group-info.tsx",
+                fileName: "app/routes-features/groups/group-info.tsx",
                 lineNumber: 56,
                 columnNumber: 11
               }, this),
@@ -21893,35 +21893,35 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
                 fontSize: "xl",
                 children: group.user.displayName
               }, void 0, !1, {
-                fileName: "app/features/groups/group-info.tsx",
+                fileName: "app/routes-features/groups/group-info.tsx",
                 lineNumber: 59,
                 columnNumber: 11
               }, this)
             ]
           }, void 0, !0, {
-            fileName: "app/features/groups/group-info.tsx",
+            fileName: "app/routes-features/groups/group-info.tsx",
             lineNumber: 55,
             columnNumber: 9
           }, this)
         ]
       }, void 0, !0, {
-        fileName: "app/features/groups/group-info.tsx",
+        fileName: "app/routes-features/groups/group-info.tsx",
         lineNumber: 17,
         columnNumber: 7
       }, this)
     ]
   }, void 0, !0, {
-    fileName: "app/features/groups/group-info.tsx",
+    fileName: "app/routes-features/groups/group-info.tsx",
     lineNumber: 10,
     columnNumber: 5
   }, this)
 }, void 0, !1, {
-  fileName: "app/features/groups/group-info.tsx",
+  fileName: "app/routes-features/groups/group-info.tsx",
   lineNumber: 9,
   columnNumber: 3
 }, this);
 
-// app/features/groups/group-members.tsx
+// app/routes-features/groups/group-members.tsx
 var import_react34 = require("@chakra-ui/react"), import_react35 = require("@remix-run/react");
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupMembers = ({ group }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Panel, {
   mt: "4",
@@ -21932,7 +21932,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupMembers = ({
       fontWeight: "light",
       children: "Members"
     }, void 0, !1, {
-      fileName: "app/features/groups/group-members.tsx",
+      fileName: "app/routes-features/groups/group-members.tsx",
       lineNumber: 19,
       columnNumber: 5
     }, this),
@@ -21940,7 +21940,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupMembers = ({
       mt: "2",
       mb: "2"
     }, void 0, !1, {
-      fileName: "app/features/groups/group-members.tsx",
+      fileName: "app/routes-features/groups/group-members.tsx",
       lineNumber: 22,
       columnNumber: 5
     }, this),
@@ -21953,25 +21953,25 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupMembers = ({
                 p: 0,
                 children: "#"
               }, void 0, !1, {
-                fileName: "app/features/groups/group-members.tsx",
+                fileName: "app/routes-features/groups/group-members.tsx",
                 lineNumber: 26,
                 columnNumber: 11
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Th, {
                 children: "member name"
               }, void 0, !1, {
-                fileName: "app/features/groups/group-members.tsx",
+                fileName: "app/routes-features/groups/group-members.tsx",
                 lineNumber: 27,
                 columnNumber: 11
               }, this)
             ]
           }, void 0, !0, {
-            fileName: "app/features/groups/group-members.tsx",
+            fileName: "app/routes-features/groups/group-members.tsx",
             lineNumber: 25,
             columnNumber: 9
           }, this)
         }, void 0, !1, {
-          fileName: "app/features/groups/group-members.tsx",
+          fileName: "app/routes-features/groups/group-members.tsx",
           lineNumber: 24,
           columnNumber: 7
         }, this),
@@ -21983,7 +21983,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupMembers = ({
                 w: "5%",
                 children: m.index
               }, void 0, !1, {
-                fileName: "app/features/groups/group-members.tsx",
+                fileName: "app/routes-features/groups/group-members.tsx",
                 lineNumber: 33,
                 columnNumber: 13
               }, this),
@@ -21993,40 +21993,40 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupMembers = ({
                   to: `/users/${m.user.id}`,
                   children: m.user.displayName
                 }, void 0, !1, {
-                  fileName: "app/features/groups/group-members.tsx",
+                  fileName: "app/routes-features/groups/group-members.tsx",
                   lineNumber: 37,
                   columnNumber: 15
                 }, this)
               }, void 0, !1, {
-                fileName: "app/features/groups/group-members.tsx",
+                fileName: "app/routes-features/groups/group-members.tsx",
                 lineNumber: 36,
                 columnNumber: 13
               }, this)
             ]
           }, m.id, !0, {
-            fileName: "app/features/groups/group-members.tsx",
+            fileName: "app/routes-features/groups/group-members.tsx",
             lineNumber: 32,
             columnNumber: 11
           }, this))
         }, void 0, !1, {
-          fileName: "app/features/groups/group-members.tsx",
+          fileName: "app/routes-features/groups/group-members.tsx",
           lineNumber: 30,
           columnNumber: 7
         }, this)
       ]
     }, void 0, !0, {
-      fileName: "app/features/groups/group-members.tsx",
+      fileName: "app/routes-features/groups/group-members.tsx",
       lineNumber: 23,
       columnNumber: 5
     }, this)
   ]
 }, void 0, !0, {
-  fileName: "app/features/groups/group-members.tsx",
+  fileName: "app/routes-features/groups/group-members.tsx",
   lineNumber: 18,
   columnNumber: 3
 }, this);
 
-// app/features/groups/group-payments.tsx
+// app/routes-features/groups/group-payments.tsx
 var import_react36 = require("@chakra-ui/react"), import_react37 = require("@remix-run/react"), import_dayjs3 = __toESM(require("dayjs")), import_query_string = __toESM(require("query-string")), import_fa = require("react-icons/fa"), import_go2 = require("react-icons/go");
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = ({
   group
@@ -22054,7 +22054,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
             fontWeight: "light",
             children: "Payments"
           }, void 0, !1, {
-            fileName: "app/features/groups/group-payments.tsx",
+            fileName: "app/routes-features/groups/group-payments.tsx",
             lineNumber: 57,
             columnNumber: 9
           }, this),
@@ -22067,13 +22067,13 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
             goNext: paging.increasePage,
             goPrev: paging.decreasePage
           }, void 0, !1, {
-            fileName: "app/features/groups/group-payments.tsx",
+            fileName: "app/routes-features/groups/group-payments.tsx",
             lineNumber: 61,
             columnNumber: 9
           }, this)
         ]
       }, void 0, !0, {
-        fileName: "app/features/groups/group-payments.tsx",
+        fileName: "app/routes-features/groups/group-payments.tsx",
         lineNumber: 56,
         columnNumber: 7
       }, this),
@@ -22081,7 +22081,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
         mt: "2",
         mb: "2"
       }, void 0, !1, {
-        fileName: "app/features/groups/group-payments.tsx",
+        fileName: "app/routes-features/groups/group-payments.tsx",
         lineNumber: 72,
         columnNumber: 7
       }, this),
@@ -22097,46 +22097,46 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                 /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
                   children: "#"
                 }, void 0, !1, {
-                  fileName: "app/features/groups/group-payments.tsx",
+                  fileName: "app/routes-features/groups/group-payments.tsx",
                   lineNumber: 77,
                   columnNumber: 13
                 }, this),
                 /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
                   children: "amount"
                 }, void 0, !1, {
-                  fileName: "app/features/groups/group-payments.tsx",
+                  fileName: "app/routes-features/groups/group-payments.tsx",
                   lineNumber: 78,
                   columnNumber: 13
                 }, this),
                 /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
                   children: "member"
                 }, void 0, !1, {
-                  fileName: "app/features/groups/group-payments.tsx",
+                  fileName: "app/routes-features/groups/group-payments.tsx",
                   lineNumber: 79,
                   columnNumber: 13
                 }, this),
                 /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
                   children: "type"
                 }, void 0, !1, {
-                  fileName: "app/features/groups/group-payments.tsx",
+                  fileName: "app/routes-features/groups/group-payments.tsx",
                   lineNumber: 80,
                   columnNumber: 13
                 }, this),
                 /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
                   children: "status"
                 }, void 0, !1, {
-                  fileName: "app/features/groups/group-payments.tsx",
+                  fileName: "app/routes-features/groups/group-payments.tsx",
                   lineNumber: 81,
                   columnNumber: 13
                 }, this)
               ]
             }, void 0, !0, {
-              fileName: "app/features/groups/group-payments.tsx",
+              fileName: "app/routes-features/groups/group-payments.tsx",
               lineNumber: 76,
               columnNumber: 11
             }, this)
           }, void 0, !1, {
-            fileName: "app/features/groups/group-payments.tsx",
+            fileName: "app/routes-features/groups/group-payments.tsx",
             lineNumber: 75,
             columnNumber: 9
           }, this),
@@ -22150,7 +22150,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                     valign: "top",
                     children: p.index
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-payments.tsx",
+                    fileName: "app/routes-features/groups/group-payments.tsx",
                     lineNumber: 87,
                     columnNumber: 15
                   }, this),
@@ -22165,7 +22165,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                           currency: "USD"
                         }).format(p.amount ?? 0)
                       }, void 0, !1, {
-                        fileName: "app/features/groups/group-payments.tsx",
+                        fileName: "app/routes-features/groups/group-payments.tsx",
                         lineNumber: 91,
                         columnNumber: 17
                       }, this),
@@ -22174,13 +22174,13 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                         fontSize: "sm",
                         children: (0, import_dayjs3.default)(p.created_at).format("ddd DD MMM, YYYY, HH:mm").toLocaleLowerCase()
                       }, void 0, !1, {
-                        fileName: "app/features/groups/group-payments.tsx",
+                        fileName: "app/routes-features/groups/group-payments.tsx",
                         lineNumber: 106,
                         columnNumber: 17
                       }, this)
                     ]
                   }, void 0, !0, {
-                    fileName: "app/features/groups/group-payments.tsx",
+                    fileName: "app/routes-features/groups/group-payments.tsx",
                     lineNumber: 90,
                     columnNumber: 15
                   }, this),
@@ -22190,12 +22190,12 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                       to: `/users/${p.member.user.id}`,
                       children: p.member.user.displayName
                     }, void 0, !1, {
-                      fileName: "app/features/groups/group-payments.tsx",
+                      fileName: "app/routes-features/groups/group-payments.tsx",
                       lineNumber: 114,
                       columnNumber: 17
                     }, this)
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-payments.tsx",
+                    fileName: "app/routes-features/groups/group-payments.tsx",
                     lineNumber: 113,
                     columnNumber: 15
                   }, this),
@@ -22209,7 +22209,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                           fontSize: "xl",
                           color: `${p.transaction_type === "MoneyIn" ? "teal" : "orange"}.500`
                         }, void 0, !1, {
-                          fileName: "app/features/groups/group-payments.tsx",
+                          fileName: "app/routes-features/groups/group-payments.tsx",
                           lineNumber: 121,
                           columnNumber: 19
                         }, this),
@@ -22217,18 +22217,18 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                           color: `${p.transaction_type === "MoneyIn" ? "teal" : "orange"}.500`,
                           children: p.transaction_type === "MoneyIn" ? "deposit" : "withdraw"
                         }, void 0, !1, {
-                          fileName: "app/features/groups/group-payments.tsx",
+                          fileName: "app/routes-features/groups/group-payments.tsx",
                           lineNumber: 129,
                           columnNumber: 19
                         }, this)
                       ]
                     }, void 0, !0, {
-                      fileName: "app/features/groups/group-payments.tsx",
+                      fileName: "app/routes-features/groups/group-payments.tsx",
                       lineNumber: 120,
                       columnNumber: 17
                     }, this)
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-payments.tsx",
+                    fileName: "app/routes-features/groups/group-payments.tsx",
                     lineNumber: 119,
                     columnNumber: 15
                   }, this),
@@ -22242,36 +22242,36 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                       borderRadius: 6,
                       children: (_a2 = statuses[p.transaction_status].label) == null ? void 0 : _a2.toLocaleLowerCase()
                     }, void 0, !1, {
-                      fileName: "app/features/groups/group-payments.tsx",
+                      fileName: "app/routes-features/groups/group-payments.tsx",
                       lineNumber: 140,
                       columnNumber: 17
                     }, this)
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-payments.tsx",
+                    fileName: "app/routes-features/groups/group-payments.tsx",
                     lineNumber: 139,
                     columnNumber: 15
                   }, this)
                 ]
               }, p.id, !0, {
-                fileName: "app/features/groups/group-payments.tsx",
+                fileName: "app/routes-features/groups/group-payments.tsx",
                 lineNumber: 86,
                 columnNumber: 13
               }, this);
             })
           }, void 0, !1, {
-            fileName: "app/features/groups/group-payments.tsx",
+            fileName: "app/routes-features/groups/group-payments.tsx",
             lineNumber: 84,
             columnNumber: 9
           }, this)
         ]
       }, void 0, !0, {
-        fileName: "app/features/groups/group-payments.tsx",
+        fileName: "app/routes-features/groups/group-payments.tsx",
         lineNumber: 74,
         columnNumber: 7
       }, this)
     ]
   }, void 0, !0, {
-    fileName: "app/features/groups/group-payments.tsx",
+    fileName: "app/routes-features/groups/group-payments.tsx",
     lineNumber: 55,
     columnNumber: 5
   }, this);
@@ -22344,7 +22344,7 @@ __export(groupid_exports, {
 });
 var import_react39 = require("@chakra-ui/react"), import_react40 = require("@remix-run/react");
 
-// app/features/groups/fetch-one-group.tsx
+// app/routes-features/groups/fetch-one-group.tsx
 var fetchOneGroup = async ({
   groupid,
   paymentPage
@@ -22540,7 +22540,7 @@ function Index7() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "a799e85e", entry: { module: "/build/entry.client-PISS6W26.js", imports: ["/build/_shared/chunk-ODAAP2UF.js", "/build/_shared/chunk-3ROUW56H.js", "/build/_shared/chunk-TTBKISHK.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-RCLHXNAX.js", imports: ["/build/_shared/chunk-S73EG7XY.js", "/build/_shared/chunk-B7AQKOXM.js", "/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-SSQ6G2JR.js", "/build/_shared/chunk-NDD2BM44.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/authenticate": { id: "routes/authenticate", parentId: "root", path: "authenticate", index: void 0, caseSensitive: void 0, module: "/build/routes/authenticate-NVBF727G.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups": { id: "routes/groups", parentId: "root", path: "groups", index: void 0, caseSensitive: void 0, module: "/build/routes/groups-MJJPUFUB.js", imports: ["/build/_shared/chunk-NHBFHPQU.js", "/build/_shared/chunk-WKTAQAMU.js", "/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups/$groupid": { id: "routes/groups/$groupid", parentId: "routes/groups", path: ":groupid", index: void 0, caseSensitive: void 0, module: "/build/routes/groups/$groupid-LTPDOY5S.js", imports: ["/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-NDD2BM44.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-TFGY2CWK.js", imports: ["/build/_shared/chunk-WKTAQAMU.js", "/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/payments": { id: "routes/payments", parentId: "root", path: "payments", index: void 0, caseSensitive: void 0, module: "/build/routes/payments-ZO6R4CMY.js", imports: ["/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/settings": { id: "routes/settings", parentId: "root", path: "settings", index: void 0, caseSensitive: void 0, module: "/build/routes/settings-EGUPOHMV.js", imports: ["/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/users": { id: "routes/users", parentId: "root", path: "users", index: void 0, caseSensitive: void 0, module: "/build/routes/users-TNM32H7O.js", imports: ["/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-A799E85E.js" };
+var assets_manifest_default = { version: "5a57beb8", entry: { module: "/build/entry.client-PISS6W26.js", imports: ["/build/_shared/chunk-ODAAP2UF.js", "/build/_shared/chunk-3ROUW56H.js", "/build/_shared/chunk-TTBKISHK.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-RCLHXNAX.js", imports: ["/build/_shared/chunk-S73EG7XY.js", "/build/_shared/chunk-B7AQKOXM.js", "/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-SSQ6G2JR.js", "/build/_shared/chunk-NDD2BM44.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/authenticate": { id: "routes/authenticate", parentId: "root", path: "authenticate", index: void 0, caseSensitive: void 0, module: "/build/routes/authenticate-NNBYWTFB.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups": { id: "routes/groups", parentId: "root", path: "groups", index: void 0, caseSensitive: void 0, module: "/build/routes/groups-WRUYKSOM.js", imports: ["/build/_shared/chunk-NHBFHPQU.js", "/build/_shared/chunk-WKTAQAMU.js", "/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups/$groupid": { id: "routes/groups/$groupid", parentId: "routes/groups", path: ":groupid", index: void 0, caseSensitive: void 0, module: "/build/routes/groups/$groupid-LAPSRSAS.js", imports: ["/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-NDD2BM44.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-TFGY2CWK.js", imports: ["/build/_shared/chunk-WKTAQAMU.js", "/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/payments": { id: "routes/payments", parentId: "root", path: "payments", index: void 0, caseSensitive: void 0, module: "/build/routes/payments-ZO6R4CMY.js", imports: ["/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/settings": { id: "routes/settings", parentId: "root", path: "settings", index: void 0, caseSensitive: void 0, module: "/build/routes/settings-EGUPOHMV.js", imports: ["/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/users": { id: "routes/users", parentId: "root", path: "users", index: void 0, caseSensitive: void 0, module: "/build/routes/users-TNM32H7O.js", imports: ["/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-5A57BEB8.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

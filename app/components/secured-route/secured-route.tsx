@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthenticationStatus } from "@nhost/react";
 import { useNavigate } from "@remix-run/react";
 
-import { auth } from "~/components-features/nhost";
+import { auth } from "~/modules/nhost";
 
 export const SecuredRoute: React.FC<React.PropsWithChildren> = ({
   children,
