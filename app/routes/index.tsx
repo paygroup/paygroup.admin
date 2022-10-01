@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import type { MetaFunction } from "@remix-run/node";
 import { FiGrid } from "react-icons/fi";
 
@@ -13,6 +15,11 @@ export const handle = {
 };
 
 export default function Index() {
+  useEffect(() => {
+    const nhost_session = window.sessionStorage.getItem("nhost_session");
+    console.log({ nhost_session });
+  }, []);
+
   return (
     <SecuredRoute>
       <Panel>content</Panel>

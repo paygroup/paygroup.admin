@@ -19,6 +19,7 @@
     "@emotion/styled": "^11",
     "@genql/runtime": "^2.10.0",
     "@netlify/functions": "^1.0.0",
+    "@nhost/nextjs": "^1.7.6",
     "@nhost/nhost-js": "^1.5.0",
     "@nhost/react": "^0.13.0",
     "@remix-run/netlify": "^1.7.1",

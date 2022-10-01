@@ -17,7 +17,7 @@ export const RootPage = ({
   const { isAuthenticated } = useAuthenticationStatus();
   const { isOpen, headerHeight, isAuthpage, onToggle } = usePageLayout();
 
-  if (!isAuthenticated || isAuthpage) {
+  if (isAuthpage) {
     return <>{children}</>;
   }
 

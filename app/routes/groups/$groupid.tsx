@@ -2,10 +2,9 @@ import { Box, Flex } from "@chakra-ui/react";
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
-import { SecuredRoute } from "~/components";
-import { GroupInfo, GroupMembers, GroupPayments } from "~/routes-features/groups";
-import { fetchOneGroup } from "~/routes-features/groups/fetch-one-group";
-import type { GroupExtended } from "~/routes-features/groups/types";
+import { GroupInfo, GroupMembers, GroupPayments } from "~/features/groups";
+import { fetchOneGroup } from "~/features/groups/fetch-one-group";
+import type { GroupExtended } from "~/features/groups/types";
 
 export const meta: MetaFunction = () => ({
   title: "paygroup - view group",
@@ -26,28 +25,26 @@ export const loader: LoaderFunction = async ({ params, request }) => {
 export default function Index() {
   const group = useLoaderData<ReturnType<typeof fetchOneGroup>>();
   return (
-    <SecuredRoute>
+    <Flex
+      flex={1}
+      className="flex-1"
+      flexDirection={{ base: "column", lg: "row" }}
+    >
       <Flex
-        flex={1}
-        className="flex-1"
-        flexDirection={{ base: "column", lg: "row" }}
+        className="flex-2"
+        flex={{ base: 1, xl: 2 }}
+        flexDirection="column"
+        mr={{ base: "0", lg: "4" }}
       >
-        <Flex
-          className="flex-2"
-          flex={{ base: 1, xl: 2 }}
-          flexDirection="column"
-          mr={{ base: "0", lg: "4" }}
-        >
-          <GroupInfo group={group as GroupExtended} />
-          <GroupMembers group={group as GroupExtended} />
-        </Flex>
-
-        <Flex className="flex-3" flex={{ base: 1, xl: 4 }}>
-          <Box flex={1} w="100%">
-            <GroupPayments group={group as GroupExtended} />
-          </Box>
-        </Flex>
+        <GroupInfo group={group as GroupExtended} />
+        <GroupMembers group={group as GroupExtended} />
       </Flex>
-    </SecuredRoute>
+
+      <Flex className="flex-3" flex={{ base: 1, xl: 4 }}>
+        <Box flex={1} w="100%">
+          <GroupPayments group={group as GroupExtended} />
+        </Box>
+      </Flex>
+    </Flex>
   );
 }

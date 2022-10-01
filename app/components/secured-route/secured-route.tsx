@@ -13,9 +13,11 @@ export const SecuredRoute: React.FC<React.PropsWithChildren> = ({
   const [signed, setSigned] = useState(isAuthenticated);
   const navigate = useNavigate();
 
+  console.log({ isAuthenticated });
+
   useEffect(() => {
     if (!signed) {
-      navigate("/authenticate");
+      // navigate("/authenticate");
     }
   }, [signed]);
 
@@ -28,9 +30,9 @@ export const SecuredRoute: React.FC<React.PropsWithChildren> = ({
     };
   }, []);
 
-  if (!signed) {
-    return <></>;
-  }
+  // if (!signed) {
+  //   return <></>;
+  // }
 
   return <>{children}</>;
 };
