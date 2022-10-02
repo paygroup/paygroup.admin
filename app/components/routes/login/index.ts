@@ -1,1 +1,2 @@
-export * from "./nhost-authenticate";
+export * from "./nhost-login";
+export * from "./authenticator";

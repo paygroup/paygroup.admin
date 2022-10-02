@@ -1,9 +1,8 @@
-import { useEffect } from "react";
-
-import type { MetaFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { FiGrid } from "react-icons/fi";
 
-import { Panel, SecuredRoute } from "~/components/core";
+import { Panel } from "~/components/core";
+import { authenticator } from "~/components/routes";
 
 export const meta: MetaFunction = () => ({
   title: "paygroup - dashboard",
@@ -14,15 +13,14 @@ export const handle = {
   icon: FiGrid,
 };
 
-export default function Index() {
-  useEffect(() => {
-    const nhost_session = window.sessionStorage.getItem("nhost_session");
-    console.log({ nhost_session });
-  }, []);
+export const loader: LoaderFunction = async ({ request }) => {
+  console.log("dashboard page");
+  await authenticator.isAuthenticated(request, {
+    failureRedirect: "/login",
+  });
+  return null;
+};
 
-  return (
-    <SecuredRoute>
-      <Panel>content</Panel>
-    </SecuredRoute>
-  );
+export default function Index() {
+  return <Panel>content</Panel>;
 }

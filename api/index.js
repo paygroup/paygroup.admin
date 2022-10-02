@@ -20815,17 +20815,6 @@ var import_react19 = require("@chakra-ui/react"), import_jsx_dev_runtime = requi
   columnNumber: 3
 }, this);
 
-// app/components/core/secured-route/secured-route.tsx
-var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), SecuredRoute = ({
-  children
-}) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {
-  children
-}, void 0, !1, {
-  fileName: "app/components/core/secured-route/secured-route.tsx",
-  lineNumber: 6,
-  columnNumber: 7
-}, this);
-
 // app/routes/payments.tsx
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), meta2 = () => ({
   title: "paygroup - payments"
@@ -22113,14 +22102,42 @@ __export(groupid_exports, {
 });
 var import_react32 = require("@chakra-ui/react"), import_react33 = require("@remix-run/react");
 
-// app/components/routes/login/nhost-authenticate.ts
-var import_nextjs = require("@nhost/nextjs"), nhostAuthenticate = async (props) => {
+// app/components/routes/login/nhost-login.ts
+var import_nextjs = require("@nhost/nextjs"), nhostLogin = async (props) => {
   let { email, password } = props;
   return (await (0, import_nextjs.createServerSideClient)(
     "https://xdwipkiowyoinqhbqher.nhost.run",
     {}
   )).auth.signIn({ email, password });
 };
+
+// app/components/routes/login/authenticator.ts
+var import_remix_auth = require("remix-auth"), import_remix_auth_form = require("remix-auth-form");
+
+// app/components/routes/login/session-storage.ts
+var import_node = require("@remix-run/node"), sessionStorage = (0, import_node.createCookieSessionStorage)({
+  cookie: {
+    name: "_nhost",
+    sameSite: "lax",
+    path: "/",
+    httpOnly: !0,
+    secrets: ["s3cr3t"],
+    secure: !1
+  }
+}), { getSession, commitSession, destroySession } = sessionStorage;
+
+// app/components/routes/login/authenticator.ts
+var authenticator = new import_remix_auth.Authenticator(sessionStorage);
+authenticator.use(
+  new import_remix_auth_form.FormStrategy(async ({ form }) => {
+    var _a, _b;
+    let email = form.get("email"), password = form.get("password"), res = await nhostLogin({ email, password });
+    if (!((_a = res.session) != null && _a.user))
+      throw console.log("user not found", { email, password }), "user not found";
+    return (_b = res.session) == null ? void 0 : _b.user;
+  }),
+  "nhost_auth"
+);
 
 // app/components/routes/groups/fetch-one-group.tsx
 var fetchOneGroup = async ({
@@ -22262,31 +22279,25 @@ var routes_exports = {};
 __export(routes_exports, {
   default: () => Index5,
   handle: () => handle5,
+  loader: () => loader3,
   meta: () => meta6
 });
-var import_react34 = require("react"), import_fi5 = require("react-icons/fi");
+var import_fi5 = require("react-icons/fi");
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), meta6 = () => ({
   title: "paygroup - dashboard"
 }), handle5 = {
   breadcrumb: "dashboard",
   icon: import_fi5.FiGrid
-};
+}, loader3 = async ({ request }) => (console.log("dashboard page"), await authenticator.isAuthenticated(request, {
+  failureRedirect: "/login"
+}), null);
 function Index5() {
-  return (0, import_react34.useEffect)(() => {
-    let nhost_session = window.sessionStorage.getItem("nhost_session");
-    console.log({ nhost_session });
-  }, []), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(SecuredRoute, {
-    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Panel, {
-      children: "content"
-    }, void 0, !1, {
-      fileName: "app/routes/index.tsx",
-      lineNumber: 25,
-      columnNumber: 7
-    }, this)
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Panel, {
+    children: "content"
   }, void 0, !1, {
     fileName: "app/routes/index.tsx",
-    lineNumber: 24,
-    columnNumber: 5
+    lineNumber: 25,
+    columnNumber: 10
   }, this);
 }
 
@@ -22294,43 +22305,27 @@ function Index5() {
 var login_exports = {};
 __export(login_exports, {
   action: () => action,
-  default: () => Index6
+  default: () => Index6,
+  loader: () => loader4
 });
-var import_react35 = require("@chakra-ui/react"), import_react36 = require("@remix-run/react");
-
-// app/components/routes/login/session-authenticator.ts
-var import_remix_auth = require("remix-auth"), import_remix_auth_form = require("remix-auth-form");
-
-// app/components/routes/login/session-storage.ts
-var import_node = require("@remix-run/node"), sessionStorage = (0, import_node.createCookieSessionStorage)({
-  cookie: {
-    name: "_nhost",
-    sameSite: "lax",
-    path: "/",
-    httpOnly: !0,
-    secrets: ["s3cr3t"],
-    secure: !1
+var import_react34 = require("@chakra-ui/react"), import_node2 = require("@remix-run/node"), import_react35 = require("@remix-run/react");
+var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), EnhancedForm = (0, import_react34.chakra)(import_react35.Form), action = async ({ request }) => {
+  try {
+    await authenticator.authenticate("nhost_auth", request, {
+      successRedirect: "/",
+      throwOnError: !0
+    });
+  } catch (error) {
+    return console.log("error", error), (0, import_node2.json)({ error: "authentication failed" });
   }
-}), { getSession, commitSession, destroySession } = sessionStorage;
-
-// app/components/routes/login/session-authenticator.ts
-var authenticator = new import_remix_auth.Authenticator(sessionStorage);
-authenticator.use(
-  new import_remix_auth_form.FormStrategy(async ({ form }) => {
-    let email = form.get("email"), password = form.get("password");
-    return (await nhostAuthenticate({ email, password })).session;
-  }),
-  "nhost_auth"
-);
-
-// app/routes/login.tsx
-var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), EnhancedForm = (0, import_react35.chakra)(import_react36.Form), action = async ({ request }) => authenticator.authenticate("nhost_auth", request, {
-  successRedirect: "/",
-  failureRedirect: "/login"
-});
+}, loader4 = async ({ request }) => {
+  await authenticator.isAuthenticated(request, {});
+  let error = (await getSession(request.headers.get("cookie"))).get(authenticator.sessionErrorKey);
+  return error ? (0, import_node2.json)({ error }) : null;
+};
 function Index6() {
-  let { state } = (0, import_react36.useTransition)();
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(EnhancedForm, {
+  let { state } = (0, import_react35.useTransition)(), res = (0, import_react35.useActionData)();
+  return console.log("action data", res), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(EnhancedForm, {
     h: "100%",
     bg: "gray.50",
     display: "flex",
@@ -22340,7 +22335,7 @@ function Index6() {
     method: "post",
     action: "/login",
     children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Flex, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Flex, {
         h: "24%",
         mb: ["4", "2"],
         color: "primary.500",
@@ -22348,7 +22343,7 @@ function Index6() {
         justifyContent: ["flex-end"],
         alignItems: ["center", "flex-end", "flex-end"],
         children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Heading, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Heading, {
             mr: "2",
             fontWeight: "light",
             fontSize: ["36px", "48px"],
@@ -22356,30 +22351,30 @@ function Index6() {
             children: "welcome to"
           }, void 0, !1, {
             fileName: "app/routes/login.tsx",
-            lineNumber: 47,
+            lineNumber: 70,
             columnNumber: 9
           }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Heading, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Heading, {
             fontSize: ["40px", "48px"],
             children: "paygroup"
           }, void 0, !1, {
             fileName: "app/routes/login.tsx",
-            lineNumber: 55,
+            lineNumber: 78,
             columnNumber: 9
           }, this)
         ]
       }, void 0, !0, {
         fileName: "app/routes/login.tsx",
-        lineNumber: 39,
+        lineNumber: 62,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Flex, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Flex, {
         w: ["100%", null, "65%", "30%", "33%", "24%"],
         flex: 1,
         alignItems: "center",
         flexDirection: "column",
         children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Heading, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Heading, {
             color: "gray.600",
             fontSize: ["3xl", "4xl"],
             fontWeight: "light",
@@ -22387,16 +22382,16 @@ function Index6() {
             children: "log in to your account"
           }, void 0, !1, {
             fileName: "app/routes/login.tsx",
-            lineNumber: 64,
+            lineNumber: 87,
             columnNumber: 9
           }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Flex, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Flex, {
             w: "100%",
             flexDirection: "column",
             px: ["4", "0"],
             children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.FormControl, {
-                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Input, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.FormControl, {
+                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Input, {
                   bg: "white",
                   size: "lg",
                   type: "email",
@@ -22408,23 +22403,24 @@ function Index6() {
                   borderBottomRightRadius: 0,
                   borderBottomWidth: 0,
                   _focus: {
-                    borderBottomWidth: 1
+                    borderBottomWidth: 1,
+                    bg: "white"
                   }
                 }, void 0, !1, {
                   fileName: "app/routes/login.tsx",
-                  lineNumber: 75,
+                  lineNumber: 98,
                   columnNumber: 13
                 }, this)
               }, void 0, !1, {
                 fileName: "app/routes/login.tsx",
-                lineNumber: 74,
+                lineNumber: 97,
                 columnNumber: 11
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.FormControl, {
-                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Input, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.FormControl, {
+                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Input, {
                   bg: "white",
                   size: "lg",
-                  name: "usrpassword",
+                  name: "password",
                   type: "password",
                   placeholder: "password",
                   autoComplete: "new-password",
@@ -22434,49 +22430,49 @@ function Index6() {
                   borderTopRightRadius: 0
                 }, void 0, !1, {
                   fileName: "app/routes/login.tsx",
-                  lineNumber: 93,
+                  lineNumber: 117,
                   columnNumber: 13
                 }, this)
               }, void 0, !1, {
                 fileName: "app/routes/login.tsx",
-                lineNumber: 92,
+                lineNumber: 116,
                 columnNumber: 11
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.HStack, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.HStack, {
                 my: ["10", null, null, "6"],
                 justifyContent: "space-between",
                 mx: "1",
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Checkbox, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Checkbox, {
                     defaultChecked: !0,
                     children: "remember me"
                   }, void 0, !1, {
                     fileName: "app/routes/login.tsx",
-                    lineNumber: 112,
+                    lineNumber: 136,
                     columnNumber: 13
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Box, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Box, {
                     color: "blue.500",
-                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Link, {
+                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Link, {
                       to: "",
                       children: "forgot password"
                     }, void 0, !1, {
                       fileName: "app/routes/login.tsx",
-                      lineNumber: 114,
+                      lineNumber: 138,
                       columnNumber: 15
                     }, this)
                   }, void 0, !1, {
                     fileName: "app/routes/login.tsx",
-                    lineNumber: 113,
+                    lineNumber: 137,
                     columnNumber: 13
                   }, this)
                 ]
               }, void 0, !0, {
                 fileName: "app/routes/login.tsx",
-                lineNumber: 107,
+                lineNumber: 131,
                 columnNumber: 11
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Button, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Button, {
                 colorScheme: "primary",
                 size: "lg",
                 type: "submit",
@@ -22486,25 +22482,25 @@ function Index6() {
                 children: "sign in"
               }, void 0, !1, {
                 fileName: "app/routes/login.tsx",
-                lineNumber: 118,
+                lineNumber: 142,
                 columnNumber: 11
               }, this)
             ]
           }, void 0, !0, {
             fileName: "app/routes/login.tsx",
-            lineNumber: 73,
+            lineNumber: 96,
             columnNumber: 9
           }, this)
         ]
       }, void 0, !0, {
         fileName: "app/routes/login.tsx",
-        lineNumber: 58,
+        lineNumber: 81,
         columnNumber: 7
       }, this)
     ]
   }, void 0, !0, {
     fileName: "app/routes/login.tsx",
-    lineNumber: 29,
+    lineNumber: 52,
     columnNumber: 5
   }, this);
 }
@@ -22534,7 +22530,7 @@ function Index7() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "e4327e35", entry: { module: "/build/entry.client-SXPQSB7Q.js", imports: ["/build/_shared/chunk-ODAAP2UF.js", "/build/_shared/chunk-5NVRQWZG.js", "/build/_shared/chunk-TTBKISHK.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-FQBWXTB5.js", imports: ["/build/_shared/chunk-S73EG7XY.js", "/build/_shared/chunk-B7AQKOXM.js", "/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-SSQ6G2JR.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups": { id: "routes/groups", parentId: "root", path: "groups", index: void 0, caseSensitive: void 0, module: "/build/routes/groups-E5F6QWR4.js", imports: ["/build/_shared/chunk-QFRJLUCS.js", "/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups/$groupid": { id: "routes/groups/$groupid", parentId: "routes/groups", path: ":groupid", index: void 0, caseSensitive: void 0, module: "/build/routes/groups/$groupid-AGER7VSY.js", imports: ["/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-BHHXAGWO.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-M2V2U7LQ.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/payments": { id: "routes/payments", parentId: "root", path: "payments", index: void 0, caseSensitive: void 0, module: "/build/routes/payments-2UZRPM4U.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/settings": { id: "routes/settings", parentId: "root", path: "settings", index: void 0, caseSensitive: void 0, module: "/build/routes/settings-2XYVMWJG.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/users": { id: "routes/users", parentId: "root", path: "users", index: void 0, caseSensitive: void 0, module: "/build/routes/users-ZBBTCVRN.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-E4327E35.js" };
+var assets_manifest_default = { version: "4369404d", entry: { module: "/build/entry.client-WWU5C7VJ.js", imports: ["/build/_shared/chunk-ODAAP2UF.js", "/build/_shared/chunk-J3T6HEFQ.js", "/build/_shared/chunk-TTBKISHK.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-DP74VNJ2.js", imports: ["/build/_shared/chunk-S73EG7XY.js", "/build/_shared/chunk-B7AQKOXM.js", "/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-SSQ6G2JR.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups": { id: "routes/groups", parentId: "root", path: "groups", index: void 0, caseSensitive: void 0, module: "/build/routes/groups-MPMZP6NZ.js", imports: ["/build/_shared/chunk-QFRJLUCS.js", "/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups/$groupid": { id: "routes/groups/$groupid", parentId: "routes/groups", path: ":groupid", index: void 0, caseSensitive: void 0, module: "/build/routes/groups/$groupid-TFGUFUAK.js", imports: ["/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-MK5AKUPD.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-E7Y5A6LD.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/payments": { id: "routes/payments", parentId: "root", path: "payments", index: void 0, caseSensitive: void 0, module: "/build/routes/payments-2UZRPM4U.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/settings": { id: "routes/settings", parentId: "root", path: "settings", index: void 0, caseSensitive: void 0, module: "/build/routes/settings-2XYVMWJG.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/users": { id: "routes/users", parentId: "root", path: "users", index: void 0, caseSensitive: void 0, module: "/build/routes/users-ZBBTCVRN.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-4369404D.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

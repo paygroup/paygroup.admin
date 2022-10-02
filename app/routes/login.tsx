@@ -9,21 +9,44 @@ import {
   Box,
   chakra,
 } from "@chakra-ui/react";
-import type { ActionFunction } from "@remix-run/node";
-import { Link, useTransition, Form } from "@remix-run/react";
+import type { ActionFunction, LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { Link, useTransition, Form, useActionData } from "@remix-run/react";
 
-import { authenticator } from "~/components/routes/login/session-authenticator";
+import { authenticator } from "~/components/routes/login/authenticator";
+import { getSession } from "~/components/routes/login/session-storage";
 
 const EnhancedForm = chakra(Form);
 
-export const action: ActionFunction = async ({ request }) =>
-  authenticator.authenticate("nhost_auth", request, {
-    successRedirect: "/",
-    failureRedirect: "/login",
+export const action: ActionFunction = async ({ request }) => {
+  try {
+    await authenticator.authenticate("nhost_auth", request, {
+      successRedirect: "/",
+      throwOnError: true,
+    });
+  } catch (error) {
+    console.log("error", error);
+    return json({ error: "authentication failed" });
+  }
+};
+
+export const loader: LoaderFunction = async ({ request }) => {
+  await authenticator.isAuthenticated(request, {
+    // successRedirect: "/",
   });
+  const session = await getSession(request.headers.get("cookie"));
+  const error = session.get(authenticator.sessionErrorKey);
+  if (error) {
+    return json({ error });
+  }
+  return null;
+};
 
 export default function Index() {
   const { state } = useTransition();
+  const res = useActionData();
+
+  console.log("action data", res);
 
   return (
     <EnhancedForm
@@ -85,6 +108,7 @@ export default function Index() {
               borderBottomWidth={0}
               _focus={{
                 borderBottomWidth: 1,
+                bg: "white",
               }}
             />
           </FormControl>
@@ -93,7 +117,7 @@ export default function Index() {
             <Input
               bg="white"
               size="lg"
-              name="usrpassword"
+              name="password"
               type="password"
               placeholder="password"
               autoComplete="new-password"

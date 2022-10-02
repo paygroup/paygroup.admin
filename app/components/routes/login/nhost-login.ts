@@ -1,6 +1,6 @@
 import { createServerSideClient } from "@nhost/nextjs";
 
-export const nhostAuthenticate = async (props: {
+export const nhostLogin = async (props: {
   email: string;
   password: string;
 }) => {
@@ -11,3 +11,5 @@ export const nhostAuthenticate = async (props: {
   );
   return client.auth.signIn({ email, password });
 };
+
+export type NhostLogin = Awaited<ReturnType<typeof nhostLogin>>;
