@@ -1,8 +1,9 @@
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 import { FiGrid } from "react-icons/fi";
 
 import { Panel } from "~/components/core";
-import { authenticator } from "~/components/routes";
+import { isAuthenticated } from "~/components/modules/authentication/check-auhenticated";
 
 export const meta: MetaFunction = () => ({
   title: "paygroup - dashboard",
@@ -13,13 +14,8 @@ export const handle = {
   icon: FiGrid,
 };
 
-export const loader: LoaderFunction = async ({ request }) => {
-  console.log("dashboard page");
-  await authenticator.isAuthenticated(request, {
-    failureRedirect: "/login",
-  });
-  return null;
-};
+export const loader: LoaderFunction = async ({ request }) =>
+  isAuthenticated(request).then((ok) => (ok ? null : redirect("/login")));
 
 export default function Index() {
   return <Panel>content</Panel>;

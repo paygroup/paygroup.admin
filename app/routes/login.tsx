@@ -9,44 +9,26 @@ import {
   Box,
   chakra,
 } from "@chakra-ui/react";
-import type { ActionFunction, LoaderFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
+import type { ActionFunction } from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
 import { Link, useTransition, Form, useActionData } from "@remix-run/react";
 
-import { authenticator } from "~/components/routes/login/authenticator";
-import { getSession } from "~/components/routes/login/session-storage";
+import { authenticate } from "~/components/modules/authentication";
 
 const EnhancedForm = chakra(Form);
 
 export const action: ActionFunction = async ({ request }) => {
-  try {
-    await authenticator.authenticate("nhost_auth", request, {
-      successRedirect: "/",
-      throwOnError: true,
-    });
-  } catch (error) {
-    console.log("error", error);
-    return json({ error: "authentication failed" });
-  }
-};
-
-export const loader: LoaderFunction = async ({ request }) => {
-  await authenticator.isAuthenticated(request, {
-    // successRedirect: "/",
-  });
-  const session = await getSession(request.headers.get("cookie"));
-  const error = session.get(authenticator.sessionErrorKey);
-  if (error) {
-    return json({ error });
-  }
-  return null;
+  console.log("processing call");
+  return authenticate(request)
+    .then(() => redirect("/"))
+    .catch(() => json({ error: "User not found" }));
 };
 
 export default function Index() {
   const { state } = useTransition();
   const res = useActionData();
 
-  console.log("action data", res);
+  console.log("action res", res);
 
   return (
     <EnhancedForm
