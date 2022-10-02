@@ -10,19 +10,15 @@ import {
   chakra,
 } from "@chakra-ui/react";
 import type { ActionFunction } from "@remix-run/node";
-import { json, redirect } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { Link, useTransition, Form, useActionData } from "@remix-run/react";
 
 import { authenticate } from "~/components/modules/authentication";
 
 const EnhancedForm = chakra(Form);
 
-export const action: ActionFunction = async ({ request }) => {
-  console.log("processing call");
-  return authenticate(request)
-    .then(() => redirect("/"))
-    .catch(() => json({ error: "User not found" }));
-};
+export const action: ActionFunction = async ({ request }) =>
+  authenticate(request).catch(() => json({ error: "User not found" }));
 
 export default function Index() {
   const { state } = useTransition();

@@ -21,15 +21,9 @@ export const authenticate = async (request: Request) => {
 
     session.set(SESSION_KEY, user);
 
-    const result = await sessionStorage.commitSession(session);
-
-    console.log({ result });
-
-    redirect("/", {
+    return redirect("/", {
       headers: { "Set-Cookie": await sessionStorage.commitSession(session) },
     });
-
-    return true;
   }
 
   throw "User not found";

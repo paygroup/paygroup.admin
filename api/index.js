@@ -22267,10 +22267,7 @@ var import_node = require("@remix-run/node"), sessionStorage = (0, import_node.c
 }), { getSession, commitSession, destroySession } = sessionStorage;
 
 // app/components/modules/authentication/check-auhenticated.ts
-var isAuthenticated = async (request) => {
-  let user = ((0, import_node2.isSession)(request) ? request : await sessionStorage.getSession(request.headers.get("Cookie"))).get(SESSION_KEY);
-  return console.log({ user }), !!user;
-};
+var isAuthenticated = async (request) => !!((0, import_node2.isSession)(request) ? request : await sessionStorage.getSession(request.headers.get("Cookie"))).get(SESSION_KEY);
 
 // app/routes/index.tsx
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), meta6 = () => ({
@@ -22317,17 +22314,15 @@ var authenticate = async (request) => {
     let session = await sessionStorage.getSession(
       request.headers.get("Cookie")
     );
-    session.set(SESSION_KEY, user);
-    let result = await sessionStorage.commitSession(session);
-    return console.log({ result }), (0, import_node4.redirect)("/", {
+    return session.set(SESSION_KEY, user), (0, import_node4.redirect)("/", {
       headers: { "Set-Cookie": await sessionStorage.commitSession(session) }
-    }), !0;
+    });
   }
   throw "User not found";
 };
 
 // app/routes/login.tsx
-var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), EnhancedForm = (0, import_react34.chakra)(import_react35.Form), action = async ({ request }) => (console.log("processing call"), authenticate(request).then(() => (0, import_node5.redirect)("/")).catch(() => (0, import_node5.json)({ error: "User not found" })));
+var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), EnhancedForm = (0, import_react34.chakra)(import_react35.Form), action = async ({ request }) => authenticate(request).catch(() => (0, import_node5.json)({ error: "User not found" }));
 function Index6() {
   let { state } = (0, import_react35.useTransition)(), res = (0, import_react35.useActionData)();
   return console.log("action res", res), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(EnhancedForm, {
@@ -22356,7 +22351,7 @@ function Index6() {
             children: "welcome to"
           }, void 0, !1, {
             fileName: "app/routes/login.tsx",
-            lineNumber: 52,
+            lineNumber: 48,
             columnNumber: 9
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Heading, {
@@ -22364,13 +22359,13 @@ function Index6() {
             children: "paygroup"
           }, void 0, !1, {
             fileName: "app/routes/login.tsx",
-            lineNumber: 60,
+            lineNumber: 56,
             columnNumber: 9
           }, this)
         ]
       }, void 0, !0, {
         fileName: "app/routes/login.tsx",
-        lineNumber: 44,
+        lineNumber: 40,
         columnNumber: 7
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Flex, {
@@ -22387,7 +22382,7 @@ function Index6() {
             children: "log in to your account"
           }, void 0, !1, {
             fileName: "app/routes/login.tsx",
-            lineNumber: 69,
+            lineNumber: 65,
             columnNumber: 9
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Flex, {
@@ -22413,12 +22408,12 @@ function Index6() {
                   }
                 }, void 0, !1, {
                   fileName: "app/routes/login.tsx",
-                  lineNumber: 80,
+                  lineNumber: 76,
                   columnNumber: 13
                 }, this)
               }, void 0, !1, {
                 fileName: "app/routes/login.tsx",
-                lineNumber: 79,
+                lineNumber: 75,
                 columnNumber: 11
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.FormControl, {
@@ -22435,12 +22430,12 @@ function Index6() {
                   borderTopRightRadius: 0
                 }, void 0, !1, {
                   fileName: "app/routes/login.tsx",
-                  lineNumber: 99,
+                  lineNumber: 95,
                   columnNumber: 13
                 }, this)
               }, void 0, !1, {
                 fileName: "app/routes/login.tsx",
-                lineNumber: 98,
+                lineNumber: 94,
                 columnNumber: 11
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.HStack, {
@@ -22453,7 +22448,7 @@ function Index6() {
                     children: "remember me"
                   }, void 0, !1, {
                     fileName: "app/routes/login.tsx",
-                    lineNumber: 118,
+                    lineNumber: 114,
                     columnNumber: 13
                   }, this),
                   /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Box, {
@@ -22463,18 +22458,18 @@ function Index6() {
                       children: "forgot password"
                     }, void 0, !1, {
                       fileName: "app/routes/login.tsx",
-                      lineNumber: 120,
+                      lineNumber: 116,
                       columnNumber: 15
                     }, this)
                   }, void 0, !1, {
                     fileName: "app/routes/login.tsx",
-                    lineNumber: 119,
+                    lineNumber: 115,
                     columnNumber: 13
                   }, this)
                 ]
               }, void 0, !0, {
                 fileName: "app/routes/login.tsx",
-                lineNumber: 113,
+                lineNumber: 109,
                 columnNumber: 11
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Button, {
@@ -22487,25 +22482,25 @@ function Index6() {
                 children: "sign in"
               }, void 0, !1, {
                 fileName: "app/routes/login.tsx",
-                lineNumber: 124,
+                lineNumber: 120,
                 columnNumber: 11
               }, this)
             ]
           }, void 0, !0, {
             fileName: "app/routes/login.tsx",
-            lineNumber: 78,
+            lineNumber: 74,
             columnNumber: 9
           }, this)
         ]
       }, void 0, !0, {
         fileName: "app/routes/login.tsx",
-        lineNumber: 63,
+        lineNumber: 59,
         columnNumber: 7
       }, this)
     ]
   }, void 0, !0, {
     fileName: "app/routes/login.tsx",
-    lineNumber: 34,
+    lineNumber: 30,
     columnNumber: 5
   }, this);
 }
@@ -22535,7 +22530,7 @@ function Index7() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "17df5c85", entry: { module: "/build/entry.client-WWU5C7VJ.js", imports: ["/build/_shared/chunk-ODAAP2UF.js", "/build/_shared/chunk-J3T6HEFQ.js", "/build/_shared/chunk-TTBKISHK.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-DP74VNJ2.js", imports: ["/build/_shared/chunk-S73EG7XY.js", "/build/_shared/chunk-B7AQKOXM.js", "/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-SSQ6G2JR.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups": { id: "routes/groups", parentId: "root", path: "groups", index: void 0, caseSensitive: void 0, module: "/build/routes/groups-MPMZP6NZ.js", imports: ["/build/_shared/chunk-QFRJLUCS.js", "/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups/$groupid": { id: "routes/groups/$groupid", parentId: "routes/groups", path: ":groupid", index: void 0, caseSensitive: void 0, module: "/build/routes/groups/$groupid-TFGUFUAK.js", imports: ["/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-HFM3NKLB.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-B3OJ5PZT.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/payments": { id: "routes/payments", parentId: "root", path: "payments", index: void 0, caseSensitive: void 0, module: "/build/routes/payments-2UZRPM4U.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/settings": { id: "routes/settings", parentId: "root", path: "settings", index: void 0, caseSensitive: void 0, module: "/build/routes/settings-2XYVMWJG.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/users": { id: "routes/users", parentId: "root", path: "users", index: void 0, caseSensitive: void 0, module: "/build/routes/users-ZBBTCVRN.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-17DF5C85.js" };
+var assets_manifest_default = { version: "6a60ed25", entry: { module: "/build/entry.client-WWU5C7VJ.js", imports: ["/build/_shared/chunk-ODAAP2UF.js", "/build/_shared/chunk-J3T6HEFQ.js", "/build/_shared/chunk-TTBKISHK.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-DP74VNJ2.js", imports: ["/build/_shared/chunk-S73EG7XY.js", "/build/_shared/chunk-B7AQKOXM.js", "/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-SSQ6G2JR.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups": { id: "routes/groups", parentId: "root", path: "groups", index: void 0, caseSensitive: void 0, module: "/build/routes/groups-MPMZP6NZ.js", imports: ["/build/_shared/chunk-QFRJLUCS.js", "/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups/$groupid": { id: "routes/groups/$groupid", parentId: "routes/groups", path: ":groupid", index: void 0, caseSensitive: void 0, module: "/build/routes/groups/$groupid-TFGUFUAK.js", imports: ["/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-HFM3NKLB.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-E2CHOZOO.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/payments": { id: "routes/payments", parentId: "root", path: "payments", index: void 0, caseSensitive: void 0, module: "/build/routes/payments-2UZRPM4U.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/settings": { id: "routes/settings", parentId: "root", path: "settings", index: void 0, caseSensitive: void 0, module: "/build/routes/settings-2XYVMWJG.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/users": { id: "routes/users", parentId: "root", path: "users", index: void 0, caseSensitive: void 0, module: "/build/routes/users-ZBBTCVRN.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-6A60ED25.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
