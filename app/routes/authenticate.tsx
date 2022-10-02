@@ -12,7 +12,7 @@ import {
 import type { ActionFunction } from "@remix-run/node";
 import { Link, useTransition, Form } from "@remix-run/react";
 
-import { authenticateUser } from "~/features/authenticate";
+import { authenticateUser } from "~/components/routes/authenticate";
 
 const EnhancedForm = chakra(Form);
 

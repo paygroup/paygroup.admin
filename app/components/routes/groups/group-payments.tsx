@@ -20,9 +20,9 @@ import query from "query-string";
 import { FaCoins } from "react-icons/fa";
 import { GoArrowUp } from "react-icons/go";
 
-import { Panel } from "~/components";
+import { Panel } from "~/components-core";
 import type { en_statuses_enum } from "~/graphql/genql-sdk";
-import { Pagination, usePagination } from "~/modules/pagination";
+import { Pagination, usePagination } from "~/components/modules/components-modules/pagination";
 
 import type { GroupExtended } from "./types";
 

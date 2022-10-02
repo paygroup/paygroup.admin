@@ -1,4 +1,4 @@
-import { getEnv } from "~/common";
+import { getEnv } from "~/utils";
 
 import { createClient } from "../genql-sdk";
 

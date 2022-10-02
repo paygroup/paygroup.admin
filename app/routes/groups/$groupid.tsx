@@ -2,9 +2,9 @@ import { Box, Flex } from "@chakra-ui/react";
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
-import { GroupInfo, GroupMembers, GroupPayments } from "~/features/groups";
-import { fetchOneGroup } from "~/features/groups/fetch-one-group";
-import type { GroupExtended } from "~/features/groups/types";
+import { GroupInfo, GroupMembers, GroupPayments } from "~/components-routes/groups";
+import { fetchOneGroup } from "~/components-routes/groups/fetch-one-group";
+import type { GroupExtended } from "~/components-routes/groups/types";
 
 export const meta: MetaFunction = () => ({
   title: "paygroup - view group",

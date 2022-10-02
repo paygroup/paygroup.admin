@@ -13,9 +13,9 @@ import {
 } from "@remix-run/react";
 
 import { ClientStyleContext, ServerStyleContext } from "./context";
-import { theme } from "./modules/app-theme";
-import { NhostAuthProvider } from "./modules/nhost";
-import { RootPage } from "./modules/root-page";
+import { theme } from "./components/modules/app-theme";
+import { NhostAuthProvider } from "./components/modules/components-modules/nhost";
+import { RootPage } from "./components/modules/components-modules/root-page";
 import { sitemap } from "./sitemap";
 
 export let links: LinksFunction = () => [
