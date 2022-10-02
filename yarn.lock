@@ -7879,7 +7879,14 @@ remark-rehype@^9.0.0:
     mdast-util-to-hast "^11.0.0"
     unified "^10.0.0"
 
-remix-auth@^3.3.0:
+remix-auth-form@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/remix-auth-form/-/remix-auth-form-1.2.0.tgz#6b8726d9b9b3716b3bcbd86fa1b6578794013f3e"
+  integrity sha512-iJyDhvRBctP9cJBTsU54X9K+E03XzPCVxtXRCq/+Fd4A+yqSKPAfmnSP5MnIHOnjlCGwOino8XQcj5m+UFN7QQ==
+  dependencies:
+    remix-auth "^3.1.0"
+
+remix-auth@^3.1.0, remix-auth@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/remix-auth/-/remix-auth-3.3.0.tgz#38f2e8825c42c0ebd89737992787b11b663fb42c"
   integrity sha512-sLY5s6DQF4OJp03HM/dIEw3tLfSOIowerS2QDTuvEVXoEA3IHVmk7QkvOKosWdVPbcnlRfwF6PbeBLKgo6vqsg==

@@ -19966,9 +19966,9 @@ __export(root_exports, {
   links: () => links,
   meta: () => meta
 });
-var import_react17 = require("react"), import_react18 = require("@chakra-ui/react"), import_react19 = require("@emotion/react"), import_react20 = require("@remix-run/react");
+var import_react15 = require("react"), import_react16 = require("@chakra-ui/react"), import_react17 = require("@emotion/react"), import_react18 = require("@remix-run/react");
 
-// app/modules/app-theme/app-theme.ts
+// app/components/modules/app-theme/app-theme.ts
 var import_react4 = require("@chakra-ui/react"), breakpoints = {
   sm: "30em",
   md: "48em",
@@ -20037,34 +20037,18 @@ var import_react4 = require("@chakra-ui/react"), breakpoints = {
   config: {}
 });
 
-// app/modules/nhost/nhost.tsx
-var import_react5 = require("@nhost/react"), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), nhost = new import_react5.NhostClient({
-  subdomain: "xdwipkiowyoinqhbqher",
-  region: "eu-central-1"
-}), { auth } = nhost;
-var NhostAuthProvider = ({
-  children
-}) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react5.NhostReactProvider, {
-  nhost,
-  children
-}, void 0, !1, {
-  fileName: "app/modules/nhost/nhost.tsx",
-  lineNumber: 16,
-  columnNumber: 7
-}, this);
+// app/components/modules/root-page/root-page.tsx
+var import_react14 = require("@chakra-ui/react");
 
-// app/modules/root-page/root-page.tsx
-var import_react15 = require("@chakra-ui/react"), import_react16 = require("@nhost/react");
-
-// app/modules/sidebar/sidebar.tsx
-var import_react6 = require("@chakra-ui/react"), import_react7 = require("@remix-run/react"), import_fi = require("react-icons/fi"), import_go = require("react-icons/go"), import_react_router_dom = require("react-router-dom"), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), Sidebar = ({ sitemap: sitemap2, isOpen, onToggle }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Container, {
+// app/components/modules/sidebar/sidebar.tsx
+var import_react5 = require("@chakra-ui/react"), import_react6 = require("@remix-run/react"), import_fi = require("react-icons/fi"), import_go = require("react-icons/go"), import_react_router_dom = require("react-router-dom"), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), Sidebar = ({ sitemap: sitemap2, isOpen, onToggle }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Container, {
   isOpen,
   children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(AppLogo, {
       isOpen,
       onToggle
     }, void 0, !1, {
-      fileName: "app/modules/sidebar/sidebar.tsx",
+      fileName: "app/components/modules/sidebar/sidebar.tsx",
       lineNumber: 29,
       columnNumber: 5
     }, this),
@@ -20076,26 +20060,26 @@ var import_react6 = require("@chakra-ui/react"), import_react7 = require("@remix
         isLast: i > 0 && i === sitemap2.length - 1,
         children: s.title
       }, s.to, !1, {
-        fileName: "app/modules/sidebar/sidebar.tsx",
+        fileName: "app/components/modules/sidebar/sidebar.tsx",
         lineNumber: 33,
         columnNumber: 9
       }, this))
     }, void 0, !1, {
-      fileName: "app/modules/sidebar/sidebar.tsx",
+      fileName: "app/components/modules/sidebar/sidebar.tsx",
       lineNumber: 31,
       columnNumber: 5
     }, this)
   ]
 }, void 0, !0, {
-  fileName: "app/modules/sidebar/sidebar.tsx",
+  fileName: "app/components/modules/sidebar/sidebar.tsx",
   lineNumber: 28,
   columnNumber: 3
 }, this), Container = ({
   isOpen,
   children
 }) => {
-  let [min, max] = (0, import_react6.useToken)("sizes.sidebar", ["min", "max"]);
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react6.Flex, {
+  let [min, max] = (0, import_react5.useToken)("sizes.sidebar", ["min", "max"]);
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react5.Flex, {
     className: "sidebar",
     position: "fixed",
     left: "0",
@@ -20108,16 +20092,16 @@ var import_react6 = require("@chakra-ui/react"), import_react7 = require("@remix
     flexDirection: "column",
     children
   }, void 0, !1, {
-    fileName: "app/modules/sidebar/sidebar.tsx",
+    fileName: "app/components/modules/sidebar/sidebar.tsx",
     lineNumber: 54,
     columnNumber: 5
   }, this);
 }, AppLogo = ({
   isOpen,
   onToggle
-}) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react6.Center, {
+}) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react5.Center, {
   mt: "4",
-  children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react6.IconButton, {
+  children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react5.IconButton, {
     size: "sm",
     onClick: onToggle,
     "aria-label": "toggle sidebar",
@@ -20127,26 +20111,26 @@ var import_react6 = require("@chakra-ui/react"), import_react7 = require("@remix
     variant: "outline",
     opacity: isOpen ? 0 : 1,
     transition: "all 0.2s ease",
-    icon: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react6.Icon, {
+    icon: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react5.Icon, {
       as: import_fi.FiMenu,
       color: "gray.300",
       fontSize: "xl",
       fontWeight: "lg"
     }, void 0, !1, {
-      fileName: "app/modules/sidebar/sidebar.tsx",
+      fileName: "app/components/modules/sidebar/sidebar.tsx",
       lineNumber: 86,
       columnNumber: 13
     }, this)
   }, void 0, !1, {
-    fileName: "app/modules/sidebar/sidebar.tsx",
+    fileName: "app/components/modules/sidebar/sidebar.tsx",
     lineNumber: 76,
     columnNumber: 5
   }, this)
 }, void 0, !1, {
-  fileName: "app/modules/sidebar/sidebar.tsx",
+  fileName: "app/components/modules/sidebar/sidebar.tsx",
   lineNumber: 75,
   columnNumber: 3
-}, this), NavList = ({ children }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react6.UnorderedList, {
+}, this), NavList = ({ children }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react5.UnorderedList, {
   mt: "-4",
   h: "100%",
   pt: "12",
@@ -20157,12 +20141,12 @@ var import_react6 = require("@chakra-ui/react"), import_react7 = require("@remix
   spacing: "4",
   children
 }, void 0, !1, {
-  fileName: "app/modules/sidebar/sidebar.tsx",
+  fileName: "app/components/modules/sidebar/sidebar.tsx",
   lineNumber: 92,
   columnNumber: 3
 }, this), NavItem = ({ to, icon, isLast, isOpen, children }) => {
   let location = (0, import_react_router_dom.useLocation)(), isActive = to === "/" ? location.pathname === "/" : location.pathname.startsWith(to);
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react6.ListItem, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react5.ListItem, {
     mb: isLast ? "10" : void 0,
     py: "2",
     px: "2",
@@ -20184,35 +20168,35 @@ var import_react6 = require("@chakra-ui/react"), import_react7 = require("@remix
     transition: "all 0.3s ease",
     children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react_router_dom.Link, {
       to,
-      children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react6.Flex, {
+      children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react5.Flex, {
         justifyContent: "space-between",
         alignItems: "center",
         w: "100%",
         children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react6.Flex, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react5.Flex, {
             children: [
               /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(NavItemLeftIcon, {
                 to,
                 icon,
                 isOpen
               }, void 0, !1, {
-                fileName: "app/modules/sidebar/sidebar.tsx",
+                fileName: "app/components/modules/sidebar/sidebar.tsx",
                 lineNumber: 144,
                 columnNumber: 13
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react6.Text, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react5.Text, {
                 fontSize: "lg",
                 opacity: isOpen ? 1 : 0,
                 transition: "all 0.1s ease",
                 children
               }, void 0, !1, {
-                fileName: "app/modules/sidebar/sidebar.tsx",
+                fileName: "app/components/modules/sidebar/sidebar.tsx",
                 lineNumber: 145,
                 columnNumber: 13
               }, this)
             ]
           }, void 0, !0, {
-            fileName: "app/modules/sidebar/sidebar.tsx",
+            fileName: "app/components/modules/sidebar/sidebar.tsx",
             lineNumber: 143,
             columnNumber: 11
           }, this),
@@ -20221,69 +20205,69 @@ var import_react6 = require("@chakra-ui/react"), import_react7 = require("@remix
             isActive,
             isOpen
           }, void 0, !1, {
-            fileName: "app/modules/sidebar/sidebar.tsx",
+            fileName: "app/components/modules/sidebar/sidebar.tsx",
             lineNumber: 153,
             columnNumber: 11
           }, this)
         ]
       }, void 0, !0, {
-        fileName: "app/modules/sidebar/sidebar.tsx",
+        fileName: "app/components/modules/sidebar/sidebar.tsx",
         lineNumber: 142,
         columnNumber: 9
       }, this)
     }, void 0, !1, {
-      fileName: "app/modules/sidebar/sidebar.tsx",
+      fileName: "app/components/modules/sidebar/sidebar.tsx",
       lineNumber: 141,
       columnNumber: 7
     }, this)
   }, void 0, !1, {
-    fileName: "app/modules/sidebar/sidebar.tsx",
+    fileName: "app/components/modules/sidebar/sidebar.tsx",
     lineNumber: 120,
     columnNumber: 5
   }, this);
 }, NavItemLeftIcon = ({ to, isOpen, icon }) => {
-  let transition = (0, import_react7.useTransition)();
-  return transition.state === "loading" && !isOpen && displaySpinner(to, transition) ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react6.Spinner, {
+  let transition = (0, import_react6.useTransition)();
+  return transition.state === "loading" && !isOpen && displaySpinner(to, transition) ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react5.Spinner, {
     size: "sm",
     color: "teal.500"
   }, void 0, !1, {
-    fileName: "app/modules/sidebar/sidebar.tsx",
+    fileName: "app/components/modules/sidebar/sidebar.tsx",
     lineNumber: 169,
     columnNumber: 14
-  }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react6.Icon, {
+  }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react5.Icon, {
     as: icon,
     mr: isOpen ? "4" : "0",
     fontSize: "2xl",
     transition: "all 0.2s ease"
   }, void 0, !1, {
-    fileName: "app/modules/sidebar/sidebar.tsx",
+    fileName: "app/components/modules/sidebar/sidebar.tsx",
     lineNumber: 174,
     columnNumber: 5
   }, this);
 }, NavItemRightIcon = ({ to, isActive, isOpen }) => {
-  let transition = (0, import_react7.useTransition)();
-  return isOpen ? transition.state === "loading" && displaySpinner(to, transition) ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react6.Spinner, {
+  let transition = (0, import_react6.useTransition)();
+  return isOpen ? transition.state === "loading" && displaySpinner(to, transition) ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react5.Spinner, {
     size: "sm",
     color: "teal.500"
   }, void 0, !1, {
-    fileName: "app/modules/sidebar/sidebar.tsx",
+    fileName: "app/components/modules/sidebar/sidebar.tsx",
     lineNumber: 196,
     columnNumber: 14
-  }, this) : isActive ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react6.Icon, {
+  }, this) : isActive ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react5.Icon, {
     as: import_go.GoPrimitiveDot,
     color: "teal.400",
     filter: "blur(0.6px)",
     transition: "all 0.2s ease"
   }, void 0, !1, {
-    fileName: "app/modules/sidebar/sidebar.tsx",
+    fileName: "app/components/modules/sidebar/sidebar.tsx",
     lineNumber: 205,
     columnNumber: 5
   }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {}, void 0, !1, {
-    fileName: "app/modules/sidebar/sidebar.tsx",
+    fileName: "app/components/modules/sidebar/sidebar.tsx",
     lineNumber: 201,
     columnNumber: 12
   }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {}, void 0, !1, {
-    fileName: "app/modules/sidebar/sidebar.tsx",
+    fileName: "app/components/modules/sidebar/sidebar.tsx",
     lineNumber: 191,
     columnNumber: 12
   }, this);
@@ -20297,92 +20281,92 @@ var import_react6 = require("@chakra-ui/react"), import_react7 = require("@remix
   return !1;
 };
 
-// app/modules/root-page/page.header.tsx
-var import_react10 = require("@chakra-ui/react"), import_fi2 = require("react-icons/fi"), import_md = require("react-icons/md");
+// app/components/modules/root-page/page.header.tsx
+var import_react9 = require("@chakra-ui/react"), import_fi2 = require("react-icons/fi"), import_md = require("react-icons/md");
 
-// app/modules/root-page/page.breadcrumbs.tsx
-var import_icons = require("@chakra-ui/icons"), import_react8 = require("@chakra-ui/react"), import_react9 = require("@remix-run/react"), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), PageBreadcrumbs = () => {
+// app/components/modules/root-page/page.breadcrumbs.tsx
+var import_icons = require("@chakra-ui/icons"), import_react7 = require("@chakra-ui/react"), import_react8 = require("@remix-run/react"), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), PageBreadcrumbs = () => {
   var _a, _b;
-  let items = (0, import_react9.useMatches)().filter((m) => !!m.handle), iconColor = items.length > 1 ? "blue.500" : "gray.500";
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react8.Flex, {
+  let items = (0, import_react8.useMatches)().filter((m) => !!m.handle), iconColor = items.length > 1 ? "blue.500" : "gray.500";
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react7.Flex, {
     alignItems: "center",
     children: [
-      ((_a = items[0].handle) == null ? void 0 : _a.icon) && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react8.Icon, {
+      ((_a = items[0].handle) == null ? void 0 : _a.icon) && /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react7.Icon, {
         as: (_b = items[0].handle) == null ? void 0 : _b.icon,
         mr: "2",
         fontSize: "xl",
         color: iconColor
       }, void 0, !1, {
-        fileName: "app/modules/root-page/page.breadcrumbs.tsx",
+        fileName: "app/components/modules/root-page/page.breadcrumbs.tsx",
         lineNumber: 12,
         columnNumber: 9
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react8.Breadcrumb, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react7.Breadcrumb, {
         separator: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_icons.ChevronRightIcon, {
           color: "gray.500"
         }, void 0, !1, {
-          fileName: "app/modules/root-page/page.breadcrumbs.tsx",
+          fileName: "app/components/modules/root-page/page.breadcrumbs.tsx",
           lineNumber: 20,
           columnNumber: 30
         }, this),
         children: items.filter((m) => !!m.handle).map((m, i) => {
           var _a2, _b2;
           let last = i === items.length - 1;
-          return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react8.BreadcrumbItem, {
+          return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react7.BreadcrumbItem, {
             fontSize: "large",
             isCurrentPage: last,
-            children: last ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react8.Text, {
+            children: last ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react7.Text, {
               fontSize: "lg",
               color: "gray.500",
               children: (_a2 = m.handle) == null ? void 0 : _a2.breadcrumb
             }, void 0, !1, {
-              fileName: "app/modules/root-page/page.breadcrumbs.tsx",
+              fileName: "app/components/modules/root-page/page.breadcrumbs.tsx",
               lineNumber: 32,
               columnNumber: 19
-            }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.Link, {
+            }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react8.Link, {
               to: m.pathname,
-              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react8.Text, {
+              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react7.Text, {
                 fontSize: "lg",
                 color: "blue.500",
                 cursor: "pointer",
                 children: (_b2 = m.handle) == null ? void 0 : _b2.breadcrumb
               }, void 0, !1, {
-                fileName: "app/modules/root-page/page.breadcrumbs.tsx",
+                fileName: "app/components/modules/root-page/page.breadcrumbs.tsx",
                 lineNumber: 37,
                 columnNumber: 21
               }, this)
             }, void 0, !1, {
-              fileName: "app/modules/root-page/page.breadcrumbs.tsx",
+              fileName: "app/components/modules/root-page/page.breadcrumbs.tsx",
               lineNumber: 36,
               columnNumber: 19
             }, this)
           }, m.pathname, !1, {
-            fileName: "app/modules/root-page/page.breadcrumbs.tsx",
+            fileName: "app/components/modules/root-page/page.breadcrumbs.tsx",
             lineNumber: 26,
             columnNumber: 15
           }, this);
         })
       }, void 0, !1, {
-        fileName: "app/modules/root-page/page.breadcrumbs.tsx",
+        fileName: "app/components/modules/root-page/page.breadcrumbs.tsx",
         lineNumber: 20,
         columnNumber: 7
       }, this)
     ]
   }, void 0, !0, {
-    fileName: "app/modules/root-page/page.breadcrumbs.tsx",
+    fileName: "app/components/modules/root-page/page.breadcrumbs.tsx",
     lineNumber: 10,
     columnNumber: 5
   }, this);
 };
 
-// app/modules/root-page/page.header.tsx
-var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), PageHeader = ({ isOpen, onToggle }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react10.Box, {
+// app/components/modules/root-page/page.header.tsx
+var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), PageHeader = ({ isOpen, onToggle }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.Box, {
   className: "page-header",
   p: "3",
   pr: "6",
   w: "100%",
   children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react10.Flex, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.Flex, {
       flexDirection: "row",
       alignItems: "center",
       flex: 1,
@@ -20391,41 +20375,41 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), PageHeader = ({ i
           isOpen,
           onToggle
         }, void 0, !1, {
-          fileName: "app/modules/root-page/page.header.tsx",
+          fileName: "app/components/modules/root-page/page.header.tsx",
           lineNumber: 24,
           columnNumber: 7
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react10.Input, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.Input, {
           ml: ["0", "4"],
           flex: 1,
           placeholder: "Search..."
         }, void 0, !1, {
-          fileName: "app/modules/root-page/page.header.tsx",
+          fileName: "app/components/modules/root-page/page.header.tsx",
           lineNumber: 25,
           columnNumber: 7
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react10.Flex, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.Flex, {
           flexDirection: "row",
           justifyContent: "flex-end",
           alignItems: "center",
           flex: [0, 1],
           display: { base: "none", md: "flex" },
           children: [
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react10.Box, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.Box, {
               mt: "4",
               mr: "4",
               position: "relative",
               children: [
-                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react10.Icon, {
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.Icon, {
                   as: import_md.MdNotifications,
                   color: "gray.500",
                   fontSize: "3xl"
                 }, void 0, !1, {
-                  fileName: "app/modules/root-page/page.header.tsx",
+                  fileName: "app/components/modules/root-page/page.header.tsx",
                   lineNumber: 34,
                   columnNumber: 11
                 }, this),
-                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react10.Badge, {
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.Badge, {
                   rounded: "lg",
                   position: "absolute",
                   right: "-2",
@@ -20433,84 +20417,84 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), PageHeader = ({ i
                   color: "white",
                   children: "12"
                 }, void 0, !1, {
-                  fileName: "app/modules/root-page/page.header.tsx",
+                  fileName: "app/components/modules/root-page/page.header.tsx",
                   lineNumber: 35,
                   columnNumber: 11
                 }, this)
               ]
             }, void 0, !0, {
-              fileName: "app/modules/root-page/page.header.tsx",
+              fileName: "app/components/modules/root-page/page.header.tsx",
               lineNumber: 33,
               columnNumber: 9
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react10.Heading, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.Heading, {
               color: "blue.600",
               mr: "2",
               fontSize: "3xl",
               children: "paygroup"
             }, void 0, !1, {
-              fileName: "app/modules/root-page/page.header.tsx",
+              fileName: "app/components/modules/root-page/page.header.tsx",
               lineNumber: 45,
               columnNumber: 9
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react10.Heading, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.Heading, {
               color: "teal.500",
               fontSize: "3xl",
               children: "admin"
             }, void 0, !1, {
-              fileName: "app/modules/root-page/page.header.tsx",
+              fileName: "app/components/modules/root-page/page.header.tsx",
               lineNumber: 48,
               columnNumber: 9
             }, this)
           ]
         }, void 0, !0, {
-          fileName: "app/modules/root-page/page.header.tsx",
+          fileName: "app/components/modules/root-page/page.header.tsx",
           lineNumber: 26,
           columnNumber: 7
         }, this)
       ]
     }, void 0, !0, {
-      fileName: "app/modules/root-page/page.header.tsx",
+      fileName: "app/components/modules/root-page/page.header.tsx",
       lineNumber: 23,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react10.Flex, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.Flex, {
       mt: "1",
       flexDirection: "row",
       alignItems: "center",
       flex: 1,
       children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react10.Box, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.Box, {
           w: isOpen ? "14" : "4"
         }, void 0, !1, {
-          fileName: "app/modules/root-page/page.header.tsx",
+          fileName: "app/components/modules/root-page/page.header.tsx",
           lineNumber: 54,
           columnNumber: 7
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react10.Fade, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.Fade, {
           in: !0,
           children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(PageBreadcrumbs, {}, void 0, !1, {
-            fileName: "app/modules/root-page/page.header.tsx",
+            fileName: "app/components/modules/root-page/page.header.tsx",
             lineNumber: 56,
             columnNumber: 9
           }, this)
         }, void 0, !1, {
-          fileName: "app/modules/root-page/page.header.tsx",
+          fileName: "app/components/modules/root-page/page.header.tsx",
           lineNumber: 55,
           columnNumber: 7
         }, this)
       ]
     }, void 0, !0, {
-      fileName: "app/modules/root-page/page.header.tsx",
+      fileName: "app/components/modules/root-page/page.header.tsx",
       lineNumber: 53,
       columnNumber: 5
     }, this)
   ]
 }, void 0, !0, {
-  fileName: "app/modules/root-page/page.header.tsx",
+  fileName: "app/components/modules/root-page/page.header.tsx",
   lineNumber: 22,
   columnNumber: 3
-}, this), ToggleNavButton = ({ isOpen, onToggle }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react10.IconButton, {
+}, this), ToggleNavButton = ({ isOpen, onToggle }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.IconButton, {
   onClick: onToggle,
   "aria-label": "toggle sidebar",
   variant: "ghost",
@@ -20519,42 +20503,42 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), PageHeader = ({ i
   opacity: isOpen ? 1 : 0,
   position: isOpen ? "relative" : "absolute",
   transition: "all 0.3s ease",
-  icon: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react10.Icon, {
+  icon: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react9.Icon, {
     as: import_fi2.FiMenu,
     color: isOpen ? "blue.500" : "gray.300",
     fontSize: "xl",
     fontWeight: "lg",
     transition: "all 0.3s ease"
   }, void 0, !1, {
-    fileName: "app/modules/root-page/page.header.tsx",
+    fileName: "app/components/modules/root-page/page.header.tsx",
     lineNumber: 76,
     columnNumber: 7
   }, this)
 }, void 0, !1, {
-  fileName: "app/modules/root-page/page.header.tsx",
+  fileName: "app/components/modules/root-page/page.header.tsx",
   lineNumber: 66,
   columnNumber: 3
 }, this);
 
-// app/modules/root-page/use-page-layout.ts
-var import_react13 = require("@chakra-ui/react"), import_react14 = require("@remix-run/react");
+// app/components/modules/root-page/use-page-layout.ts
+var import_react12 = require("@chakra-ui/react"), import_react13 = require("@remix-run/react");
 
-// app/modules/nprogress/use-nprogress.ts
-var import_react11 = require("react"), import_react12 = require("@remix-run/react"), import_nprogress = __toESM(require("nprogress")), useNProgress = () => {
-  let transition = (0, import_react12.useTransition)();
-  (0, import_react11.useEffect)(() => {
+// app/components/modules/nprogress/use-nprogress.ts
+var import_react10 = require("react"), import_react11 = require("@remix-run/react"), import_nprogress = __toESM(require("nprogress")), useNProgress = () => {
+  let transition = (0, import_react11.useTransition)();
+  (0, import_react10.useEffect)(() => {
     transition.state === "loading" || transition.state === "submitting" ? import_nprogress.default.start() : import_nprogress.default.done();
-  }, [transition.state]), (0, import_react11.useEffect)(() => {
+  }, [transition.state]), (0, import_react10.useEffect)(() => {
     import_nprogress.default.configure({ showSpinner: !1 });
   }, []);
 };
 
-// app/modules/root-page/use-page-layout.ts
+// app/components/modules/root-page/use-page-layout.ts
 var usePageLayout = () => {
-  let isAuthpage = (0, import_react14.useLocation)().pathname === "/authenticate", [headerHeight] = (0, import_react13.useToken)("space", ["28"]), open = (0, import_react13.useBreakpointValue)({
+  let isAuthpage = (0, import_react13.useLocation)().pathname === "/login", [headerHeight] = (0, import_react12.useToken)("space", ["28"]), open = (0, import_react12.useBreakpointValue)({
     base: !1,
     lg: void 0
-  }), { isOpen, onToggle } = (0, import_react13.useDisclosure)({
+  }), { isOpen, onToggle } = (0, import_react12.useDisclosure)({
     defaultIsOpen: !0,
     isOpen: open
   });
@@ -20566,24 +20550,24 @@ var usePageLayout = () => {
   };
 };
 
-// app/modules/root-page/root-page.tsx
+// app/components/modules/root-page/root-page.tsx
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), RootPage = ({
   sitemap: sitemap2,
   children
 }) => {
-  let { isAuthenticated } = (0, import_react16.useAuthenticationStatus)(), { isOpen, headerHeight, isAuthpage, onToggle } = usePageLayout();
+  let { isOpen, headerHeight, isAuthpage, onToggle } = usePageLayout();
   return isAuthpage ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {
     children
   }, void 0, !1, {
-    fileName: "app/modules/root-page/root-page.tsx",
-    lineNumber: 21,
+    fileName: "app/components/modules/root-page/root-page.tsx",
+    lineNumber: 19,
     columnNumber: 12
   }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(PageLayout, {
     sitemap: sitemap2,
     isOpen,
     isAuthpage,
     onToggle,
-    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react15.Grid, {
+    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react14.Grid, {
       flex: 1,
       w: "100%",
       className: "layout-grid",
@@ -20594,23 +20578,23 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), RootPage = ({
           'content'
         `,
       children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react15.Box, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react14.Box, {
           className: "grid-header",
           gridArea: "header",
           children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(PageHeader, {
             isOpen,
             onToggle
           }, void 0, !1, {
-            fileName: "app/modules/root-page/root-page.tsx",
-            lineNumber: 43,
+            fileName: "app/components/modules/root-page/root-page.tsx",
+            lineNumber: 41,
             columnNumber: 11
           }, this)
         }, void 0, !1, {
-          fileName: "app/modules/root-page/root-page.tsx",
-          lineNumber: 42,
+          fileName: "app/components/modules/root-page/root-page.tsx",
+          lineNumber: 40,
           columnNumber: 9
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react15.Flex, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react14.Flex, {
           className: "grid-content",
           gridArea: "content",
           flexDirection: "column",
@@ -20619,19 +20603,19 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), RootPage = ({
           p: { base: "1", md: "4" },
           children
         }, void 0, !1, {
-          fileName: "app/modules/root-page/root-page.tsx",
-          lineNumber: 46,
+          fileName: "app/components/modules/root-page/root-page.tsx",
+          lineNumber: 44,
           columnNumber: 9
         }, this)
       ]
     }, void 0, !0, {
-      fileName: "app/modules/root-page/root-page.tsx",
-      lineNumber: 31,
+      fileName: "app/components/modules/root-page/root-page.tsx",
+      lineNumber: 29,
       columnNumber: 7
     }, this)
   }, void 0, !1, {
-    fileName: "app/modules/root-page/root-page.tsx",
-    lineNumber: 25,
+    fileName: "app/components/modules/root-page/root-page.tsx",
+    lineNumber: 23,
     columnNumber: 5
   }, this);
 }, PageLayout = ({
@@ -20641,8 +20625,8 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), RootPage = ({
   children,
   onToggle
 }) => {
-  let [min, max] = (0, import_react15.useToken)("sizes.sidebar", ["min", "max"]);
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react15.Flex, {
+  let [min, max] = (0, import_react14.useToken)("sizes.sidebar", ["min", "max"]);
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react14.Flex, {
     className: "layout",
     h: "100%",
     flexDirection: isAuthpage ? "column" : "row",
@@ -20652,24 +20636,24 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), RootPage = ({
         isOpen,
         onToggle
       }, void 0, !1, {
-        fileName: "app/modules/root-page/root-page.tsx",
-        lineNumber: 81,
+        fileName: "app/components/modules/root-page/root-page.tsx",
+        lineNumber: 79,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react15.Flex, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react14.Flex, {
         className: "layout-content",
         flex: 1,
         ml: isOpen ? max : min,
         children
       }, void 0, !1, {
-        fileName: "app/modules/root-page/root-page.tsx",
-        lineNumber: 82,
+        fileName: "app/components/modules/root-page/root-page.tsx",
+        lineNumber: 80,
         columnNumber: 7
       }, this)
     ]
   }, void 0, !0, {
-    fileName: "app/modules/root-page/root-page.tsx",
-    lineNumber: 76,
+    fileName: "app/components/modules/root-page/root-page.tsx",
+    lineNumber: 74,
     columnNumber: 5
   }, this);
 };
@@ -20703,10 +20687,10 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), links = () => [
   charset: "utf-8",
   title: "admin - paygroup",
   viewport: "width=device-width,initial-scale=1"
-}), Document = (0, import_react19.withEmotionCache)(
+}), Document = (0, import_react17.withEmotionCache)(
   ({ children }, emotionCache) => {
-    let serverStyleData = (0, import_react17.useContext)(ServerStyleContext), clientStyleData = (0, import_react17.useContext)(ClientStyleContext);
-    return (0, import_react17.useEffect)(() => {
+    let serverStyleData = (0, import_react15.useContext)(ServerStyleContext), clientStyleData = (0, import_react15.useContext)(ClientStyleContext);
+    return (0, import_react15.useEffect)(() => {
       emotionCache.sheet.container = document.head;
       let tags = emotionCache.sheet.tags;
       emotionCache.sheet.flush(), tags.forEach((tag) => {
@@ -20717,14 +20701,14 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), links = () => [
       children: [
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("head", {
           children: [
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Meta, {}, void 0, !1, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react18.Meta, {}, void 0, !1, {
               fileName: "app/root.tsx",
-              lineNumber: 70,
+              lineNumber: 69,
               columnNumber: 11
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Links, {}, void 0, !1, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react18.Links, {}, void 0, !1, {
               fileName: "app/root.tsx",
-              lineNumber: 71,
+              lineNumber: 70,
               columnNumber: 11
             }, this),
             serverStyleData == null ? void 0 : serverStyleData.map(({ key, ids, css }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("style", {
@@ -20732,298 +20716,71 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), links = () => [
               dangerouslySetInnerHTML: { __html: css }
             }, key, !1, {
               fileName: "app/root.tsx",
-              lineNumber: 73,
+              lineNumber: 72,
               columnNumber: 13
             }, this))
           ]
         }, void 0, !0, {
           fileName: "app/root.tsx",
-          lineNumber: 69,
+          lineNumber: 68,
           columnNumber: 9
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("body", {
           children: [
             children,
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.ScrollRestoration, {}, void 0, !1, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react18.ScrollRestoration, {}, void 0, !1, {
               fileName: "app/root.tsx",
-              lineNumber: 82,
+              lineNumber: 81,
               columnNumber: 11
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Scripts, {}, void 0, !1, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react18.Scripts, {}, void 0, !1, {
+              fileName: "app/root.tsx",
+              lineNumber: 83,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react18.LiveReload, {}, void 0, !1, {
               fileName: "app/root.tsx",
               lineNumber: 84,
-              columnNumber: 11
-            }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.LiveReload, {}, void 0, !1, {
-              fileName: "app/root.tsx",
-              lineNumber: 85,
               columnNumber: 11
             }, this)
           ]
         }, void 0, !0, {
           fileName: "app/root.tsx",
-          lineNumber: 80,
+          lineNumber: 79,
           columnNumber: 9
         }, this)
       ]
     }, void 0, !0, {
       fileName: "app/root.tsx",
-      lineNumber: 68,
+      lineNumber: 67,
       columnNumber: 7
     }, this);
   }
 );
 function App() {
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Document, {
-    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(NhostAuthProvider, {
-      children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react18.ChakraProvider, {
-        theme,
-        children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(RootPage, {
-          sitemap,
-          children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Outlet, {}, void 0, !1, {
-            fileName: "app/root.tsx",
-            lineNumber: 98,
-            columnNumber: 13
-          }, this)
-        }, void 0, !1, {
+    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react16.ChakraProvider, {
+      theme,
+      children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(RootPage, {
+        sitemap,
+        children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react18.Outlet, {}, void 0, !1, {
           fileName: "app/root.tsx",
-          lineNumber: 97,
+          lineNumber: 96,
           columnNumber: 11
         }, this)
       }, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 96,
+        lineNumber: 95,
         columnNumber: 9
       }, this)
     }, void 0, !1, {
       fileName: "app/root.tsx",
-      lineNumber: 95,
+      lineNumber: 94,
       columnNumber: 7
     }, this)
   }, void 0, !1, {
     fileName: "app/root.tsx",
-    lineNumber: 94,
-    columnNumber: 5
-  }, this);
-}
-
-// app/routes/authenticate.tsx
-var authenticate_exports = {};
-__export(authenticate_exports, {
-  action: () => action,
-  default: () => Index
-});
-var import_react21 = require("@chakra-ui/react"), import_react22 = require("@remix-run/react");
-
-// app/features/authenticate/authenticate-user.ts
-var import_nextjs = require("@nhost/nextjs"), import_node2 = require("@remix-run/node");
-
-// app/features/authenticate/session-storage.ts
-var import_node = require("@remix-run/node"), sessionStorage = (0, import_node.createCookieSessionStorage)({
-  cookie: {
-    name: "__session",
-    secrets: ["mysecret"],
-    path: "/",
-    sameSite: "lax",
-    httpOnly: !0,
-    maxAge: 60 * 60 * 24 * 7,
-    secure: !1
-  }
-});
-
-// app/features/authenticate/authenticate-user.ts
-var authenticateUser = async (props) => {
-  let { email, password } = props, result = await (await (0, import_nextjs.createServerSideClient)(
-    "https://xdwipkiowyoinqhbqher.nhost.run",
-    {}
-  )).auth.signIn({ email, password }), session = await sessionStorage.getSession();
-  return session.set("nhost_session", result.session), console.log("session", JSON.stringify(session, null, 2)), (0, import_node2.redirect)("/", {
-    headers: { "Set-Cookie": await sessionStorage.commitSession(session) }
-  });
-};
-
-// app/routes/authenticate.tsx
-var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), EnhancedForm = (0, import_react21.chakra)(import_react22.Form), action = async ({ request }) => {
-  let form = await request.formData(), email = form.get("email"), password = form.get("usrpassword");
-  return authenticateUser({ email, password });
-};
-function Index() {
-  let { state } = (0, import_react22.useTransition)();
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(EnhancedForm, {
-    h: "100%",
-    bg: "gray.50",
-    display: "flex",
-    alignItems: "center",
-    className: "container",
-    flexDirection: "column",
-    method: "post",
-    action: "/authenticate",
-    children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Flex, {
-        h: "24%",
-        mb: ["4", "2"],
-        color: "primary.500",
-        flexDirection: ["column", "row", "row"],
-        justifyContent: ["flex-end"],
-        alignItems: ["center", "flex-end", "flex-end"],
-        children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Heading, {
-            mr: "2",
-            fontWeight: "light",
-            fontSize: ["36px", "48px"],
-            mb: ["-3", "0"],
-            children: "welcome to"
-          }, void 0, !1, {
-            fileName: "app/routes/authenticate.tsx",
-            lineNumber: 48,
-            columnNumber: 9
-          }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Heading, {
-            fontSize: ["40px", "48px"],
-            children: "paygroup"
-          }, void 0, !1, {
-            fileName: "app/routes/authenticate.tsx",
-            lineNumber: 56,
-            columnNumber: 9
-          }, this)
-        ]
-      }, void 0, !0, {
-        fileName: "app/routes/authenticate.tsx",
-        lineNumber: 40,
-        columnNumber: 7
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Flex, {
-        w: ["100%", null, "65%", "30%", "33%", "24%"],
-        flex: 1,
-        alignItems: "center",
-        flexDirection: "column",
-        children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Heading, {
-            color: "gray.600",
-            fontSize: ["3xl", "4xl"],
-            fontWeight: "light",
-            mb: "10",
-            children: "log in to your account"
-          }, void 0, !1, {
-            fileName: "app/routes/authenticate.tsx",
-            lineNumber: 65,
-            columnNumber: 9
-          }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Flex, {
-            w: "100%",
-            flexDirection: "column",
-            px: ["4", "0"],
-            children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.FormControl, {
-                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Input, {
-                  bg: "white",
-                  size: "lg",
-                  type: "email",
-                  name: "email",
-                  placeholder: "email",
-                  borderTopLeftRadius: 10,
-                  borderTopRightRadius: 10,
-                  borderBottomLeftRadius: 0,
-                  borderBottomRightRadius: 0,
-                  borderBottomWidth: 0,
-                  _focus: {
-                    borderBottomWidth: 1
-                  }
-                }, void 0, !1, {
-                  fileName: "app/routes/authenticate.tsx",
-                  lineNumber: 76,
-                  columnNumber: 13
-                }, this)
-              }, void 0, !1, {
-                fileName: "app/routes/authenticate.tsx",
-                lineNumber: 75,
-                columnNumber: 11
-              }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.FormControl, {
-                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Input, {
-                  bg: "white",
-                  size: "lg",
-                  name: "usrpassword",
-                  type: "password",
-                  placeholder: "password",
-                  autoComplete: "new-password",
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 10,
-                  borderTopLeftRadius: 0,
-                  borderTopRightRadius: 0
-                }, void 0, !1, {
-                  fileName: "app/routes/authenticate.tsx",
-                  lineNumber: 94,
-                  columnNumber: 13
-                }, this)
-              }, void 0, !1, {
-                fileName: "app/routes/authenticate.tsx",
-                lineNumber: 93,
-                columnNumber: 11
-              }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.HStack, {
-                my: ["10", null, null, "6"],
-                justifyContent: "space-between",
-                mx: "1",
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Checkbox, {
-                    defaultChecked: !0,
-                    children: "remember me"
-                  }, void 0, !1, {
-                    fileName: "app/routes/authenticate.tsx",
-                    lineNumber: 113,
-                    columnNumber: 13
-                  }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Box, {
-                    color: "blue.500",
-                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react22.Link, {
-                      to: "",
-                      children: "forgot password"
-                    }, void 0, !1, {
-                      fileName: "app/routes/authenticate.tsx",
-                      lineNumber: 115,
-                      columnNumber: 15
-                    }, this)
-                  }, void 0, !1, {
-                    fileName: "app/routes/authenticate.tsx",
-                    lineNumber: 114,
-                    columnNumber: 13
-                  }, this)
-                ]
-              }, void 0, !0, {
-                fileName: "app/routes/authenticate.tsx",
-                lineNumber: 108,
-                columnNumber: 11
-              }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Button, {
-                colorScheme: "primary",
-                size: "lg",
-                type: "submit",
-                borderRadius: 10,
-                isLoading: state === "submitting",
-                loadingText: "logging in",
-                children: "sign in"
-              }, void 0, !1, {
-                fileName: "app/routes/authenticate.tsx",
-                lineNumber: 119,
-                columnNumber: 11
-              }, this)
-            ]
-          }, void 0, !0, {
-            fileName: "app/routes/authenticate.tsx",
-            lineNumber: 74,
-            columnNumber: 9
-          }, this)
-        ]
-      }, void 0, !0, {
-        fileName: "app/routes/authenticate.tsx",
-        lineNumber: 59,
-        columnNumber: 7
-      }, this)
-    ]
-  }, void 0, !0, {
-    fileName: "app/routes/authenticate.tsx",
-    lineNumber: 30,
+    lineNumber: 93,
     columnNumber: 5
   }, this);
 }
@@ -21031,17 +20788,17 @@ function Index() {
 // app/routes/payments.tsx
 var payments_exports = {};
 __export(payments_exports, {
-  default: () => Index2,
+  default: () => Index,
   handle: () => handle,
   meta: () => meta2
 });
 var import_bs2 = require("react-icons/bs");
 
-// app/components/panel/panel.tsx
-var import_react23 = require("@chakra-ui/react"), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), Panel = ({
+// app/components/core/panel/panel.tsx
+var import_react19 = require("@chakra-ui/react"), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), Panel = ({
   children,
   ...rest
-}) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Flex, {
+}) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react19.Flex, {
   className: "panel",
   m: "2",
   px: "6",
@@ -21053,33 +20810,21 @@ var import_react23 = require("@chakra-ui/react"), import_jsx_dev_runtime = requi
   ...rest,
   children
 }, void 0, !1, {
-  fileName: "app/components/panel/panel.tsx",
+  fileName: "app/components/core/panel/panel.tsx",
   lineNumber: 10,
   columnNumber: 3
 }, this);
 
-// app/components/secured-route/secured-route.tsx
-var import_react24 = require("react"), import_react25 = require("@nhost/react"), import_react26 = require("@remix-run/react");
+// app/components/core/secured-route/secured-route.tsx
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), SecuredRoute = ({
   children
-}) => {
-  let { isAuthenticated } = (0, import_react25.useAuthenticationStatus)(), [signed, setSigned] = (0, import_react24.useState)(isAuthenticated), navigate = (0, import_react26.useNavigate)();
-  return console.log({ isAuthenticated }), (0, import_react24.useEffect)(() => {
-  }, [signed]), (0, import_react24.useEffect)(() => {
-    let unsubscribe = auth.onAuthStateChanged((e) => {
-      setSigned(e === "SIGNED_IN");
-    });
-    return () => {
-      unsubscribe();
-    };
-  }, []), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {
-    children
-  }, void 0, !1, {
-    fileName: "app/components/secured-route/secured-route.tsx",
-    lineNumber: 37,
-    columnNumber: 10
-  }, this);
-};
+}) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {
+  children
+}, void 0, !1, {
+  fileName: "app/components/core/secured-route/secured-route.tsx",
+  lineNumber: 6,
+  columnNumber: 7
+}, this);
 
 // app/routes/payments.tsx
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), meta2 = () => ({
@@ -21088,7 +20833,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), meta2 = () => ({
   breadcrumb: "payments",
   icon: import_bs2.BsGraphUp
 };
-function Index2() {
+function Index() {
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Panel, {
     children: "payments"
   }, void 0, !1, {
@@ -21101,7 +20846,7 @@ function Index2() {
 // app/routes/settings.tsx
 var settings_exports = {};
 __export(settings_exports, {
-  default: () => Index3,
+  default: () => Index2,
   handle: () => handle2,
   meta: () => meta3
 });
@@ -21112,7 +20857,7 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), meta3 = () => ({
   breadcrumb: "settings",
   icon: import_fi4.FiSettings
 };
-function Index3() {
+function Index2() {
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Panel, {
     children: "settings"
   }, void 0, !1, {
@@ -21125,14 +20870,14 @@ function Index3() {
 // app/routes/groups.tsx
 var groups_exports = {};
 __export(groups_exports, {
-  default: () => Index4,
+  default: () => Index3,
   handle: () => handle3,
   loader: () => loader,
   meta: () => meta4
 });
-var import_react38 = require("@remix-run/react"), import_hi2 = require("react-icons/hi");
+var import_react31 = require("@remix-run/react"), import_hi2 = require("react-icons/hi");
 
-// app/common/envs.ts
+// app/utils/envs.ts
 var getEnv = (env) => envs.isLocal ? envs.local[env] : envs.remote[env], envs = {
   isLocal: Boolean(process.env.LOCAL) === !0,
   local: {
@@ -21172,7 +20917,7 @@ var import_genql_sdk = __toESM(require_genql_sdk()), genql = (0, import_genql_sd
   }
 });
 
-// app/features/groups/fetch-group-pages.ts
+// app/components/routes/groups/fetch-group-pages.ts
 var fetchGroupPages = async ({
   page,
   search
@@ -21238,10 +20983,10 @@ var fetchGroupPages = async ({
   };
 };
 
-// app/features/groups/groups-table.tsx
-var import_react27 = require("@chakra-ui/react"), import_react28 = require("@remix-run/react"), import_dayjs = __toESM(require("dayjs"));
+// app/components/routes/groups/groups-table.tsx
+var import_react20 = require("@chakra-ui/react"), import_react21 = require("@remix-run/react"), import_dayjs = __toESM(require("dayjs"));
 
-// app/features/constants.ts
+// app/components/routes/constants.ts
 var paymentCycles = {
   Daily: {
     label: "Daily",
@@ -21257,225 +21002,225 @@ var paymentCycles = {
   }
 };
 
-// app/features/groups/groups-table.tsx
-var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ items }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.TableContainer, {
-  children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Table, {
+// app/components/routes/groups/groups-table.tsx
+var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupsTable = ({ items }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.TableContainer, {
+  children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Table, {
     variant: "striped",
     colorScheme: "blueGray",
     children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Thead, {
-        children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Tr, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Thead, {
+        children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Tr, {
           children: [
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Th, {
               w: "1%",
               children: "#"
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/components/routes/groups/groups-table.tsx",
               lineNumber: 23,
               columnNumber: 11
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Th, {
               w: "20%",
               children: "group name"
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/components/routes/groups/groups-table.tsx",
               lineNumber: 24,
               columnNumber: 11
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Th, {
               w: "20%",
               children: "created at"
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/components/routes/groups/groups-table.tsx",
               lineNumber: 25,
               columnNumber: 11
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Th, {
               w: "20%",
               children: "owner"
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/components/routes/groups/groups-table.tsx",
               lineNumber: 26,
               columnNumber: 11
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Th, {
               w: "10%",
               children: "balance"
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/components/routes/groups/groups-table.tsx",
               lineNumber: 27,
               columnNumber: 11
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Th, {
               w: "10%",
               children: "contribution"
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/components/routes/groups/groups-table.tsx",
               lineNumber: 28,
               columnNumber: 11
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Th, {
               w: "10%",
               children: "recurrency"
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/components/routes/groups/groups-table.tsx",
               lineNumber: 29,
               columnNumber: 11
             }, this)
           ]
         }, void 0, !0, {
-          fileName: "app/features/groups/groups-table.tsx",
+          fileName: "app/components/routes/groups/groups-table.tsx",
           lineNumber: 22,
           columnNumber: 9
         }, this)
       }, void 0, !1, {
-        fileName: "app/features/groups/groups-table.tsx",
+        fileName: "app/components/routes/groups/groups-table.tsx",
         lineNumber: 21,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Tbody, {
-        children: items.map((row, i) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Tr, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Tbody, {
+        children: items.map((row, i) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Tr, {
           children: [
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Td, {
               children: row.index
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/components/routes/groups/groups-table.tsx",
               lineNumber: 36,
               columnNumber: 13
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Td, {
               w: "20%",
               color: "blue.500",
-              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react28.Link, {
+              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Link, {
                 to: `/groups/${row.id}`,
                 children: row.group_name
               }, void 0, !1, {
-                fileName: "app/features/groups/groups-table.tsx",
+                fileName: "app/components/routes/groups/groups-table.tsx",
                 lineNumber: 39,
                 columnNumber: 15
               }, this)
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/components/routes/groups/groups-table.tsx",
               lineNumber: 38,
               columnNumber: 13
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Td, {
               w: "20%",
               children: (0, import_dayjs.default)(row.created_at).format("ddd DD MMM, YYYY")
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/components/routes/groups/groups-table.tsx",
               lineNumber: 42,
               columnNumber: 13
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Td, {
               w: "20%",
               color: "blue.500",
-              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react28.Link, {
+              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react21.Link, {
                 to: `/users/${row.user.id}`,
                 children: row.user.displayName
               }, void 0, !1, {
-                fileName: "app/features/groups/groups-table.tsx",
+                fileName: "app/components/routes/groups/groups-table.tsx",
                 lineNumber: 45,
                 columnNumber: 15
               }, this)
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/components/routes/groups/groups-table.tsx",
               lineNumber: 44,
               columnNumber: 13
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Td, {
               w: "10%",
-              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Text, {
+              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Text, {
                 children: new Intl.NumberFormat("en-US", {
                   style: "currency",
                   currency: "USD"
                 }).format(row.group_balance ?? 0)
               }, void 0, !1, {
-                fileName: "app/features/groups/groups-table.tsx",
+                fileName: "app/components/routes/groups/groups-table.tsx",
                 lineNumber: 49,
                 columnNumber: 15
               }, this)
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/components/routes/groups/groups-table.tsx",
               lineNumber: 48,
               columnNumber: 13
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Td, {
               w: "10%",
-              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Text, {
+              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Text, {
                 children: row.contribution ? new Intl.NumberFormat("en-US", {
                   style: "currency",
                   currency: "USD"
                 }).format(row.contribution) : void 0
               }, void 0, !1, {
-                fileName: "app/features/groups/groups-table.tsx",
+                fileName: "app/components/routes/groups/groups-table.tsx",
                 lineNumber: 58,
                 columnNumber: 15
               }, this)
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/components/routes/groups/groups-table.tsx",
               lineNumber: 57,
               columnNumber: 13
             }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
+            /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Td, {
               w: "10%",
-              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Badge, {
+              children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Badge, {
                 w: "16",
                 textTransform: "none",
                 textAlign: "center",
                 borderRadius: 6,
                 bg: row.recurrency ? paymentCycles[row.recurrency].color : void 0,
-                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Text, {
+                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react20.Text, {
                   color: "white",
                   children: row.recurrency ? paymentCycles[row.recurrency].label : void 0
                 }, void 0, !1, {
-                  fileName: "app/features/groups/groups-table.tsx",
+                  fileName: "app/components/routes/groups/groups-table.tsx",
                   lineNumber: 80,
                   columnNumber: 17
                 }, this)
               }, void 0, !1, {
-                fileName: "app/features/groups/groups-table.tsx",
+                fileName: "app/components/routes/groups/groups-table.tsx",
                 lineNumber: 69,
                 columnNumber: 15
               }, this)
             }, void 0, !1, {
-              fileName: "app/features/groups/groups-table.tsx",
+              fileName: "app/components/routes/groups/groups-table.tsx",
               lineNumber: 68,
               columnNumber: 13
             }, this)
           ]
         }, i, !0, {
-          fileName: "app/features/groups/groups-table.tsx",
+          fileName: "app/components/routes/groups/groups-table.tsx",
           lineNumber: 35,
           columnNumber: 11
         }, this))
       }, void 0, !1, {
-        fileName: "app/features/groups/groups-table.tsx",
+        fileName: "app/components/routes/groups/groups-table.tsx",
         lineNumber: 33,
         columnNumber: 7
       }, this)
     ]
   }, void 0, !0, {
-    fileName: "app/features/groups/groups-table.tsx",
+    fileName: "app/components/routes/groups/groups-table.tsx",
     lineNumber: 20,
     columnNumber: 5
   }, this)
 }, void 0, !1, {
-  fileName: "app/features/groups/groups-table.tsx",
+  fileName: "app/components/routes/groups/groups-table.tsx",
   lineNumber: 19,
   columnNumber: 3
 }, this);
 
-// app/features/groups/group-listing-page.tsx
-var import_react31 = require("@chakra-ui/react"), import_react32 = require("@remix-run/react");
+// app/components/routes/groups/group-listing-page.tsx
+var import_react24 = require("@chakra-ui/react"), import_react25 = require("@remix-run/react");
 
-// app/modules/pagination/pagination.tsx
-var import_react29 = require("react"), import_icons2 = require("@chakra-ui/icons"), import_react30 = require("@chakra-ui/react"), import_throttle = __toESM(require("lodash/throttle")), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), TAKE = 10, Span = ({ children }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.Box, {
+// app/components/modules/pagination/pagination.tsx
+var import_react22 = require("react"), import_icons2 = require("@chakra-ui/icons"), import_react23 = require("@chakra-ui/react"), import_throttle = __toESM(require("lodash/throttle")), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), TAKE = 10, Span = ({ children }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Box, {
   mr: "2",
   className: "span",
   children
 }, void 0, !1, {
-  fileName: "app/modules/pagination/pagination.tsx",
+  fileName: "app/components/modules/pagination/pagination.tsx",
   lineNumber: 21,
   columnNumber: 3
 }, this);
@@ -21510,7 +21255,7 @@ var Pagination = ({
   onChange,
   goNext,
   goPrev
-}) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.Flex, {
+}) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Flex, {
   alignItems: "center",
   color: "gray.500",
   className: "pagination",
@@ -21518,39 +21263,39 @@ var Pagination = ({
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Span, {
       children: "showing"
     }, void 0, !1, {
-      fileName: "app/modules/pagination/pagination.tsx",
+      fileName: "app/components/modules/pagination/pagination.tsx",
       lineNumber: 81,
       columnNumber: 5
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Span, {
       children: showing
     }, void 0, !1, {
-      fileName: "app/modules/pagination/pagination.tsx",
+      fileName: "app/components/modules/pagination/pagination.tsx",
       lineNumber: 82,
       columnNumber: 5
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Span, {
       children: "of"
     }, void 0, !1, {
-      fileName: "app/modules/pagination/pagination.tsx",
+      fileName: "app/components/modules/pagination/pagination.tsx",
       lineNumber: 83,
       columnNumber: 5
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Span, {
       children: itemCount
     }, void 0, !1, {
-      fileName: "app/modules/pagination/pagination.tsx",
+      fileName: "app/components/modules/pagination/pagination.tsx",
       lineNumber: 84,
       columnNumber: 5
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Span, {
       children: itemCount > 1 ? "records" : "record"
     }, void 0, !1, {
-      fileName: "app/modules/pagination/pagination.tsx",
+      fileName: "app/components/modules/pagination/pagination.tsx",
       lineNumber: 85,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.IconButton, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.IconButton, {
       onClick: prev ? goPrev : void 0,
       ml: "2",
       "aria-label": "previous page",
@@ -21560,16 +21305,16 @@ var Pagination = ({
       icon: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_icons2.ChevronLeftIcon, {
         fontSize: "2xl"
       }, void 0, !1, {
-        fileName: "app/modules/pagination/pagination.tsx",
+        fileName: "app/components/modules/pagination/pagination.tsx",
         lineNumber: 93,
         columnNumber: 13
       }, this)
     }, void 0, !1, {
-      fileName: "app/modules/pagination/pagination.tsx",
+      fileName: "app/components/modules/pagination/pagination.tsx",
       lineNumber: 86,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.IconButton, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.IconButton, {
       onClick: next ? goNext : void 0,
       ml: "1",
       mr: "2",
@@ -21580,12 +21325,12 @@ var Pagination = ({
       icon: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_icons2.ChevronRightIcon, {
         fontSize: "2xl"
       }, void 0, !1, {
-        fileName: "app/modules/pagination/pagination.tsx",
+        fileName: "app/components/modules/pagination/pagination.tsx",
         lineNumber: 103,
         columnNumber: 13
       }, this)
     }, void 0, !1, {
-      fileName: "app/modules/pagination/pagination.tsx",
+      fileName: "app/components/modules/pagination/pagination.tsx",
       lineNumber: 95,
       columnNumber: 5
     }, this),
@@ -21594,32 +21339,32 @@ var Pagination = ({
       pageCount,
       onChange
     }, void 0, !1, {
-      fileName: "app/modules/pagination/pagination.tsx",
+      fileName: "app/components/modules/pagination/pagination.tsx",
       lineNumber: 105,
       columnNumber: 5
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Span, {
       children: "of"
     }, void 0, !1, {
-      fileName: "app/modules/pagination/pagination.tsx",
+      fileName: "app/components/modules/pagination/pagination.tsx",
       lineNumber: 106,
       columnNumber: 5
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Span, {
       children: pageCount
     }, void 0, !1, {
-      fileName: "app/modules/pagination/pagination.tsx",
+      fileName: "app/components/modules/pagination/pagination.tsx",
       lineNumber: 107,
       columnNumber: 5
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Span, {
       children: pageCount > 1 ? "pages" : "page"
     }, void 0, !1, {
-      fileName: "app/modules/pagination/pagination.tsx",
+      fileName: "app/components/modules/pagination/pagination.tsx",
       lineNumber: 108,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.Select, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.Select, {
       display: "none",
       ml: "2",
       defaultValue: 10,
@@ -21628,7 +21373,7 @@ var Pagination = ({
           value: 10,
           children: "10"
         }, void 0, !1, {
-          fileName: "app/modules/pagination/pagination.tsx",
+          fileName: "app/components/modules/pagination/pagination.tsx",
           lineNumber: 110,
           columnNumber: 7
         }, this),
@@ -21636,7 +21381,7 @@ var Pagination = ({
           value: 20,
           children: "20"
         }, void 0, !1, {
-          fileName: "app/modules/pagination/pagination.tsx",
+          fileName: "app/components/modules/pagination/pagination.tsx",
           lineNumber: 111,
           columnNumber: 7
         }, this),
@@ -21644,7 +21389,7 @@ var Pagination = ({
           value: 30,
           children: "30"
         }, void 0, !1, {
-          fileName: "app/modules/pagination/pagination.tsx",
+          fileName: "app/components/modules/pagination/pagination.tsx",
           lineNumber: 112,
           columnNumber: 7
         }, this),
@@ -21652,7 +21397,7 @@ var Pagination = ({
           value: 50,
           children: "50"
         }, void 0, !1, {
-          fileName: "app/modules/pagination/pagination.tsx",
+          fileName: "app/components/modules/pagination/pagination.tsx",
           lineNumber: 113,
           columnNumber: 7
         }, this),
@@ -21660,23 +21405,23 @@ var Pagination = ({
           value: 100,
           children: "100"
         }, void 0, !1, {
-          fileName: "app/modules/pagination/pagination.tsx",
+          fileName: "app/components/modules/pagination/pagination.tsx",
           lineNumber: 114,
           columnNumber: 7
         }, this)
       ]
     }, void 0, !0, {
-      fileName: "app/modules/pagination/pagination.tsx",
+      fileName: "app/components/modules/pagination/pagination.tsx",
       lineNumber: 109,
       columnNumber: 5
     }, this)
   ]
 }, void 0, !0, {
-  fileName: "app/modules/pagination/pagination.tsx",
+  fileName: "app/components/modules/pagination/pagination.tsx",
   lineNumber: 80,
   columnNumber: 3
 }, this), PageInput = ({ page, pageCount, onChange }) => {
-  let [pageValue, setPageValue] = (0, import_react29.useState)(page ?? 0), [previousValue, setPreviousValue] = (0, import_react29.useState)(page), setPageValueThrottle = (0, import_react29.useCallback)(
+  let [pageValue, setPageValue] = (0, import_react22.useState)(page ?? 0), [previousValue, setPreviousValue] = (0, import_react22.useState)(page), setPageValueThrottle = (0, import_react22.useCallback)(
     (0, import_throttle.default)((val) => setPageValue(val), 1e3),
     []
   ), invalidNum = (num) => typeof num != "number" || isNaN(num) || Number(num) === 0 && pageCount > 0, emptyString = (str) => !str.length, handleChange = (str, value) => {
@@ -21692,9 +21437,9 @@ var Pagination = ({
   }, handleKeyDown = (e) => {
     e.key === "Enter" && (onChange == null || onChange(pageValue));
   };
-  return (0, import_react29.useEffect)(() => {
+  return (0, import_react22.useEffect)(() => {
     page !== pageValue && setPageValue(page);
-  }, [page]), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.NumberInput, {
+  }, [page]), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.NumberInput, {
     className: "pagination-input",
     name: "page",
     width: ["16"],
@@ -21703,27 +21448,27 @@ var Pagination = ({
     onChange: handleChange,
     onKeyDown: handleKeyDown,
     value: pageCount ? pageValue : 0,
-    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.NumberInputField, {
+    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react23.NumberInputField, {
       readOnly: !pageCount
     }, void 0, !1, {
-      fileName: "app/modules/pagination/pagination.tsx",
+      fileName: "app/components/modules/pagination/pagination.tsx",
       lineNumber: 184,
       columnNumber: 7
     }, this)
   }, void 0, !1, {
-    fileName: "app/modules/pagination/pagination.tsx",
+    fileName: "app/components/modules/pagination/pagination.tsx",
     lineNumber: 174,
     columnNumber: 5
   }, this);
 };
 
-// app/features/groups/group-listing-page.tsx
+// app/components/routes/groups/group-listing-page.tsx
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupListingPage = () => {
   let {
     items,
     count,
     page = 0
-  } = (0, import_react32.useLoaderData)(), navigate = (0, import_react32.useNavigate)(), paging = usePagination({
+  } = (0, import_react25.useLoaderData)(), navigate = (0, import_react25.useNavigate)(), paging = usePagination({
     data: { items, count },
     page,
     onPage: (page2) => {
@@ -21732,16 +21477,16 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupListingPage 
   });
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Panel, {
     children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react31.HStack, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react24.HStack, {
         alignItems: "center",
         children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react31.Heading, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react24.Heading, {
             flex: 1,
             fontSize: "2xl",
             color: "gray.600",
             children: "Groups"
           }, void 0, !1, {
-            fileName: "app/features/groups/group-listing-page.tsx",
+            fileName: "app/components/routes/groups/group-listing-page.tsx",
             lineNumber: 29,
             columnNumber: 9
           }, this),
@@ -21754,94 +21499,94 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupListingPage 
             goNext: paging.increasePage,
             goPrev: paging.decreasePage
           }, void 0, !1, {
-            fileName: "app/features/groups/group-listing-page.tsx",
+            fileName: "app/components/routes/groups/group-listing-page.tsx",
             lineNumber: 32,
             columnNumber: 9
           }, this)
         ]
       }, void 0, !0, {
-        fileName: "app/features/groups/group-listing-page.tsx",
+        fileName: "app/components/routes/groups/group-listing-page.tsx",
         lineNumber: 28,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react31.Divider, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react24.Divider, {
         mt: "3",
         mb: "2"
       }, void 0, !1, {
-        fileName: "app/features/groups/group-listing-page.tsx",
+        fileName: "app/components/routes/groups/group-listing-page.tsx",
         lineNumber: 43,
         columnNumber: 7
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(GroupsTable, {
         items
       }, void 0, !1, {
-        fileName: "app/features/groups/group-listing-page.tsx",
+        fileName: "app/components/routes/groups/group-listing-page.tsx",
         lineNumber: 44,
         columnNumber: 7
       }, this)
     ]
   }, void 0, !0, {
-    fileName: "app/features/groups/group-listing-page.tsx",
+    fileName: "app/components/routes/groups/group-listing-page.tsx",
     lineNumber: 27,
     columnNumber: 5
   }, this);
 };
 
-// app/features/groups/group-info.tsx
-var import_react33 = require("@chakra-ui/react"), import_dayjs2 = __toESM(require("dayjs"));
+// app/components/routes/groups/group-info.tsx
+var import_react26 = require("@chakra-ui/react"), import_dayjs2 = __toESM(require("dayjs"));
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ group }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Panel, {
-  children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Box, {
+  children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.Box, {
     children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Heading, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.Heading, {
         fontSize: "2xl",
         color: "blue.500",
         fontWeight: "light",
         children: "Information"
       }, void 0, !1, {
-        fileName: "app/features/groups/group-info.tsx",
+        fileName: "app/components/routes/groups/group-info.tsx",
         lineNumber: 11,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Divider, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.Divider, {
         mt: "2",
         mb: "6"
       }, void 0, !1, {
-        fileName: "app/features/groups/group-info.tsx",
+        fileName: "app/components/routes/groups/group-info.tsx",
         lineNumber: 15,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.VStack, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.VStack, {
         alignItems: "flex-start",
         spacing: "6",
         children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Flex, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.Flex, {
             flexDirection: { base: "column", lg: "row" },
             alignItems: "flex-start",
             w: "100%",
             children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Box, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.Box, {
                 flex: 1,
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Text, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.Text, {
                     color: "primary.500",
                     fontSize: "lg",
                     children: "group name"
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-info.tsx",
+                    fileName: "app/components/routes/groups/group-info.tsx",
                     lineNumber: 24,
                     columnNumber: 13
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Text, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.Text, {
                     mt: "-1",
                     color: "gray.500",
                     fontSize: "xl",
                     children: group.group_name
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-info.tsx",
+                    fileName: "app/components/routes/groups/group-info.tsx",
                     lineNumber: 27,
                     columnNumber: 13
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Text, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.Text, {
                     color: "gray.400",
                     fontSize: "xs",
                     children: [
@@ -21850,31 +21595,31 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
                       (0, import_dayjs2.default)(group.created_at).format("ddd DD MMM, YYYY").toLocaleLowerCase()
                     ]
                   }, void 0, !0, {
-                    fileName: "app/features/groups/group-info.tsx",
+                    fileName: "app/components/routes/groups/group-info.tsx",
                     lineNumber: 30,
                     columnNumber: 13
                   }, this)
                 ]
               }, void 0, !0, {
-                fileName: "app/features/groups/group-info.tsx",
+                fileName: "app/components/routes/groups/group-info.tsx",
                 lineNumber: 23,
                 columnNumber: 11
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Flex, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.Flex, {
                 mt: { base: "6", lg: "0" },
                 flexDirection: "column",
                 alignItems: { base: "flex-start", lg: "flex-end" },
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Text, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.Text, {
                     color: "primary.500",
                     fontSize: "lg",
                     children: "balance"
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-info.tsx",
+                    fileName: "app/components/routes/groups/group-info.tsx",
                     lineNumber: 43,
                     columnNumber: 13
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Text, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.Text, {
                     mt: "-1",
                     color: "teal.500",
                     fontSize: "xl",
@@ -21883,180 +21628,180 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupInfo = ({ gr
                       currency: "USD"
                     }).format(group.group_balance ?? 0)
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-info.tsx",
+                    fileName: "app/components/routes/groups/group-info.tsx",
                     lineNumber: 46,
                     columnNumber: 13
                   }, this)
                 ]
               }, void 0, !0, {
-                fileName: "app/features/groups/group-info.tsx",
+                fileName: "app/components/routes/groups/group-info.tsx",
                 lineNumber: 38,
                 columnNumber: 11
               }, this)
             ]
           }, void 0, !0, {
-            fileName: "app/features/groups/group-info.tsx",
+            fileName: "app/components/routes/groups/group-info.tsx",
             lineNumber: 18,
             columnNumber: 9
           }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Box, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.Box, {
             flex: 1,
             children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Text, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.Text, {
                 color: "primary.500",
                 fontSize: "lg",
                 children: "owner"
               }, void 0, !1, {
-                fileName: "app/features/groups/group-info.tsx",
+                fileName: "app/components/routes/groups/group-info.tsx",
                 lineNumber: 56,
                 columnNumber: 11
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react33.Text, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react26.Text, {
                 mt: "-1",
                 color: "gray.500",
                 fontSize: "xl",
                 children: group.user.displayName
               }, void 0, !1, {
-                fileName: "app/features/groups/group-info.tsx",
+                fileName: "app/components/routes/groups/group-info.tsx",
                 lineNumber: 59,
                 columnNumber: 11
               }, this)
             ]
           }, void 0, !0, {
-            fileName: "app/features/groups/group-info.tsx",
+            fileName: "app/components/routes/groups/group-info.tsx",
             lineNumber: 55,
             columnNumber: 9
           }, this)
         ]
       }, void 0, !0, {
-        fileName: "app/features/groups/group-info.tsx",
+        fileName: "app/components/routes/groups/group-info.tsx",
         lineNumber: 17,
         columnNumber: 7
       }, this)
     ]
   }, void 0, !0, {
-    fileName: "app/features/groups/group-info.tsx",
+    fileName: "app/components/routes/groups/group-info.tsx",
     lineNumber: 10,
     columnNumber: 5
   }, this)
 }, void 0, !1, {
-  fileName: "app/features/groups/group-info.tsx",
+  fileName: "app/components/routes/groups/group-info.tsx",
   lineNumber: 9,
   columnNumber: 3
 }, this);
 
-// app/features/groups/group-members.tsx
-var import_react34 = require("@chakra-ui/react"), import_react35 = require("@remix-run/react");
+// app/components/routes/groups/group-members.tsx
+var import_react27 = require("@chakra-ui/react"), import_react28 = require("@remix-run/react");
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupMembers = ({ group }) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Panel, {
   mt: "4",
   children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Heading, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Heading, {
       fontSize: "2xl",
       color: "blue.500",
       fontWeight: "light",
       children: "Members"
     }, void 0, !1, {
-      fileName: "app/features/groups/group-members.tsx",
+      fileName: "app/components/routes/groups/group-members.tsx",
       lineNumber: 19,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Divider, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Divider, {
       mt: "2",
       mb: "2"
     }, void 0, !1, {
-      fileName: "app/features/groups/group-members.tsx",
+      fileName: "app/components/routes/groups/group-members.tsx",
       lineNumber: 22,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Table, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Table, {
       children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Thead, {
-          children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Tr, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Thead, {
+          children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Tr, {
             children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Th, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
                 p: 0,
                 children: "#"
               }, void 0, !1, {
-                fileName: "app/features/groups/group-members.tsx",
+                fileName: "app/components/routes/groups/group-members.tsx",
                 lineNumber: 26,
                 columnNumber: 11
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Th, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Th, {
                 children: "member name"
               }, void 0, !1, {
-                fileName: "app/features/groups/group-members.tsx",
+                fileName: "app/components/routes/groups/group-members.tsx",
                 lineNumber: 27,
                 columnNumber: 11
               }, this)
             ]
           }, void 0, !0, {
-            fileName: "app/features/groups/group-members.tsx",
+            fileName: "app/components/routes/groups/group-members.tsx",
             lineNumber: 25,
             columnNumber: 9
           }, this)
         }, void 0, !1, {
-          fileName: "app/features/groups/group-members.tsx",
+          fileName: "app/components/routes/groups/group-members.tsx",
           lineNumber: 24,
           columnNumber: 7
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Tbody, {
-          children: group.members.map((m) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Tr, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Tbody, {
+          children: group.members.map((m) => /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Tr, {
             children: [
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Td, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
                 p: 0,
                 w: "5%",
                 children: m.index
               }, void 0, !1, {
-                fileName: "app/features/groups/group-members.tsx",
+                fileName: "app/components/routes/groups/group-members.tsx",
                 lineNumber: 33,
                 columnNumber: 13
               }, this),
-              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react34.Td, {
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react27.Td, {
                 color: "blue.500",
-                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Link, {
+                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react28.Link, {
                   to: `/users/${m.user.id}`,
                   children: m.user.displayName
                 }, void 0, !1, {
-                  fileName: "app/features/groups/group-members.tsx",
+                  fileName: "app/components/routes/groups/group-members.tsx",
                   lineNumber: 37,
                   columnNumber: 15
                 }, this)
               }, void 0, !1, {
-                fileName: "app/features/groups/group-members.tsx",
+                fileName: "app/components/routes/groups/group-members.tsx",
                 lineNumber: 36,
                 columnNumber: 13
               }, this)
             ]
           }, m.id, !0, {
-            fileName: "app/features/groups/group-members.tsx",
+            fileName: "app/components/routes/groups/group-members.tsx",
             lineNumber: 32,
             columnNumber: 11
           }, this))
         }, void 0, !1, {
-          fileName: "app/features/groups/group-members.tsx",
+          fileName: "app/components/routes/groups/group-members.tsx",
           lineNumber: 30,
           columnNumber: 7
         }, this)
       ]
     }, void 0, !0, {
-      fileName: "app/features/groups/group-members.tsx",
+      fileName: "app/components/routes/groups/group-members.tsx",
       lineNumber: 23,
       columnNumber: 5
     }, this)
   ]
 }, void 0, !0, {
-  fileName: "app/features/groups/group-members.tsx",
+  fileName: "app/components/routes/groups/group-members.tsx",
   lineNumber: 18,
   columnNumber: 3
 }, this);
 
-// app/features/groups/group-payments.tsx
-var import_react36 = require("@chakra-ui/react"), import_react37 = require("@remix-run/react"), import_dayjs3 = __toESM(require("dayjs")), import_query_string = __toESM(require("query-string")), import_fa = require("react-icons/fa"), import_go2 = require("react-icons/go");
+// app/components/routes/groups/group-payments.tsx
+var import_react29 = require("@chakra-ui/react"), import_react30 = require("@remix-run/react"), import_dayjs3 = __toESM(require("dayjs")), import_query_string = __toESM(require("query-string")), import_fa = require("react-icons/fa"), import_go2 = require("react-icons/go");
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = ({
   group
 }) => {
   var _a, _b;
-  let navigate = (0, import_react37.useNavigate)(), location = (0, import_react37.useLocation)(), params = import_query_string.default.parse(location.search), page = group.payments.length ? isNaN(params.paymentpage) ? 1 : Number(params.paymentpage) : 0, paging = usePagination({
+  let navigate = (0, import_react30.useNavigate)(), location = (0, import_react30.useLocation)(), params = import_query_string.default.parse(location.search), page = group.payments.length ? isNaN(params.paymentpage) ? 1 : Number(params.paymentpage) : 0, paging = usePagination({
     data: {
       items: group.payments,
       count: ((_b = (_a = group.payments_aggregate) == null ? void 0 : _a.aggregate) == null ? void 0 : _b.count) ?? 0
@@ -22068,17 +21813,17 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
   });
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Panel, {
     children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Flex, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Flex, {
         alignItems: "center",
         justifyContent: "space-between",
         children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Heading, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Heading, {
             fontSize: "2xl",
             color: "blue.500",
             fontWeight: "light",
             children: "Payments"
           }, void 0, !1, {
-            fileName: "app/features/groups/group-payments.tsx",
+            fileName: "app/components/routes/groups/group-payments.tsx",
             lineNumber: 57,
             columnNumber: 9
           }, this),
@@ -22091,97 +21836,97 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
             goNext: paging.increasePage,
             goPrev: paging.decreasePage
           }, void 0, !1, {
-            fileName: "app/features/groups/group-payments.tsx",
+            fileName: "app/components/routes/groups/group-payments.tsx",
             lineNumber: 61,
             columnNumber: 9
           }, this)
         ]
       }, void 0, !0, {
-        fileName: "app/features/groups/group-payments.tsx",
+        fileName: "app/components/routes/groups/group-payments.tsx",
         lineNumber: 56,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Divider, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Divider, {
         mt: "2",
         mb: "2"
       }, void 0, !1, {
-        fileName: "app/features/groups/group-payments.tsx",
+        fileName: "app/components/routes/groups/group-payments.tsx",
         lineNumber: 72,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Table, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Table, {
         variant: "striped",
         colorScheme: "blueGray",
         fontSize: "md",
         children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Thead, {
-            children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Tr, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Thead, {
+            children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Tr, {
               textTransform: "none",
               children: [
-                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Th, {
                   children: "#"
                 }, void 0, !1, {
-                  fileName: "app/features/groups/group-payments.tsx",
+                  fileName: "app/components/routes/groups/group-payments.tsx",
                   lineNumber: 77,
                   columnNumber: 13
                 }, this),
-                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Th, {
                   children: "amount"
                 }, void 0, !1, {
-                  fileName: "app/features/groups/group-payments.tsx",
+                  fileName: "app/components/routes/groups/group-payments.tsx",
                   lineNumber: 78,
                   columnNumber: 13
                 }, this),
-                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Th, {
                   children: "member"
                 }, void 0, !1, {
-                  fileName: "app/features/groups/group-payments.tsx",
+                  fileName: "app/components/routes/groups/group-payments.tsx",
                   lineNumber: 79,
                   columnNumber: 13
                 }, this),
-                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Th, {
                   children: "type"
                 }, void 0, !1, {
-                  fileName: "app/features/groups/group-payments.tsx",
+                  fileName: "app/components/routes/groups/group-payments.tsx",
                   lineNumber: 80,
                   columnNumber: 13
                 }, this),
-                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Th, {
+                /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Th, {
                   children: "status"
                 }, void 0, !1, {
-                  fileName: "app/features/groups/group-payments.tsx",
+                  fileName: "app/components/routes/groups/group-payments.tsx",
                   lineNumber: 81,
                   columnNumber: 13
                 }, this)
               ]
             }, void 0, !0, {
-              fileName: "app/features/groups/group-payments.tsx",
+              fileName: "app/components/routes/groups/group-payments.tsx",
               lineNumber: 76,
               columnNumber: 11
             }, this)
           }, void 0, !1, {
-            fileName: "app/features/groups/group-payments.tsx",
+            fileName: "app/components/routes/groups/group-payments.tsx",
             lineNumber: 75,
             columnNumber: 9
           }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Tbody, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Tbody, {
             children: group.payments.map((p) => {
               var _a2;
-              return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Tr, {
+              return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Tr, {
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Td, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Td, {
                     w: "5%",
                     valign: "top",
                     children: p.index
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-payments.tsx",
+                    fileName: "app/components/routes/groups/group-payments.tsx",
                     lineNumber: 87,
                     columnNumber: 15
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Td, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Td, {
                     valign: "top",
                     children: [
-                      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Text, {
+                      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Text, {
                         fontSize: "md",
                         color: p.transaction_status === "Pending" ? "yellow.500" : p.transaction_status === "Completed" ? "teal.500" : "orange.500",
                         children: new Intl.NumberFormat("en-US", {
@@ -22189,75 +21934,75 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                           currency: "USD"
                         }).format(p.amount ?? 0)
                       }, void 0, !1, {
-                        fileName: "app/features/groups/group-payments.tsx",
+                        fileName: "app/components/routes/groups/group-payments.tsx",
                         lineNumber: 91,
                         columnNumber: 17
                       }, this),
-                      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Text, {
+                      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Text, {
                         color: "gray.500",
                         fontSize: "sm",
                         children: (0, import_dayjs3.default)(p.created_at).format("ddd DD MMM, YYYY, HH:mm").toLocaleLowerCase()
                       }, void 0, !1, {
-                        fileName: "app/features/groups/group-payments.tsx",
+                        fileName: "app/components/routes/groups/group-payments.tsx",
                         lineNumber: 106,
                         columnNumber: 17
                       }, this)
                     ]
                   }, void 0, !0, {
-                    fileName: "app/features/groups/group-payments.tsx",
+                    fileName: "app/components/routes/groups/group-payments.tsx",
                     lineNumber: 90,
                     columnNumber: 15
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Td, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Td, {
                     color: "blue.500",
-                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react37.Link, {
+                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react30.Link, {
                       to: `/users/${p.member.user.id}`,
                       children: p.member.user.displayName
                     }, void 0, !1, {
-                      fileName: "app/features/groups/group-payments.tsx",
+                      fileName: "app/components/routes/groups/group-payments.tsx",
                       lineNumber: 114,
                       columnNumber: 17
                     }, this)
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-payments.tsx",
+                    fileName: "app/components/routes/groups/group-payments.tsx",
                     lineNumber: 113,
                     columnNumber: 15
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Td, {
-                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Flex, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Td, {
+                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Flex, {
                       alignItems: "center",
                       children: [
-                        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Icon, {
+                        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Icon, {
                           mr: "2",
                           as: p.transaction_type === "MoneyIn" ? import_fa.FaCoins : import_go2.GoArrowUp,
                           fontSize: "xl",
                           color: `${p.transaction_type === "MoneyIn" ? "teal" : "orange"}.500`
                         }, void 0, !1, {
-                          fileName: "app/features/groups/group-payments.tsx",
+                          fileName: "app/components/routes/groups/group-payments.tsx",
                           lineNumber: 121,
                           columnNumber: 19
                         }, this),
-                        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Text, {
+                        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Text, {
                           color: `${p.transaction_type === "MoneyIn" ? "teal" : "orange"}.500`,
                           children: p.transaction_type === "MoneyIn" ? "deposit" : "withdraw"
                         }, void 0, !1, {
-                          fileName: "app/features/groups/group-payments.tsx",
+                          fileName: "app/components/routes/groups/group-payments.tsx",
                           lineNumber: 129,
                           columnNumber: 19
                         }, this)
                       ]
                     }, void 0, !0, {
-                      fileName: "app/features/groups/group-payments.tsx",
+                      fileName: "app/components/routes/groups/group-payments.tsx",
                       lineNumber: 120,
                       columnNumber: 17
                     }, this)
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-payments.tsx",
+                    fileName: "app/components/routes/groups/group-payments.tsx",
                     lineNumber: 119,
                     columnNumber: 15
                   }, this),
-                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Td, {
-                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Badge, {
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Td, {
+                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react29.Badge, {
                       w: "24",
                       variant: "outline",
                       colorScheme: statuses[p.transaction_status].color,
@@ -22266,36 +22011,36 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), GroupPayments = (
                       borderRadius: 6,
                       children: (_a2 = statuses[p.transaction_status].label) == null ? void 0 : _a2.toLocaleLowerCase()
                     }, void 0, !1, {
-                      fileName: "app/features/groups/group-payments.tsx",
+                      fileName: "app/components/routes/groups/group-payments.tsx",
                       lineNumber: 140,
                       columnNumber: 17
                     }, this)
                   }, void 0, !1, {
-                    fileName: "app/features/groups/group-payments.tsx",
+                    fileName: "app/components/routes/groups/group-payments.tsx",
                     lineNumber: 139,
                     columnNumber: 15
                   }, this)
                 ]
               }, p.id, !0, {
-                fileName: "app/features/groups/group-payments.tsx",
+                fileName: "app/components/routes/groups/group-payments.tsx",
                 lineNumber: 86,
                 columnNumber: 13
               }, this);
             })
           }, void 0, !1, {
-            fileName: "app/features/groups/group-payments.tsx",
+            fileName: "app/components/routes/groups/group-payments.tsx",
             lineNumber: 84,
             columnNumber: 9
           }, this)
         ]
       }, void 0, !0, {
-        fileName: "app/features/groups/group-payments.tsx",
+        fileName: "app/components/routes/groups/group-payments.tsx",
         lineNumber: 74,
         columnNumber: 7
       }, this)
     ]
   }, void 0, !0, {
-    fileName: "app/features/groups/group-payments.tsx",
+    fileName: "app/components/routes/groups/group-payments.tsx",
     lineNumber: 55,
     columnNumber: 5
   }, this);
@@ -22339,14 +22084,14 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), meta4 = () => ({
     search: url.searchParams.get("search")
   });
 };
-function Index4() {
-  let location = (0, import_react38.useLocation)(), renderListing = location.pathname === "/groups" || location.pathname.startsWith("/groups?page=");
+function Index3() {
+  let location = (0, import_react31.useLocation)(), renderListing = location.pathname === "/groups" || location.pathname.startsWith("/groups?page=");
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_jsx_dev_runtime.Fragment, {
     children: renderListing ? /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(GroupListingPage, {}, void 0, !1, {
       fileName: "app/routes/groups.tsx",
       lineNumber: 31,
       columnNumber: 29
-    }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react38.Outlet, {}, void 0, !1, {
+    }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react31.Outlet, {}, void 0, !1, {
       fileName: "app/routes/groups.tsx",
       lineNumber: 31,
       columnNumber: 52
@@ -22361,14 +22106,23 @@ function Index4() {
 // app/routes/groups/$groupid.tsx
 var groupid_exports = {};
 __export(groupid_exports, {
-  default: () => Index5,
+  default: () => Index4,
   handle: () => handle4,
   loader: () => loader2,
   meta: () => meta5
 });
-var import_react39 = require("@chakra-ui/react"), import_react40 = require("@remix-run/react");
+var import_react32 = require("@chakra-ui/react"), import_react33 = require("@remix-run/react");
 
-// app/features/groups/fetch-one-group.tsx
+// app/components/routes/login/nhost-authenticate.ts
+var import_nextjs = require("@nhost/nextjs"), nhostAuthenticate = async (props) => {
+  let { email, password } = props;
+  return (await (0, import_nextjs.createServerSideClient)(
+    "https://xdwipkiowyoinqhbqher.nhost.run",
+    {}
+  )).auth.signIn({ email, password });
+};
+
+// app/components/routes/groups/fetch-one-group.tsx
 var fetchOneGroup = async ({
   groupid,
   paymentPage
@@ -22439,14 +22193,14 @@ var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), meta5 = () => ({
     paymentPage: Number(url.searchParams.get("paymentpage") ?? 1)
   });
 };
-function Index5() {
-  let group = (0, import_react40.useLoaderData)();
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react39.Flex, {
+function Index4() {
+  let group = (0, import_react33.useLoaderData)();
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react32.Flex, {
     flex: 1,
     className: "flex-1",
     flexDirection: { base: "column", lg: "row" },
     children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react39.Flex, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react32.Flex, {
         className: "flex-2",
         flex: { base: 1, xl: 2 },
         flexDirection: "column",
@@ -22472,10 +22226,10 @@ function Index5() {
         lineNumber: 33,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react39.Flex, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react32.Flex, {
         className: "flex-3",
         flex: { base: 1, xl: 4 },
-        children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react39.Box, {
+        children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react32.Box, {
           flex: 1,
           w: "100%",
           children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(GroupPayments, {
@@ -22506,19 +22260,19 @@ function Index5() {
 // app/routes/index.tsx
 var routes_exports = {};
 __export(routes_exports, {
-  default: () => Index6,
+  default: () => Index5,
   handle: () => handle5,
   meta: () => meta6
 });
-var import_react41 = require("react"), import_fi5 = require("react-icons/fi");
+var import_react34 = require("react"), import_fi5 = require("react-icons/fi");
 var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), meta6 = () => ({
   title: "paygroup - dashboard"
 }), handle5 = {
   breadcrumb: "dashboard",
   icon: import_fi5.FiGrid
 };
-function Index6() {
-  return (0, import_react41.useEffect)(() => {
+function Index5() {
+  return (0, import_react34.useEffect)(() => {
     let nhost_session = window.sessionStorage.getItem("nhost_session");
     console.log({ nhost_session });
   }, []), /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(SecuredRoute, {
@@ -22532,6 +22286,225 @@ function Index6() {
   }, void 0, !1, {
     fileName: "app/routes/index.tsx",
     lineNumber: 24,
+    columnNumber: 5
+  }, this);
+}
+
+// app/routes/login.tsx
+var login_exports = {};
+__export(login_exports, {
+  action: () => action,
+  default: () => Index6
+});
+var import_react35 = require("@chakra-ui/react"), import_react36 = require("@remix-run/react");
+
+// app/components/routes/login/session-authenticator.ts
+var import_remix_auth = require("remix-auth"), import_remix_auth_form = require("remix-auth-form");
+
+// app/components/routes/login/session-storage.ts
+var import_node = require("@remix-run/node"), sessionStorage = (0, import_node.createCookieSessionStorage)({
+  cookie: {
+    name: "_nhost",
+    sameSite: "lax",
+    path: "/",
+    httpOnly: !0,
+    secrets: ["s3cr3t"],
+    secure: !1
+  }
+}), { getSession, commitSession, destroySession } = sessionStorage;
+
+// app/components/routes/login/session-authenticator.ts
+var authenticator = new import_remix_auth.Authenticator(sessionStorage);
+authenticator.use(
+  new import_remix_auth_form.FormStrategy(async ({ form }) => {
+    let email = form.get("email"), password = form.get("password");
+    return (await nhostAuthenticate({ email, password })).session;
+  }),
+  "nhost_auth"
+);
+
+// app/routes/login.tsx
+var import_jsx_dev_runtime = require("react/jsx-dev-runtime"), EnhancedForm = (0, import_react35.chakra)(import_react36.Form), action = async ({ request }) => authenticator.authenticate("nhost_auth", request, {
+  successRedirect: "/",
+  failureRedirect: "/login"
+});
+function Index6() {
+  let { state } = (0, import_react36.useTransition)();
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(EnhancedForm, {
+    h: "100%",
+    bg: "gray.50",
+    display: "flex",
+    alignItems: "center",
+    className: "container",
+    flexDirection: "column",
+    method: "post",
+    action: "/login",
+    children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Flex, {
+        h: "24%",
+        mb: ["4", "2"],
+        color: "primary.500",
+        flexDirection: ["column", "row", "row"],
+        justifyContent: ["flex-end"],
+        alignItems: ["center", "flex-end", "flex-end"],
+        children: [
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Heading, {
+            mr: "2",
+            fontWeight: "light",
+            fontSize: ["36px", "48px"],
+            mb: ["-3", "0"],
+            children: "welcome to"
+          }, void 0, !1, {
+            fileName: "app/routes/login.tsx",
+            lineNumber: 47,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Heading, {
+            fontSize: ["40px", "48px"],
+            children: "paygroup"
+          }, void 0, !1, {
+            fileName: "app/routes/login.tsx",
+            lineNumber: 55,
+            columnNumber: 9
+          }, this)
+        ]
+      }, void 0, !0, {
+        fileName: "app/routes/login.tsx",
+        lineNumber: 39,
+        columnNumber: 7
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Flex, {
+        w: ["100%", null, "65%", "30%", "33%", "24%"],
+        flex: 1,
+        alignItems: "center",
+        flexDirection: "column",
+        children: [
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Heading, {
+            color: "gray.600",
+            fontSize: ["3xl", "4xl"],
+            fontWeight: "light",
+            mb: "10",
+            children: "log in to your account"
+          }, void 0, !1, {
+            fileName: "app/routes/login.tsx",
+            lineNumber: 64,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Flex, {
+            w: "100%",
+            flexDirection: "column",
+            px: ["4", "0"],
+            children: [
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.FormControl, {
+                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Input, {
+                  bg: "white",
+                  size: "lg",
+                  type: "email",
+                  name: "email",
+                  placeholder: "email",
+                  borderTopLeftRadius: 10,
+                  borderTopRightRadius: 10,
+                  borderBottomLeftRadius: 0,
+                  borderBottomRightRadius: 0,
+                  borderBottomWidth: 0,
+                  _focus: {
+                    borderBottomWidth: 1
+                  }
+                }, void 0, !1, {
+                  fileName: "app/routes/login.tsx",
+                  lineNumber: 75,
+                  columnNumber: 13
+                }, this)
+              }, void 0, !1, {
+                fileName: "app/routes/login.tsx",
+                lineNumber: 74,
+                columnNumber: 11
+              }, this),
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.FormControl, {
+                children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Input, {
+                  bg: "white",
+                  size: "lg",
+                  name: "usrpassword",
+                  type: "password",
+                  placeholder: "password",
+                  autoComplete: "new-password",
+                  borderBottomLeftRadius: 10,
+                  borderBottomRightRadius: 10,
+                  borderTopLeftRadius: 0,
+                  borderTopRightRadius: 0
+                }, void 0, !1, {
+                  fileName: "app/routes/login.tsx",
+                  lineNumber: 93,
+                  columnNumber: 13
+                }, this)
+              }, void 0, !1, {
+                fileName: "app/routes/login.tsx",
+                lineNumber: 92,
+                columnNumber: 11
+              }, this),
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.HStack, {
+                my: ["10", null, null, "6"],
+                justifyContent: "space-between",
+                mx: "1",
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Checkbox, {
+                    defaultChecked: !0,
+                    children: "remember me"
+                  }, void 0, !1, {
+                    fileName: "app/routes/login.tsx",
+                    lineNumber: 112,
+                    columnNumber: 13
+                  }, this),
+                  /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Box, {
+                    color: "blue.500",
+                    children: /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react36.Link, {
+                      to: "",
+                      children: "forgot password"
+                    }, void 0, !1, {
+                      fileName: "app/routes/login.tsx",
+                      lineNumber: 114,
+                      columnNumber: 15
+                    }, this)
+                  }, void 0, !1, {
+                    fileName: "app/routes/login.tsx",
+                    lineNumber: 113,
+                    columnNumber: 13
+                  }, this)
+                ]
+              }, void 0, !0, {
+                fileName: "app/routes/login.tsx",
+                lineNumber: 107,
+                columnNumber: 11
+              }, this),
+              /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react35.Button, {
+                colorScheme: "primary",
+                size: "lg",
+                type: "submit",
+                borderRadius: 10,
+                isLoading: state === "submitting",
+                loadingText: "logging in",
+                children: "sign in"
+              }, void 0, !1, {
+                fileName: "app/routes/login.tsx",
+                lineNumber: 118,
+                columnNumber: 11
+              }, this)
+            ]
+          }, void 0, !0, {
+            fileName: "app/routes/login.tsx",
+            lineNumber: 73,
+            columnNumber: 9
+          }, this)
+        ]
+      }, void 0, !0, {
+        fileName: "app/routes/login.tsx",
+        lineNumber: 58,
+        columnNumber: 7
+      }, this)
+    ]
+  }, void 0, !0, {
+    fileName: "app/routes/login.tsx",
+    lineNumber: 29,
     columnNumber: 5
   }, this);
 }
@@ -22561,7 +22534,7 @@ function Index7() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "f35a84f9", entry: { module: "/build/entry.client-SXPQSB7Q.js", imports: ["/build/_shared/chunk-ODAAP2UF.js", "/build/_shared/chunk-5NVRQWZG.js", "/build/_shared/chunk-TTBKISHK.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-IJFFJPYF.js", imports: ["/build/_shared/chunk-S73EG7XY.js", "/build/_shared/chunk-B7AQKOXM.js", "/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-NDD2BM44.js", "/build/_shared/chunk-SSQ6G2JR.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/authenticate": { id: "routes/authenticate", parentId: "root", path: "authenticate", index: void 0, caseSensitive: void 0, module: "/build/routes/authenticate-CW26VVRC.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups": { id: "routes/groups", parentId: "root", path: "groups", index: void 0, caseSensitive: void 0, module: "/build/routes/groups-4LMWZ5W5.js", imports: ["/build/_shared/chunk-NHBFHPQU.js", "/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups/$groupid": { id: "routes/groups/$groupid", parentId: "routes/groups", path: ":groupid", index: void 0, caseSensitive: void 0, module: "/build/routes/groups/$groupid-ACZSD3ZM.js", imports: ["/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-IDCX3OCI.js", imports: ["/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/payments": { id: "routes/payments", parentId: "root", path: "payments", index: void 0, caseSensitive: void 0, module: "/build/routes/payments-ZO6R4CMY.js", imports: ["/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/settings": { id: "routes/settings", parentId: "root", path: "settings", index: void 0, caseSensitive: void 0, module: "/build/routes/settings-EGUPOHMV.js", imports: ["/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/users": { id: "routes/users", parentId: "root", path: "users", index: void 0, caseSensitive: void 0, module: "/build/routes/users-TNM32H7O.js", imports: ["/build/_shared/chunk-4Z7RAWBR.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-F35A84F9.js" };
+var assets_manifest_default = { version: "e4327e35", entry: { module: "/build/entry.client-SXPQSB7Q.js", imports: ["/build/_shared/chunk-ODAAP2UF.js", "/build/_shared/chunk-5NVRQWZG.js", "/build/_shared/chunk-TTBKISHK.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-FQBWXTB5.js", imports: ["/build/_shared/chunk-S73EG7XY.js", "/build/_shared/chunk-B7AQKOXM.js", "/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-SSQ6G2JR.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups": { id: "routes/groups", parentId: "root", path: "groups", index: void 0, caseSensitive: void 0, module: "/build/routes/groups-E5F6QWR4.js", imports: ["/build/_shared/chunk-QFRJLUCS.js", "/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/groups/$groupid": { id: "routes/groups/$groupid", parentId: "routes/groups", path: ":groupid", index: void 0, caseSensitive: void 0, module: "/build/routes/groups/$groupid-AGER7VSY.js", imports: ["/build/_shared/chunk-ZE5YSDFM.js", "/build/_shared/chunk-3JJFDFFV.js", "/build/_shared/chunk-5ZC7MSBP.js", "/build/_shared/chunk-FCNBJT27.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-BHHXAGWO.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-M2V2U7LQ.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/payments": { id: "routes/payments", parentId: "root", path: "payments", index: void 0, caseSensitive: void 0, module: "/build/routes/payments-2UZRPM4U.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/settings": { id: "routes/settings", parentId: "root", path: "settings", index: void 0, caseSensitive: void 0, module: "/build/routes/settings-2XYVMWJG.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/users": { id: "routes/users", parentId: "root", path: "users", index: void 0, caseSensitive: void 0, module: "/build/routes/users-ZBBTCVRN.js", imports: ["/build/_shared/chunk-ZX6VOH3S.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-E4327E35.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
@@ -22572,14 +22545,6 @@ var assetsBuildDirectory = "public/build", publicPath = "/build/", entry = { mod
     index: void 0,
     caseSensitive: void 0,
     module: root_exports
-  },
-  "routes/authenticate": {
-    id: "routes/authenticate",
-    parentId: "root",
-    path: "authenticate",
-    index: void 0,
-    caseSensitive: void 0,
-    module: authenticate_exports
   },
   "routes/payments": {
     id: "routes/payments",
@@ -22620,6 +22585,14 @@ var assetsBuildDirectory = "public/build", publicPath = "/build/", entry = { mod
     index: !0,
     caseSensitive: void 0,
     module: routes_exports
+  },
+  "routes/login": {
+    id: "routes/login",
+    parentId: "root",
+    path: "login",
+    index: void 0,
+    caseSensitive: void 0,
+    module: login_exports
   },
   "routes/users": {
     id: "routes/users",

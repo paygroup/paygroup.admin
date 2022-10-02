@@ -12,16 +12,15 @@ import {
 import type { ActionFunction } from "@remix-run/node";
 import { Link, useTransition, Form } from "@remix-run/react";
 
-import { authenticateUser } from "~/components/routes/authenticate";
+import { authenticator } from "~/components/routes/login/session-authenticator";
 
 const EnhancedForm = chakra(Form);
 
-export const action: ActionFunction = async ({ request }) => {
-  const form = await request.formData();
-  const email = form.get("email") as string;
-  const password = form.get("usrpassword") as string;
-  return authenticateUser({ email, password });
-};
+export const action: ActionFunction = async ({ request }) =>
+  authenticator.authenticate("nhost_auth", request, {
+    successRedirect: "/",
+    failureRedirect: "/login",
+  });
 
 export default function Index() {
   const { state } = useTransition();
@@ -35,7 +34,7 @@ export default function Index() {
       className="container"
       flexDirection="column"
       method="post"
-      action="/authenticate"
+      action="/login"
     >
       <Flex
         h="24%"

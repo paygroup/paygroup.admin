@@ -1,8 +1,8 @@
 import { Divider, Heading, HStack } from "@chakra-ui/react";
 import { useLoaderData, useNavigate } from "@remix-run/react";
 
-import { Panel } from "~/components-core";
-import { Pagination, usePagination } from "~/components/modules/components-modules/pagination";
+import { Panel } from "~/components/core";
+import { Pagination, usePagination } from "~/components/modules";
 
 import type { fetchGroupPages } from "./fetch-group-pages";
 import { GroupsTable } from "./groups-table";

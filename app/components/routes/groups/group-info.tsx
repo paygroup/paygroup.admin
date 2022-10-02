@@ -1,7 +1,7 @@
 import { Text, Box, Divider, Flex, Heading, VStack } from "@chakra-ui/react";
 import dayjs from "dayjs";
 
-import { Panel } from "~/components-core";
+import { Panel } from "~/components/core";
 
 import type { GroupExtended } from "./types";
 

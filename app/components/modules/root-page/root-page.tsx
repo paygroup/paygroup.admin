@@ -2,7 +2,6 @@
 import React from "react";
 
 import { Flex, Grid, useToken, Box } from "@chakra-ui/react";
-import { useAuthenticationStatus } from "@nhost/react";
 
 import type { Sitemap } from "~/types";
 
@@ -14,7 +13,6 @@ export const RootPage = ({
   sitemap,
   children,
 }: React.PropsWithChildren<{ sitemap: Sitemap }>) => {
-  const { isAuthenticated } = useAuthenticationStatus();
   const { isOpen, headerHeight, isAuthpage, onToggle } = usePageLayout();
 
   if (isAuthpage) {

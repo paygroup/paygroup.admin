@@ -1,11 +1,11 @@
 import { useBreakpointValue, useDisclosure, useToken } from "@chakra-ui/react";
 import { useLocation } from "@remix-run/react";
 
-import { useNProgress } from "~/components/modules/components-modules/nprogress";
+import { useNProgress } from "../nprogress";
 
 export const usePageLayout = () => {
   const location = useLocation();
-  const isAuthpage = location.pathname === "/authenticate";
+  const isAuthpage = location.pathname === "/login";
 
   const [headerHeight] = useToken("space", ["28"]);
   const open = useBreakpointValue<boolean | undefined>({

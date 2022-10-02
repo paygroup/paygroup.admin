@@ -12,10 +12,9 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import { ClientStyleContext, ServerStyleContext } from "./context";
 import { theme } from "./components/modules/app-theme";
-import { NhostAuthProvider } from "./components/modules/components-modules/nhost";
-import { RootPage } from "./components/modules/components-modules/root-page";
+import { RootPage } from "./components/modules/root-page";
+import { ClientStyleContext, ServerStyleContext } from "./context";
 import { sitemap } from "./sitemap";
 
 export let links: LinksFunction = () => [
@@ -92,13 +91,11 @@ const Document = withEmotionCache(
 export default function App() {
   return (
     <Document>
-      <NhostAuthProvider>
-        <ChakraProvider theme={theme}>
-          <RootPage sitemap={sitemap}>
-            <Outlet />
-          </RootPage>
-        </ChakraProvider>
-      </NhostAuthProvider>
+      <ChakraProvider theme={theme}>
+        <RootPage sitemap={sitemap}>
+          <Outlet />
+        </RootPage>
+      </ChakraProvider>
     </Document>
   );
 }

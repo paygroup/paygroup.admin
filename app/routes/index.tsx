@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import type { MetaFunction } from "@remix-run/node";
 import { FiGrid } from "react-icons/fi";
 
-import { Panel, SecuredRoute } from "~/components-core";
+import { Panel, SecuredRoute } from "~/components/core";
 
 export const meta: MetaFunction = () => ({
   title: "paygroup - dashboard",

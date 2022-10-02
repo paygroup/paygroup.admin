@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "@remix-run/react";
 
-import { Panel } from "~/components-core";
+import { Panel } from "~/components/core";
 
 import type { GroupExtended } from "./types";
 
