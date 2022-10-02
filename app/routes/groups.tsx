@@ -2,7 +2,7 @@ import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { Outlet, useLocation } from "@remix-run/react";
 import { HiOutlineUserGroup } from "react-icons/hi";
 
-import { fetchGroupPages, GroupListingPage } from "~/modules/groups";
+import { fetchGroupPages, GroupListingPage } from "~/components/routes/groups";
 
 export const meta: MetaFunction = () => ({
   title: "paygroup - groups",
@@ -24,12 +24,9 @@ export const loader: LoaderFunction = async ({ request }) => {
 export default function Index() {
   const location = useLocation();
 
-  if (
+  const renderListing =
     location.pathname === "/groups" ||
-    location.pathname.startsWith("/groups?page=")
-  ) {
-    return <GroupListingPage />;
-  }
+    location.pathname.startsWith("/groups?page=");
 
-  return <Outlet />;
+  return <>{renderListing ? <GroupListingPage /> : <Outlet />}</>;
 }

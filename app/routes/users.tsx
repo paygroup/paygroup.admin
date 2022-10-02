@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { BsPeople } from "react-icons/bs";
 
-import { Panel } from "~/components";
+import { Panel } from "~/components/core";
 
 export const meta: MetaFunction = () => ({
   title: "paygroup - users",

@@ -1,16 +1,20 @@
 import { useEffect } from "react";
 
 import { useTransition } from "@remix-run/react";
-import Nprogress from "nprogress";
+import NProgress from "nprogress";
 
 export const useNProgress = () => {
   const transition = useTransition();
 
   useEffect(() => {
     if (transition.state === "loading" || transition.state === "submitting") {
-      Nprogress.start();
+      NProgress.start();
     } else {
-      Nprogress.done();
+      NProgress.done();
     }
   }, [transition.state]);
+
+  useEffect(() => {
+    NProgress.configure({ showSpinner: false });
+  }, []);
 };

@@ -24,7 +24,7 @@ export const Sidebar: React.FC<{
   isOpen: boolean;
   sitemap: Sitemap;
   onToggle: () => void;
-}> = ({ isOpen, sitemap, onToggle }) => (
+}> = ({ sitemap, isOpen, onToggle }) => (
   <Container isOpen={isOpen}>
     <AppLogo isOpen={isOpen} onToggle={onToggle} />
 

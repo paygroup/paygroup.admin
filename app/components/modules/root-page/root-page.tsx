@@ -1,41 +1,31 @@
 /* eslint-disable react/display-name */
 import React from "react";
 
-import {
-  Flex,
-  Grid,
-  useToken,
-  Box,
-  useBreakpointValue,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Flex, Grid, useToken, Box } from "@chakra-ui/react";
 
 import type { Sitemap } from "~/types";
 
-import { useNProgress } from "../nprogress";
 import { Sidebar } from "../sidebar";
 import { PageHeader } from "./page.header";
+import { usePageLayout } from "./use-page-layout";
 
-export const PageLayout = ({
+export const RootPage = ({
   sitemap,
   children,
-}: React.PropsWithChildren<{
-  sitemap: Sitemap;
-}>) => {
-  const [headerHeight] = useToken("space", ["28"]);
-  const open = useBreakpointValue<boolean | undefined>({
-    base: false,
-    lg: undefined,
-  });
-  const { isOpen, onToggle } = useDisclosure({
-    defaultIsOpen: true,
-    isOpen: open,
-  });
+}: React.PropsWithChildren<{ sitemap: Sitemap }>) => {
+  const { isOpen, headerHeight, isAuthpage, onToggle } = usePageLayout();
 
-  useNProgress();
+  if (isAuthpage) {
+    return <>{children}</>;
+  }
 
   return (
-    <Layout sitemap={sitemap} isOpen={isOpen} onToggle={onToggle}>
+    <PageLayout
+      sitemap={sitemap}
+      isOpen={isOpen}
+      isAuthpage={isAuthpage}
+      onToggle={onToggle}
+    >
       <Grid
         flex={1}
         w="100%"
@@ -43,9 +33,9 @@ export const PageLayout = ({
         templateRows={`${headerHeight} 1fr`}
         templateColumns="1fr"
         templateAreas="
-            'header'
-            'content'
-          "
+          'header'
+          'content'
+        "
       >
         <Box className="grid-header" gridArea="header">
           <PageHeader isOpen={isOpen} onToggle={onToggle} />
@@ -62,24 +52,30 @@ export const PageLayout = ({
           {children}
         </Flex>
       </Grid>
-    </Layout>
+    </PageLayout>
   );
 };
 
-const Layout = ({
+const PageLayout = ({
   isOpen,
   sitemap,
+  isAuthpage,
   children,
   onToggle,
 }: React.PropsWithChildren<{
   isOpen: boolean;
   sitemap: Sitemap;
+  isAuthpage: boolean;
   onToggle: () => void;
 }>) => {
   const [min, max] = useToken("sizes.sidebar", ["min", "max"]);
 
   return (
-    <Flex className="layout" h="100%" flexDirection="row">
+    <Flex
+      className="layout"
+      h="100%"
+      flexDirection={isAuthpage ? "column" : "row"}
+    >
       <Sidebar sitemap={sitemap} isOpen={isOpen} onToggle={onToggle} />
       <Flex className="layout-content" flex={1} ml={isOpen ? max : min}>
         {children}

@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { FiSettings } from "react-icons/fi";
 
-import { Panel } from "~/components";
+import { Panel } from "~/components/core";
 
 export const meta: MetaFunction = () => ({
   title: "paygroup - settings",
